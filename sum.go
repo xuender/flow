@@ -1,8 +1,11 @@
 package flow
 
-import "iter"
+import (
+	"cmp"
+	"iter"
+)
 
-func Sum[E int](seq iter.Seq[E]) E {
+func Sum[E cmp.Ordered](seq iter.Seq[E]) E {
 	var sum E
 	for item := range seq {
 		sum += item
