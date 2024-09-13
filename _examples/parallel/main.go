@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log/slog"
 	"time"
 
@@ -9,15 +10,19 @@ import (
 )
 
 func main() {
-	for num := range flow.Parallel(3,
+	items := flow.Parallel(3,
 		seq.Range(100),
 		flow.Filter(func(num int) bool { return num%3 == 0 }),
+		flow.Peek(func(num int) {
+			fmt.Println("peek", num)
+			time.Sleep(time.Second)
+		}))
+
+	for num := range flow.Chain(
+		items,
 		flow.Skip[int](5),
 		flow.Limit[int](4),
 		flow.Reverse[int](),
-		flow.Peek(func(num int) {
-			time.Sleep(time.Second)
-		}),
 	) {
 		slog.Info("end", "num", num)
 	}

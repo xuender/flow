@@ -45,6 +45,12 @@ func Sort[E cmp.Ordered]() Step[E] {
 	return seq.Sort
 }
 
+func SortFunc[E any](cmp func(item1, item2 E) int) Step[E] {
+	return func(input iter.Seq[E]) iter.Seq[E] {
+		return seq.SortFunc(input, cmp)
+	}
+}
+
 func Unique[E comparable]() Step[E] {
 	return seq.Unique
 }

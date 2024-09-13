@@ -8,7 +8,7 @@ import (
 )
 
 func Parallel[E any](size int, items iter.Seq[E], steps ...Step[E]) iter.Seq[E] {
-	chans := Chans(items, size)
+	chans := seq.ToChans(items, size)
 	output := make(chan E)
 
 	go parallelRun(chans, output, steps)

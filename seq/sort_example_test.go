@@ -17,3 +17,17 @@ func ExampleSort() {
 	// 2
 	// 3
 }
+
+func ExampleSortFunc() {
+	for num := range seq.SortFunc(
+		seq.Range(3),
+		func(item1, item2 int) int { return item2 - item1 },
+	) {
+		fmt.Println(num)
+	}
+
+	// Output:
+	// 2
+	// 1
+	// 0
+}

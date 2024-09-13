@@ -23,3 +23,25 @@ func ExampleChan() {
 	// 2
 	// 3
 }
+
+func ExampleToChans() {
+	chans := seq.ToChans(seq.Range(10), 3)
+
+	for _, cha := range chans {
+		for item := range cha {
+			fmt.Println(item)
+		}
+	}
+
+	// Output:
+	// 0
+	// 1
+	// 2
+	// 3
+	// 4
+	// 5
+	// 6
+	// 7
+	// 8
+	// 9
+}

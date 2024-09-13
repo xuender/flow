@@ -16,14 +16,28 @@ go install gitee.com/xuender/flow@latest
 
 ## 💡 Usage
 
-TODO
+```go
+func main() {
+	seq.Each(flow.Chain(
+		seq.Range(100),
+		flow.Filter(func(num int) bool { return num%3 == 0 }),
+		flow.Skip[int](5),
+		flow.Limit[int](4),
+		flow.Reverse[int](),
+	), func(num int) bool {
+		fmt.Println(num)
 
-### Flow Operation
+		return true
+	})
+}
+```
+
+### Flow Functions
 
 * Chain
 * Parallel
 
-### Intermediate Operations
+### Intermediate Functions
 
 * Filter
 * Limit
@@ -32,9 +46,10 @@ TODO
 * Reverse
 * Skip
 * Sort
+* SortFunc
 * Unique
 
-### Terminal Operations
+### Terminal Functions
 
 * seq.Count
 * seq.Each
@@ -47,7 +62,7 @@ TODO
 * seq.AllMatch
 * seq.NoneMatch
 
-### Seq Operations
+### Seq Functions
 
 * seq.Chan
 * seq.Emit
@@ -61,6 +76,8 @@ TODO
 * seq.Reverse
 * seq.Skip
 * seq.Sort
+* seq.SortFunc
+* seq.ToChans
 * seq.Unique
 
 
