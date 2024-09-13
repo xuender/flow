@@ -7,83 +7,35 @@ import (
 	"gitee.com/xuender/flow/seq"
 )
 
-type controller[E any] struct {
-	wait   sync.WaitGroup
-	size   int
-	output chan E
-	chans  []chan E
-}
-
 func Parallel[E any](size int, items iter.Seq[E], steps ...Step[E]) iter.Seq[E] {
-	ctrl := controller[E]{
-		size:   size,
-		output: make(chan E),
-		chans:  make([]chan E, size),
-	}
+	chans := Chans(items, size)
+	output := make(chan E)
 
-	for idx := range size {
-		ctrl.chans[idx] = make(chan E)
+	go parallelRun(chans, output, steps)
 
-		ctrl.wait.Add(1)
-
-		go ctrl.run(idx, steps)
-	}
-
-	go ctrl.consum(items)
-
-	go ctrl.close()
-
-	return seq.Chan(ctrl.output)
+	return seq.Chan(output)
 }
 
-func (p *controller[E]) close() {
-	p.wait.Wait()
-	close(p.output)
-}
+func parallelRun[E any](chans []chan E, output chan<- E, steps []Step[E]) {
+	wait := sync.WaitGroup{}
+	wait.Add(len(chans))
 
-func (p *controller[E]) consum(seq iter.Seq[E]) {
-	idx := 0
-	for item := range seq {
-		if p.send(idx%p.size, item) {
-			break
-		}
+	for _, cha := range chans {
+		go func(input chan E) {
+			items := seq.Chan(input)
 
-		idx++
+			for _, step := range steps {
+				items = step(items)
+			}
+
+			for item := range items {
+				output <- item
+			}
+
+			wait.Done()
+		}(cha)
 	}
 
-	for idx := range p.size {
-		if p.chans[idx] != nil {
-			close(p.chans[idx])
-		}
-	}
-}
-
-func (p *controller[E]) send(idx int, item E) bool {
-	if p.chans[idx] == nil {
-		return true
-	}
-
-	defer func() {
-		if err := recover(); err != nil {
-			p.chans[idx] = nil
-		}
-	}()
-
-	p.chans[idx] <- item
-
-	return false
-}
-
-func (p *controller[E]) run(idx int, steps []Step[E]) {
-	items := seq.Chan(p.chans[idx])
-
-	for _, step := range steps {
-		items = step(items)
-	}
-
-	for item := range items {
-		p.output <- item
-	}
-
-	p.wait.Done()
+	wait.Wait()
+	close(output)
 }

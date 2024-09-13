@@ -43,6 +43,9 @@ TODO
 * seq.Min
 * seq.Sum
 * seq.Join
+* seq.AnyMatch
+* seq.AllMatch
+* seq.NoneMatch
 
 ### Seq Operations
 
