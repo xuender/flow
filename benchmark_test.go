@@ -9,7 +9,7 @@ import (
 
 func BenchmarkChain(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		slices.Collect(
+		flow.Emit(
 			flow.Chain(
 				flow.Range(100),
 				flow.Filter(func(num int) bool { return num%3 == 0 }),
@@ -22,7 +22,7 @@ func BenchmarkChain(b *testing.B) {
 
 func BenchmarkParallel(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		slices.Collect(
+		flow.Emit(
 			flow.Parallel(3,
 				flow.Range(100),
 				flow.Filter(func(num int) bool { return num%3 == 0 }),

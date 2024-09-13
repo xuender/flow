@@ -18,6 +18,38 @@ go install gitee.com/xuender/flow@latest
 
 TODO
 
+### Flow Operation
+
+* Chain
+* Parallel
+
+### Intermediate Operations
+
+* Filter
+* FlatMap
+* Limit
+* Map
+* Peek
+* Reverse
+* Skip
+* Sort
+* Unique
+
+### Terminal Operations
+
+* Count
+* Each
+* First
+* Max
+* Sum
+
+### Seq Operations
+
+* Chan
+* Emit
+* Range
+
+
 ## 👤 Contributors
 
 ![Contributors][contributors-svg]
