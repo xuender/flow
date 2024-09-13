@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"slices"
 
-	"gitee.com/xuender/flow"
-	"gitee.com/xuender/flow/seq"
+	"github.com/xuender/flow"
+	"github.com/xuender/flow/seq"
 )
 
 func ExampleFilter() {

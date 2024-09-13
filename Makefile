@@ -1,4 +1,4 @@
-PACKAGE = gitee.com/xuender/flow
+PACKAGE = github.com/xuender/flow
 VERSION = $(shell git describe --tags)
 BUILD_TIME = $(shell date +%F' '%T)
 

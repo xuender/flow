@@ -3,7 +3,7 @@ package seq_test
 import (
 	"fmt"
 
-	"gitee.com/xuender/flow/seq"
+	"github.com/xuender/flow/seq"
 )
 
 func ExampleMap() {

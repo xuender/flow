@@ -4,7 +4,7 @@ import (
 	"iter"
 	"sync"
 
-	"gitee.com/xuender/flow/seq"
+	"github.com/xuender/flow/seq"
 )
 
 func Parallel[E any](size int, items iter.Seq[E], steps ...Step[E]) iter.Seq[E] {

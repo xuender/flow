@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"slices"
 
-	"gitee.com/xuender/flow/seq"
+	"github.com/xuender/flow/seq"
 )
 
 func ExampleFlatMap() {

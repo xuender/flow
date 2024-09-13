@@ -1,4 +1,4 @@
-module gitee.com/xuender/flow
+module github.com/xuender/flow
 
 go 1.23
 

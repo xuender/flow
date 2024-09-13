@@ -4,7 +4,7 @@ import (
 	"cmp"
 	"iter"
 
-	"gitee.com/xuender/flow/seq"
+	"github.com/xuender/flow/seq"
 )
 
 type Step[E any] func(iter.Seq[E]) iter.Seq[E]
