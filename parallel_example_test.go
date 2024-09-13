@@ -4,12 +4,14 @@ import (
 	"fmt"
 
 	"gitee.com/xuender/flow"
+	"gitee.com/xuender/flow/seq"
 )
 
 func ExampleParallel() {
 	for num := range flow.Parallel(
 		2,
-		flow.Range(10),
+		seq.Range(100),
+		flow.Limit[int](3),
 		flow.Filter(func(num int) bool { return num%3 == 0 }),
 	) {
 		fmt.Println(num)
@@ -18,6 +20,4 @@ func ExampleParallel() {
 	// Output:
 	// 0
 	// 3
-	// 6
-	// 9
 }

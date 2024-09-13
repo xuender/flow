@@ -5,13 +5,14 @@ import (
 	"testing"
 
 	"gitee.com/xuender/flow"
+	"gitee.com/xuender/flow/seq"
 )
 
 func BenchmarkChain(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		flow.Emit(
+		seq.Emit(
 			flow.Chain(
-				flow.Range(100),
+				seq.Range(100),
 				flow.Filter(func(num int) bool { return num%3 == 0 }),
 				flow.Skip[int](5),
 				flow.Limit[int](4),
@@ -22,9 +23,9 @@ func BenchmarkChain(b *testing.B) {
 
 func BenchmarkParallel(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		flow.Emit(
+		seq.Emit(
 			flow.Parallel(3,
-				flow.Range(100),
+				seq.Range(100),
 				flow.Filter(func(num int) bool { return num%3 == 0 }),
 				flow.Skip[int](5),
 				flow.Limit[int](4),

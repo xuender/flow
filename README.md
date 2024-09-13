@@ -37,17 +37,28 @@ TODO
 
 ### Terminal Operations
 
-* Count
-* Each
-* First
-* Max
-* Sum
+* seq.Count
+* seq.Each
+* seq.First
+* seq.Max
+* seq.Min
+* seq.Sum
+* seq.Join
 
 ### Seq Operations
 
-* Chan
-* Emit
-* Range
+* seq.Chan
+* seq.Emit
+* seq.Range
+* seq.Filter
+* seq.FlatMap
+* seq.Limit
+* seq.Map
+* seq.Peek
+* seq.Reverse
+* seq.Skip
+* seq.Sort
+* seq.Unique
 
 
 ## 👤 Contributors

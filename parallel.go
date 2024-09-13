@@ -3,6 +3,8 @@ package flow
 import (
 	"iter"
 	"sync"
+
+	"gitee.com/xuender/flow/seq"
 )
 
 type parallel[E any] struct {
@@ -12,7 +14,7 @@ type parallel[E any] struct {
 	chans  []chan E
 }
 
-func Parallel[E any](size int, seq iter.Seq[E], steps ...Step[E, E]) iter.Seq[E] {
+func Parallel[E any](size int, items iter.Seq[E], steps ...Step[E, E]) iter.Seq[E] {
 	par := parallel[E]{
 		size:   size,
 		output: make(chan E),
@@ -27,11 +29,11 @@ func Parallel[E any](size int, seq iter.Seq[E], steps ...Step[E, E]) iter.Seq[E]
 		go par.call(idx, steps)
 	}
 
-	go par.consumer(seq)
+	go par.consumer(items)
 
 	go par.close()
 
-	return Chan(par.output)
+	return seq.Chan(par.output)
 }
 
 func (p *parallel[E]) close() {
@@ -73,13 +75,13 @@ func (p *parallel[E]) send(idx int, item E) bool {
 }
 
 func (p *parallel[E]) call(idx int, steps []Step[E, E]) {
-	seq := Chan(p.chans[idx])
+	items := seq.Chan(p.chans[idx])
 
 	for _, step := range steps {
-		seq = step(seq)
+		items = step(items)
 	}
 
-	for item := range seq {
+	for item := range items {
 		p.output <- item
 	}
 
