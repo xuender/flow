@@ -26,10 +26,9 @@ TODO
 ### Intermediate Operations
 
 * Filter
-* FlatMap
 * Limit
-* Map
 * Peek
+* Reduce
 * Reverse
 * Skip
 * Sort
@@ -55,6 +54,7 @@ TODO
 * seq.Limit
 * seq.Map
 * seq.Peek
+* seq.Reduce
 * seq.Reverse
 * seq.Skip
 * seq.Sort

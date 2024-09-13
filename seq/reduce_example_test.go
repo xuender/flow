@@ -7,13 +7,13 @@ import (
 	"gitee.com/xuender/flow/seq"
 )
 
-func ExampleSort() {
-	for num := range seq.Sort((slices.Values([]int{3, 1, 2}))) {
+func ExampleReduce() {
+	for num := range seq.Reduce((slices.Values([]int{3, 1, 2}))) {
 		fmt.Println(num)
 	}
 
 	// Output:
-	// 1
-	// 2
 	// 3
+	// 2
+	// 1
 }

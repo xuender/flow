@@ -7,8 +7,8 @@ import (
 )
 
 func ExampleFilter() {
-	fmt.Println(seq.Max(seq.Filter(seq.Range(6), func(i int) bool { return i%2 == 0 })))
+	fmt.Println(seq.Count(seq.Filter(seq.Range(6), func(i int) bool { return i%2 == 0 })))
 
 	// Output:
-	// 4 true
+	// 3
 }

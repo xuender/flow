@@ -7,8 +7,8 @@ import (
 )
 
 func ExampleCount() {
-	fmt.Println(seq.Count(seq.Filter(seq.Range(6), func(num int) bool { return num%2 == 0 })))
+	fmt.Println(seq.Count(seq.Range(6)))
 
 	// Output:
-	// 3
+	// 6
 }
