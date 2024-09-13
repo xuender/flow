@@ -11,7 +11,7 @@
 ## 🚀 Install
 
 ```shell
-go use github.com/xuender/flow@latest
+go get github.com/xuender/flow@latest
 ```
 
 ## 💡 Usage
