@@ -4,17 +4,17 @@ import (
 	"iter"
 )
 
-// Count function is used to calculate the number of elements in a given sequence.
-// It accepts a generic sequence 'input' as input, which can handle elements of any type E.
-// The function calculates the total number of elements by iterating through the entire sequence.
+// Count returns the number of elements in the input sequence.
+//
+// This function iterates over the sequence `input` and counts the number of elements.
 //
 // Parameters:
 //
-//	input: A generic sequence containing elements of type E.
+//	input (iter.Seq[E]): The input sequence of elements.
 //
 // Returns:
 //
-//	int: The total number of elements in the sequence.
+//	int: The number of elements in the sequence.
 func Count[E any](input iter.Seq[E]) int {
 	count := 0
 	for range input {

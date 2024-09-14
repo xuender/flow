@@ -2,18 +2,20 @@ package seq
 
 import "iter"
 
-// Limit creates a new sequence containing at most 'limit' elements from 'input'.
-// If 'input' has fewer elements, all are included.
-// Works with any element type E.
+// Limit returns a new sequence containing at most `limit` elements from the input sequence.
+//
+// This function iterates over the sequence `input` and includes only the first `limit` elements
+// in the new sequence. If the input sequence has fewer than `limit` elements, the new sequence
+// will contain all elements.
 //
 // Parameters:
 //
-//	input: The sequence to limit, of type iter.Seq[E].
-//	limit: The maximum number of elements to include.
+//	input (iter.Seq[E]): The input sequence of elements.
+//	limit (int): The maximum number of elements to include.
 //
 // Returns:
 //
-//	A new sequence that implements the iter.Seq[E] interface, containing up to 'limit' elements.
+//	iter.Seq[E]: A new sequence with at most `limit` elements.
 func Limit[E any](input iter.Seq[E], limit int) iter.Seq[E] {
 	return func(yield func(E) bool) {
 		idx := 0

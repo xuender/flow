@@ -2,19 +2,19 @@ package seq
 
 import "iter"
 
-// Filter function creates a new sequence that contains only the elements from the given sequence 'input'
-// that satisfy the condition defined by the 'predicate' function.
-// This function works with elements of any type E.
+// Filter returns a new sequence containing only the elements that satisfy the given predicate.
+//
+// This function iterates over the sequence `input` and applies the `predicate` function to each element.
+// Only elements for which the predicate returns true are included in the new sequence.
 //
 // Parameters:
 //
-//	input: The sequence to filter, of type iter.Seq[E].
-//
-// predicate: A function that determines if an element of type E should be included.
+//	input (iter.Seq[E]): The input sequence of elements.
+//	predicate (func(E) bool): The predicate function to filter elements.
 //
 // Returns:
 //
-//	A new sequence that implements the iter.Seq[E] interface, containing only the elements that satisfy the predicate.
+//	iter.Seq[E]: A new sequence containing filtered elements.
 func Filter[E any](input iter.Seq[E], predicate func(E) bool) iter.Seq[E] {
 	return func(yield func(E) bool) {
 		for item := range input {

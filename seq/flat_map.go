@@ -2,17 +2,18 @@ package seq
 
 import "iter"
 
-// FlatMap function flattens a sequence of slices 'input' into a single sequence of elements of type E.
-// It concatenates the elements of each slice in the sequence into a single sequence.
-// This function works with slices of any type E.
+// FlatMap flattens a sequence of slices into a single sequence of elements.
+//
+// This function takes a sequence of slices `input` and returns a new sequence that contains
+// all the elements of the slices concatenated together.
 //
 // Parameters:
 //
-//	input: The sequence of slices to flatten, of type iter.Seq[~[]E].
+//	input (iter.Seq[S]): The input sequence of slices.
 //
 // Returns:
 //
-//	A new sequence that implements the iter.Seq[E] interface, containing all the elements from the flattened slices.
+//	iter.Seq[E]: A new sequence containing all the elements of the input slices.
 func FlatMap[S ~[]E, E any](input iter.Seq[S]) iter.Seq[E] {
 	return func(yield func(E) bool) {
 		for slice := range input {
