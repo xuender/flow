@@ -6,11 +6,11 @@ import (
 	"strings"
 )
 
-func Join[E any](seq iter.Seq[E], delimiter string) string {
+func Join[E any](input iter.Seq[E], delimiter string) string {
 	buf := strings.Builder{}
 	first := true
 
-	for item := range seq {
+	for item := range input {
 		if first {
 			first = false
 		} else {

@@ -2,10 +2,10 @@ package flow
 
 import "iter"
 
-func Chain[E any](seq iter.Seq[E], steps ...Step[E]) iter.Seq[E] {
+func Chain[E any](input iter.Seq[E], steps ...Step[E]) iter.Seq[E] {
 	for _, step := range steps {
-		seq = step(seq)
+		input = step(input)
 	}
 
-	return seq
+	return input
 }

@@ -2,10 +2,8 @@ package seq
 
 import "iter"
 
-func Emit[E any](seq iter.Seq[E]) {
-	call := func(E) bool {
+func Emit[E any](input iter.Seq[E]) {
+	input(func(E) bool {
 		return true
-	}
-
-	seq(call)
+	})
 }

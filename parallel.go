@@ -7,8 +7,8 @@ import (
 	"github.com/xuender/flow/seq"
 )
 
-func Parallel[E any](size int, items iter.Seq[E], steps ...Step[E]) iter.Seq[E] {
-	chans := seq.ToChans(items, size)
+func Parallel[E any](size int, input iter.Seq[E], steps ...Step[E]) iter.Seq[E] {
+	chans := seq.ToChans(input, size)
 	output := make(chan E)
 
 	go parallelRun(chans, output, steps)

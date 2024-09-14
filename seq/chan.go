@@ -43,12 +43,12 @@ func chanRun[E any](input iter.Seq[E], chans []chan E) {
 		}
 	}
 
-	for idx, ch := range chans {
+	for idx, cha := range chans {
 		if isClose[idx] {
 			continue
 		}
 
-		close(ch)
+		close(cha)
 	}
 }
 

@@ -2,8 +2,8 @@ package seq
 
 import "iter"
 
-func AnyMatch[E any](seq iter.Seq[E], predicate func(E) bool) bool {
-	for item := range seq {
+func AnyMatch[E any](input iter.Seq[E], predicate func(E) bool) bool {
+	for item := range input {
 		if predicate(item) {
 			return true
 		}
@@ -12,10 +12,10 @@ func AnyMatch[E any](seq iter.Seq[E], predicate func(E) bool) bool {
 	return false
 }
 
-func AllMatch[E any](seq iter.Seq[E], predicate func(E) bool) bool {
+func AllMatch[E any](input iter.Seq[E], predicate func(E) bool) bool {
 	ret := false
 
-	for item := range seq {
+	for item := range input {
 		if !predicate(item) {
 			return false
 		}
@@ -26,6 +26,6 @@ func AllMatch[E any](seq iter.Seq[E], predicate func(E) bool) bool {
 	return ret
 }
 
-func NoneMatch[E any](seq iter.Seq[E], predicate func(E) bool) bool {
-	return !AnyMatch(seq, predicate)
+func NoneMatch[E any](input iter.Seq[E], predicate func(E) bool) bool {
+	return !AnyMatch(input, predicate)
 }

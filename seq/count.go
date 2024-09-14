@@ -4,9 +4,9 @@ import (
 	"iter"
 )
 
-func Count[E any](seq iter.Seq[E]) int {
+func Count[E any](input iter.Seq[E]) int {
 	count := 0
-	for range seq {
+	for range input {
 		count++
 	}
 

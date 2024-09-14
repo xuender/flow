@@ -5,9 +5,9 @@ import (
 	"iter"
 )
 
-func Sum[E cmp.Ordered](seq iter.Seq[E]) E {
+func Sum[E cmp.Ordered](input iter.Seq[E]) E {
 	var sum E
-	for item := range seq {
+	for item := range input {
 		sum += item
 	}
 
