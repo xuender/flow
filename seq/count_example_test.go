@@ -12,3 +12,10 @@ func ExampleCount() {
 	// Output:
 	// 6
 }
+
+func ExampleCount2() {
+	fmt.Println(seq.Count2(seq.Range2(6)))
+
+	// Output:
+	// 6
+}

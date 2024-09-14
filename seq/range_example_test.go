@@ -14,6 +14,14 @@ func ExampleRange_zero() {
 	// Output:
 }
 
+func ExampleRange2_zero() {
+	for key, val := range seq.Range2() {
+		fmt.Println(key, val)
+	}
+
+	// Output:
+}
+
 func ExampleRange_one() {
 	for num := range seq.Range(3) {
 		fmt.Println(num)
@@ -23,6 +31,17 @@ func ExampleRange_one() {
 	// 0
 	// 1
 	// 2
+}
+
+func ExampleRange2_one() {
+	for key, val := range seq.Range2(3) {
+		fmt.Println(key, val)
+	}
+
+	// Output:
+	// 0 0
+	// 1 1
+	// 2 2
 }
 
 func ExampleRange_oneNegative() {
@@ -36,6 +55,17 @@ func ExampleRange_oneNegative() {
 	// -2
 }
 
+func ExampleRange2_oneNegative() {
+	for key, val := range seq.Range2(-3) {
+		fmt.Println(key, val)
+	}
+
+	// Output:
+	// 0 0
+	// 1 -1
+	// 2 -2
+}
+
 func ExampleRange_two() {
 	for num := range seq.Range(3, 5) {
 		fmt.Println(num)
@@ -44,6 +74,16 @@ func ExampleRange_two() {
 	// Output:
 	// 3
 	// 4
+}
+
+func ExampleRange2_two() {
+	for key, val := range seq.Range2(3, 5) {
+		fmt.Println(key, val)
+	}
+
+	// Output:
+	// 0 3
+	// 1 4
 }
 
 func ExampleRange_twoDecrease() {
@@ -56,9 +96,27 @@ func ExampleRange_twoDecrease() {
 	// 4
 }
 
+func ExampleRange2_twoDecrease() {
+	for key, val := range seq.Range2(5, 3) {
+		fmt.Println(key, val)
+	}
+
+	// Output:
+	// 0 5
+	// 1 4
+}
+
 func ExampleRange_twoEqual() {
 	for num := range seq.Range(3, 3) {
 		fmt.Println(num)
+	}
+
+	// Output:
+}
+
+func ExampleRange2_twoEqual() {
+	for key, val := range seq.Range2(3, 3) {
+		fmt.Println(key, val)
 	}
 
 	// Output:
@@ -74,6 +132,16 @@ func ExampleRange_twoNegative() {
 	// -4
 }
 
+func ExampleRange2_twoNegative() {
+	for key, val := range seq.Range2(-3, -5) {
+		fmt.Println(key, val)
+	}
+
+	// Output:
+	// 0 -3
+	// 1 -4
+}
+
 func ExampleRange_twoNegativeIncremental() {
 	for num := range seq.Range(-5, -3) {
 		fmt.Println(num)
@@ -82,6 +150,16 @@ func ExampleRange_twoNegativeIncremental() {
 	// Output:
 	// -5
 	// -4
+}
+
+func ExampleRange2_twoNegativeIncremental() {
+	for key, val := range seq.Range2(-5, -3) {
+		fmt.Println(key, val)
+	}
+
+	// Output:
+	// 0 -5
+	// 1 -4
 }
 
 func ExampleRange_three() {
@@ -95,6 +173,17 @@ func ExampleRange_three() {
 	// 9
 }
 
+func ExampleRange2_three() {
+	for key, val := range seq.Range2(3, 10, 3) {
+		fmt.Println(key, val)
+	}
+
+	// Output:
+	// 0 3
+	// 1 6
+	// 2 9
+}
+
 func ExampleRange_stepDecrease() {
 	for num := range seq.Range(-1, -3, -1) {
 		fmt.Println(num)
@@ -105,9 +194,27 @@ func ExampleRange_stepDecrease() {
 	// -2
 }
 
+func ExampleRange2_stepDecrease() {
+	for key, val := range seq.Range2(-1, -3, -1) {
+		fmt.Println(key, val)
+	}
+
+	// Output:
+	// 0 -1
+	// 1 -2
+}
+
 func ExampleRange_stepWrong() {
 	for num := range seq.Range(-1, -3, 1) {
 		fmt.Println(num)
+	}
+
+	// Output:
+}
+
+func ExampleRange2_stepWrong() {
+	for key, val := range seq.Range2(-1, -3, 1) {
+		fmt.Println(key, val)
 	}
 
 	// Output:
@@ -123,4 +230,16 @@ func ExampleRange_repeat() {
 	// 3
 	// 3
 	// 3
+}
+
+func ExampleRange2_repeat() {
+	for key, val := range seq.Range2(3, 7, 0) {
+		fmt.Println(key, val)
+	}
+
+	// Output:
+	// 0 3
+	// 1 3
+	// 2 3
+	// 3 3
 }

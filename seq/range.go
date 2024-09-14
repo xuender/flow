@@ -7,7 +7,7 @@ import (
 // Range generates a sequence of integers from start to end (exclusive) with a given step.
 // It returns a function that can be used as an iterator.
 //
-// Parameters:
+// Args:
 //
 //	args: A variadic list of uint values representing the start, end, and step.
 //	  0 arguments: Empty sequence.
@@ -17,25 +17,12 @@ import (
 //
 // Returns:
 //
-//	A function that yields integers in the specified range.
+//	iter.Seq[int]: The generated sequence.
 func Range(args ...int) iter.Seq[int] {
 	return func(yield func(int) bool) {
 		start, end, step := readArgs(args)
-		if start == end || (end > start && step < 0) || (end < start && step > 0) {
-			return
-		}
 
-		num := step
-		if num == 0 {
-			num = 1
-		}
-
-		length := (end - start) / num
-		if (end-start)%num != 0 {
-			length++
-		}
-
-		for range length {
+		for range genLength(start, end, step) {
 			if !yield(start) {
 				return
 			}
@@ -43,6 +30,54 @@ func Range(args ...int) iter.Seq[int] {
 			start += step
 		}
 	}
+}
+
+// Range2 generates a sequence of integers from start to end (exclusive) with a given step.
+// It returns a function that can be used as an iterator, yielding both the index and value.
+//
+// Args:
+//
+//	args: A variadic list of int values representing the start, end, and step.
+//	  0 arguments: Empty sequence.
+//	  1 argument: Generates from 0 to args[0] (exclusive).
+//	  2 arguments: Generates from args[0] to args[1] (exclusive).
+//	  3 or more arguments: Generates from args[0] to args[1] (exclusive) with a step of args[2].
+//
+// Returns:
+//
+//	iter.Seq2[int, int]: The generated sequence.
+func Range2(args ...int) iter.Seq2[int, int] {
+	return func(yield func(int, int) bool) {
+		start, end, step := readArgs(args)
+		idx := 0
+
+		for range genLength(start, end, step) {
+			if !yield(idx, start) {
+				return
+			}
+
+			start += step
+			idx++
+		}
+	}
+}
+
+func genLength(start, end, step int) int {
+	if start == end || (end > start && step < 0) || (end < start && step > 0) {
+		return 0
+	}
+
+	num := step
+	if num == 0 {
+		num = 1
+	}
+
+	length := (end - start) / num
+	if (end-start)%num != 0 {
+		return length + 1
+	}
+
+	return length
 }
 
 func readArgs(args []int) (int, int, int) {
