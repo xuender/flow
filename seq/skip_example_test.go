@@ -7,7 +7,11 @@ import (
 )
 
 func ExampleSkip() {
-	for num := range seq.Skip(seq.Range(10), 8) {
+	for num := range seq.Skip(seq.Range(100), 8) {
+		if num > 9 {
+			break
+		}
+
 		fmt.Println(num)
 	}
 

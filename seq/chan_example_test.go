@@ -15,13 +15,15 @@ func ExampleChan() {
 	close(cha)
 
 	for item := range seq.Chan(cha) {
+		if item > 1 {
+			break
+		}
+
 		fmt.Println(item)
 	}
 
 	// Output:
 	// 1
-	// 2
-	// 3
 }
 
 func ExampleToChans() {
@@ -29,6 +31,10 @@ func ExampleToChans() {
 
 	for _, cha := range chans {
 		for item := range cha {
+			if item > 2 {
+				break
+			}
+
 			fmt.Println(item)
 		}
 	}
@@ -37,11 +43,4 @@ func ExampleToChans() {
 	// 0
 	// 1
 	// 2
-	// 3
-	// 4
-	// 5
-	// 6
-	// 7
-	// 8
-	// 9
 }

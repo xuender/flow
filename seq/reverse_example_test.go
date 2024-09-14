@@ -8,13 +8,14 @@ import (
 
 func ExampleReverse() {
 	for num := range seq.Reverse((seq.Range(5))) {
+		if num < 3 {
+			break
+		}
+
 		fmt.Println(num)
 	}
 
 	// Output:
 	// 4
 	// 3
-	// 2
-	// 1
-	// 0
 }
