@@ -21,7 +21,18 @@ go get github.com/xuender/flow@latest
 
 ## 💡 Usage
 
+### Chain
+
 ```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/xuender/flow"
+	"github.com/xuender/flow/seq"
+)
+
 func main() {
 	seq.Each(flow.Chain(
 		seq.Range(100),
@@ -35,8 +46,9 @@ func main() {
 		return true
 	})
 }
-
 ```
+
+Output:
 
 ```shell
 24
@@ -44,6 +56,72 @@ func main() {
 18
 15
 ```
+
+[[play](https://go.dev/play/p/sDen4jvtre8)]
+
+### seq.Range
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/xuender/flow/seq"
+)
+
+func main() {
+	fmt.Println("seq.Range(3)")
+
+	for num := range seq.Range(3) {
+		fmt.Println(num)
+	}
+
+	fmt.Println("seq.Range(-2, -6)")
+
+	for num := range seq.Range(-2, -6) {
+		fmt.Println(num)
+	}
+
+	fmt.Println("seq.Range(2, 10, 3)")
+
+	for num := range seq.Range(2, 10, 3) {
+		fmt.Println(num)
+	}
+
+	fmt.Println("seq.Range(3, 7, 0)")
+
+	for num := range seq.Range(3, 7, 0) {
+		fmt.Println(num)
+	}
+}
+
+```
+
+Output:
+
+```shell
+seq.Range(3)
+0
+1
+2
+seq.Range(-2, -6)
+-2
+-3
+-4
+-5
+seq.Range(2, 10, 3)
+2
+5
+8
+seq.Range(3, 7, 0)
+3
+3
+3
+3
+```
+
+[[play](https://go.dev/play/p/-FZJfetngJY)]
 
 ### Flow Functions
 
