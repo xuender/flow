@@ -7,7 +7,7 @@ import (
 )
 
 func ExampleSkip() {
-	for num := range seq.Skip[int](seq.Range(10), 8) {
+	for num := range seq.Skip(seq.Range(10), 8) {
 		fmt.Println(num)
 	}
 

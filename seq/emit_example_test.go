@@ -7,9 +7,12 @@ import (
 )
 
 func ExampleEmit() {
-	seq.Emit(seq.Peek(seq.Range(3), func(num int) {
-		fmt.Println(num)
-	}))
+	seq.Emit(seq.Peek(
+		seq.Range(3),
+		func(num int) {
+			fmt.Println(num)
+		},
+	))
 
 	// Output:
 	// 0

@@ -8,10 +8,22 @@ import (
 	"github.com/xuender/flow/seq"
 )
 
+func ExampleDistinct() {
+	fmt.Println(seq.Sum(flow.Chain(
+		slices.Values([]int{1, 2, 2, 3, 3}),
+		flow.Distinct[int](),
+	)))
+
+	// Output:
+	// 6
+}
+
 func ExampleFilter() {
 	fmt.Println(seq.Sum(flow.Chain(
 		seq.Range(10),
-		flow.Filter(func(i int) bool { return i%3 == 0 }),
+		flow.Filter(func(i int) bool {
+			return i%3 == 0
+		}),
 	)))
 
 	// Output:
@@ -31,7 +43,9 @@ func ExampleLimit() {
 func ExamplePeek() {
 	seq.Emit(flow.Chain(
 		seq.Range(3),
-		flow.Peek(func(num int) { fmt.Println(num) }),
+		flow.Peek(func(num int) {
+			fmt.Println(num)
+		}),
 	))
 
 	// Output:
@@ -71,12 +85,14 @@ func ExampleSort() {
 	// 0 true
 }
 
-func ExampleDistinct() {
-	fmt.Println(seq.Sum(flow.Chain(
-		slices.Values([]int{1, 2, 2, 3, 3}),
-		flow.Distinct[int](),
+func ExampleSortFunc() {
+	fmt.Println(seq.First(flow.Chain(
+		seq.Range(100),
+		flow.SortFunc(func(num1, num2 int) int {
+			return num2 - num1
+		}),
 	)))
 
 	// Output:
-	// 6
+	// 99 true
 }

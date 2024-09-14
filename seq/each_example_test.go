@@ -7,11 +7,14 @@ import (
 )
 
 func ExampleEach() {
-	seq.Each(seq.Range(5), func(num int) bool {
-		fmt.Println(num)
+	seq.Each(
+		seq.Range(5),
+		func(num int) bool {
+			fmt.Println(num)
 
-		return true
-	})
+			return true
+		},
+	)
 
 	// Output:
 	// 0

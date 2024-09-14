@@ -7,7 +7,7 @@ import (
 )
 
 func ExampleMin() {
-	fmt.Println(seq.Min(seq.Skip[int](seq.Range(6), 3)))
+	fmt.Println(seq.Min(seq.Skip(seq.Range(6), 3)))
 
 	// Output:
 	// 3 true

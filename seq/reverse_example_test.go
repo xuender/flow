@@ -7,7 +7,7 @@ import (
 )
 
 func ExampleReverse() {
-	for num := range seq.Reverse[int]((seq.Range(5))) {
+	for num := range seq.Reverse((seq.Range(5))) {
 		fmt.Println(num)
 	}
 
