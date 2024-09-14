@@ -11,16 +11,16 @@ import (
 //
 // Args:
 //
-//	input (iter.Seq[E]): The input sequence of elements.
-//	accumulator (func(E, E) E): The accumulator function to reduce the sequence.
+//	input iter.Seq[V]: The input sequence of elements.
+//	accumulator func(V, V) V: The accumulator function to reduce the sequence.
 //
 // Returns:
 //
-//	E: The reduced result of the sequence.
+//	V: The reduced result of the sequence.
 //	bool: True if the reduction was performed, false if the sequence is empty.
-func Reduce[E any](input iter.Seq[E], accumulator func(E, E) E) (E, bool) {
+func Reduce[V any](input iter.Seq[V], accumulator func(V, V) V) (V, bool) {
 	var (
-		ret      E
+		ret      V
 		isReduce bool
 	)
 
@@ -36,4 +36,40 @@ func Reduce[E any](input iter.Seq[E], accumulator func(E, E) E) (E, bool) {
 	}
 
 	return ret, isReduce
+}
+
+// Reduce2 reduces a sequence of (key, value) pairs using an accumulator function.
+//
+// It returns the reduced result and a boolean indicating if reduction occurred.
+//
+// Args:
+//
+//	input iter.Seq2[K, V]: The input sequence of (key, value) pairs.
+//	accumulator func(K, V, K, V) (K, V): The accumulator function to reduce pairs.
+//
+// Returns:
+//
+//	K: The reduced key.
+//	V: The reduced value.
+//	bool: Indicates if reduction occurred.
+func Reduce2[K, V any](input iter.Seq2[K, V], accumulator func(K, V, K, V) (K, V)) (K, V, bool) {
+	var (
+		retKey   K
+		retVal   V
+		isReduce bool
+	)
+
+	for key, val := range input {
+		if !isReduce {
+			retKey = key
+			retVal = val
+			isReduce = true
+
+			continue
+		}
+
+		retKey, retVal = accumulator(retKey, retVal, key, val)
+	}
+
+	return retKey, retVal, isReduce
 }

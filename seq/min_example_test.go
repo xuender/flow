@@ -12,3 +12,10 @@ func ExampleMin() {
 	// Output:
 	// 3 true
 }
+
+func ExampleMin2() {
+	fmt.Println(seq.Min2(seq.Skip2(seq.Range2(6), 3)))
+
+	// Output:
+	// 3 3 true
+}

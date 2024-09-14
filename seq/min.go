@@ -12,14 +12,14 @@ import (
 //
 // Args:
 //
-//	input (iter.Seq[E]): The input sequence of ordered elements.
+//	input iter.Seq[V]: The input sequence of ordered elements.
 //
 // Returns:
 //
-//	E: The minimum element in the sequence.
+//	V: The minimum element in the sequence.
 //	bool: True if an element is found, false if the sequence is empty.
-func Min[E cmp.Ordered](input iter.Seq[E]) (E, bool) {
-	var minItem E
+func Min[V cmp.Ordered](input iter.Seq[V]) (V, bool) {
+	var minItem V
 
 	has := false
 
@@ -31,4 +31,36 @@ func Min[E cmp.Ordered](input iter.Seq[E]) (E, bool) {
 	}
 
 	return minItem, has
+}
+
+// Min2 finds the minimum (key, value) pair in a sequence.
+//
+// It returns the minimum key, value, and a boolean indicating if a minimum was found.
+//
+// Args:
+//
+//	input iter.Seq2[K, V]: The input sequence of (key, value) pairs.
+//
+// Returns:
+//
+//	K: The minimum key.
+//	V: The corresponding value.
+//	bool: Indicates if a minimum was found.
+func Min2[K cmp.Ordered, V any](input iter.Seq2[K, V]) (K, V, bool) {
+	var (
+		minKey K
+		minVal V
+	)
+
+	has := false
+
+	for key, val := range input {
+		if !has || key < minKey {
+			minKey = key
+			minVal = val
+			has = true
+		}
+	}
+
+	return minKey, minVal, has
 }

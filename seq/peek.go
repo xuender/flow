@@ -9,18 +9,42 @@ import "iter"
 //
 // Args:
 //
-//	input (iter.Seq[E]): The input sequence of elements.
-//	action (func(E)): A function to apply to each element.
+//	input iter.Seq[V]: The input sequence of elements.
+//	action func(V): A function to apply to each element.
 //
 // Returns:
 //
-//	iter.Seq[E]: An iterator function yielding the original elements.
-func Peek[E any](input iter.Seq[E], action func(E)) iter.Seq[E] {
-	return func(yield func(E) bool) {
+//	iter.Seq[V]: An iterator function yielding the original elements.
+func Peek[V any](input iter.Seq[V], action func(V)) iter.Seq[V] {
+	return func(yield func(V) bool) {
 		for item := range input {
 			action(item)
 
 			if !yield(item) {
+				return
+			}
+		}
+	}
+}
+
+// Peek2 applies an action to each (key, value) pair in the sequence.
+//
+// It returns a new sequence with the same pairs.
+//
+// Args:
+//
+//	input iter.Seq2[K, V]: The input sequence of (key, value) pairs.
+//	action func(K, V): The action to apply to each pair.
+//
+// Returns:
+//
+//	iter.Seq2[K, V]: A new sequence with the same (key, value) pairs.
+func Peek2[K, V any](input iter.Seq2[K, V], action func(K, V)) iter.Seq2[K, V] {
+	return func(yield func(K, V) bool) {
+		for key, val := range input {
+			action(key, val)
+
+			if !yield(key, val) {
 				return
 			}
 		}

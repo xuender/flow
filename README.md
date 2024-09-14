@@ -126,54 +126,98 @@ seq.Range(3, 7, 0)
 ### Flow Functions
 
 - Chain
+- Chain2
 - Parallel
+- Parallel2
 
 ### Intermediate Functions
 
 - Append
+- Append2
 - Distinct
+- Distinct2
 - Filter
+- Filter2
 - Limit
+- Limit2
 - Merge
+- Merge2
 - Peek
+- Peek2
 - Reverse
+- Reverse2
 - Skip
+- Skip2
 - Sort
+- Sort2
 - SortFunc
+- SortFunc2
+- SortStableFunc
+- SortStableFunc2
 
 ### Terminal Functions
 
 - seq.Count
+- seq.Count2
 - seq.Each
+- seq.Each2
 - seq.First
+- seq.First2
 - seq.Max
+- seq.Max2
 - seq.Min
+- seq.Min2
 - seq.Reduce
+- seq.Reduce2
 - seq.Sum
 - seq.Join
 - seq.AnyMatch
+- seq.AnyMatch2
 - seq.AllMatch
+- seq.AllMatch2
 - seq.NoneMatch
+- seq.NoneMatch2
 
 ### Seq Functions
 
 - seq.Append
+- seq.Append2
 - seq.Chan
+- seq.Chan2
 - seq.Distinct
+- seq.Distinct2
 - seq.Emit
+- seq.Emit2
 - seq.Range
+- seq.Range2
 - seq.Filter
+- seq.Filter2
 - seq.FlatMap
+- seq.FlatMap2
 - seq.Limit
+- seq.Limit2
 - seq.Map
+- seq.Map2
 - seq.Merge
+- seq.Merge2
+- seq.Keys
 - seq.Peek
+- seq.Peek2
 - seq.Reduce
+- seq.Reduce2
 - seq.Reverse
+- seq.Reverse2
 - seq.Skip
-- seq.Sort
-- seq.SortFunc
+- seq.Skip2
+- seq.Sorted
+- seq.Sorted2
+- seq.SortedFunc
+- seq.SortedFunc2
+- seq SortedStableFunc
+- seq SortedStableFunc2
 - seq.ToChans
+- seq.ToChans2
+- seq.Values
 
 
 ## 👤 Contributors

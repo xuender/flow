@@ -26,7 +26,7 @@ func BenchmarkIterSlice(b *testing.B) {
 	b.ResetTimer()
 
 	for range b.N {
-		_ = seq.Slice(maps.Keys(val), _size)
+		_ = seq.Collect(maps.Keys(val), _size)
 	}
 }
 

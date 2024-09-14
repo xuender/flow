@@ -12,23 +12,55 @@ import (
 //
 // Args:
 //
-//	input (iter.Seq[E]): The input sequence of ordered elements.
+//	input iter.Seq[V]: The input sequence of ordered elements.
 //
 // Returns:
 //
-//	E: The maximum element in the sequence.
+//	V: The maximum element in the sequence.
 //	bool: True if an element is found, false if the sequence is empty.
-func Max[E cmp.Ordered](input iter.Seq[E]) (E, bool) {
-	var maxItem E
-
-	has := false
+func Max[V cmp.Ordered](input iter.Seq[V]) (V, bool) {
+	var (
+		maxVal V
+		has    bool
+	)
 
 	for item := range input {
-		if !has || item > maxItem {
-			maxItem = item
+		if !has || item > maxVal {
+			maxVal = item
 			has = true
 		}
 	}
 
-	return maxItem, has
+	return maxVal, has
+}
+
+// Max2 finds the maximum (key, value) pair in the sequence.
+//
+// It returns the maximum key, value, and a boolean indicating if a maximum was found.
+//
+// Args:
+//
+//	input iter.Seq2[K, V]: The input sequence of (key, value) pairs.
+//
+// Returns:
+//
+//	K: The maximum key.
+//	V: The corresponding value.
+//	bool: Indicates if a maximum was found.
+func Max2[K cmp.Ordered, V any](input iter.Seq2[K, V]) (K, V, bool) {
+	var (
+		maxKey K
+		maxVal V
+		has    bool
+	)
+
+	for key, val := range input {
+		if !has || key > maxKey {
+			maxKey = key
+			maxVal = val
+			has = true
+		}
+	}
+
+	return maxKey, maxVal, has
 }

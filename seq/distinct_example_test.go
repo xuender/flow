@@ -2,7 +2,6 @@ package seq_test
 
 import (
 	"fmt"
-	"maps"
 	"slices"
 
 	"github.com/xuender/flow/seq"
@@ -23,15 +22,19 @@ func ExampleDistinct() {
 }
 
 func ExampleDistinct2() {
-	for key, num := range seq.Distinct2(seq.Sort2(maps.All(map[int]int{1: 11, 2: 22, 3: 33}))) {
+	for key, val := range seq.Distinct2(seq.Merge2(
+		seq.Range2(3),
+		seq.Range2(1, 7),
+	)) {
 		if key > 2 {
 			break
 		}
 
-		fmt.Println(key, num)
+		fmt.Println(key, val)
 	}
 
 	// Output:
-	// 1 11
-	// 2 22
+	// 0 0
+	// 1 1
+	// 2 2
 }

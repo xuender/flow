@@ -9,14 +9,14 @@ import "iter"
 //
 // Args:
 //
-//	input (iter.Seq[E]): The input sequence of elements.
-//	offset (int): The number of elements to skip from the beginning of the sequence.
+//	input iter.Seq[V]: The input sequence of elements.
+//	offset int: The number of elements to skip from the beginning of the sequence.
 //
 // Returns:
 //
-//	iter.Seq[E]: An iterator function yielding elements after the specified offset.
-func Skip[E any](input iter.Seq[E], offset int) iter.Seq[E] {
-	return func(yield func(E) bool) {
+//	iter.Seq[V]: An iterator function yielding elements after the specified offset.
+func Skip[V any](input iter.Seq[V], offset int) iter.Seq[V] {
+	return func(yield func(V) bool) {
 		idx := 0
 
 		for item := range input {
@@ -26,6 +26,35 @@ func Skip[E any](input iter.Seq[E], offset int) iter.Seq[E] {
 			}
 
 			if !yield(item) {
+				return
+			}
+		}
+	}
+}
+
+// Skip2 skips the first 'offset' (key, value) pairs in the sequence.
+//
+// It returns a new sequence with the remaining pairs.
+//
+// Args:
+//
+//	input iter.Seq2[K, V]: The input sequence of (key, value) pairs.
+//	offset int: The number of pairs to skip.
+//
+// Returns:
+//
+//	iter.Seq2[K, V]: A new sequence with skipped pairs.
+func Skip2[K, V any](input iter.Seq2[K, V], offset int) iter.Seq2[K, V] {
+	return func(yield func(K, V) bool) {
+		idx := 0
+
+		for key, val := range input {
+			idx++
+			if idx <= offset {
+				continue
+			}
+
+			if !yield(key, val) {
 				return
 			}
 		}

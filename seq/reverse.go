@@ -12,18 +12,46 @@ import (
 //
 // Args:
 //
-//	input (iter.Seq[E]): The input sequence of elements to be reversed.
+//	input iter.Seq[V]: The input sequence of elements to be reversed.
 //
 // Returns:
 //
-//	iter.Seq[E]: An iterator function yielding elements in reverse order.
-func Reverse[E any](input iter.Seq[E]) iter.Seq[E] {
-	return func(yield func(E) bool) {
+//	iter.Seq[V]: An iterator function yielding elements in reverse order.
+func Reverse[V any](input iter.Seq[V]) iter.Seq[V] {
+	return func(yield func(V) bool) {
 		slice := slices.Collect(input)
 		slices.Reverse(slice)
 
 		for _, item := range slice {
 			if !yield(item) {
+				return
+			}
+		}
+	}
+}
+
+// Reverse2 reverses the order of (key, value) pairs in the sequence.
+//
+// It returns a new sequence with reversed pairs.
+//
+// Args:
+//
+//	input iter.Seq2[K, V]: The input sequence of (key, value) pairs.
+//
+// Returns:
+//
+//	iter.Seq2[K, V]: A new sequence with reversed (key, value) pairs.
+func Reverse2[K, V any](input iter.Seq2[K, V]) iter.Seq2[K, V] {
+	return func(yield func(K, V) bool) {
+		items := []Tuple[K, V]{}
+		for key, val := range input {
+			items = append(items, T(key, val))
+		}
+
+		slices.Reverse(items)
+
+		for _, item := range items {
+			if !yield(item.A, item.B) {
 				return
 			}
 		}

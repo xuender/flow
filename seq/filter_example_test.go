@@ -24,3 +24,22 @@ func ExampleFilter() {
 	// 0
 	// 2
 }
+
+func ExampleFilter2() {
+	for key, val := range seq.Filter2(
+		seq.Range2(6),
+		func(key, _ int) bool {
+			return key%2 == 0
+		},
+	) {
+		if key > 2 {
+			break
+		}
+
+		fmt.Println(key, val)
+	}
+
+	// Output:
+	// 0 0
+	// 2 2
+}

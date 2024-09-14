@@ -9,13 +9,13 @@ import "iter"
 //
 // Args:
 //
-//	input (iter.Seq[S]): The input sequence of slices.
+//	input iter.Seq[S]: The input sequence of slices.
 //
 // Returns:
 //
-//	iter.Seq[E]: A new sequence containing all the elements of the input slices.
-func FlatMap[S ~[]E, E any](input iter.Seq[S]) iter.Seq[E] {
-	return func(yield func(E) bool) {
+//	iter.Seq[V]: A new sequence containing all the elements of the input slices.
+func FlatMap[S ~[]V, V any](input iter.Seq[S]) iter.Seq[V] {
+	return func(yield func(V) bool) {
 		for slice := range input {
 			for _, item := range slice {
 				if !yield(item) {

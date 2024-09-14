@@ -17,3 +17,15 @@ func ExampleMax() {
 	// Output:
 	// 4 true
 }
+
+func ExampleMax2() {
+	fmt.Println(seq.Max2(seq.Filter2(
+		seq.Range2(6),
+		func(key, _ int) bool {
+			return key%2 == 0
+		},
+	)))
+
+	// Output:
+	// 4 4 true
+}

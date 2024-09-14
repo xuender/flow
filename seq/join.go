@@ -13,13 +13,13 @@ import (
 //
 // Args:
 //
-//	input (iter.Seq[E]): The input sequence of elements.
-//	delimiter (string): The string to insert between elements.
+//	input iter.Seq[V]: The input sequence of elements.
+//	delimiter string: The string to insert between elements.
 //
 // Returns:
 //
 //	string: The concatenated string with delimiters.
-func Join[E any](input iter.Seq[E], delimiter string) string {
+func Join[V any](input iter.Seq[V], delimiter string) string {
 	buf := strings.Builder{}
 	first := true
 

@@ -8,9 +8,22 @@ import "iter"
 //
 // Args:
 //
-//	input (iter.Seq[E]): The input sequence of elements to be consumed.
-func Emit[E any](input iter.Seq[E]) {
-	input(func(E) bool {
+//	input iter.Seq[V]: The input sequence of elements to be consumed.
+func Emit[V any](input iter.Seq[V]) {
+	input(func(V) bool {
+		return true
+	})
+}
+
+// Emit2 iterates over a sequence of (key, value) pairs and discards each element.
+//
+// It processes each (key, value) pair without returning any value.
+//
+// Args:
+//
+//	input iter.Seq2[K, V]: The input sequence of (key, value) pairs.
+func Emit2[K, V any](input iter.Seq2[K, V]) {
+	input(func(K, V) bool {
 		return true
 	})
 }

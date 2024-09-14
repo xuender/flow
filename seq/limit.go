@@ -10,14 +10,14 @@ import "iter"
 //
 // Args:
 //
-//	input (iter.Seq[E]): The input sequence of elements.
-//	limit (int): The maximum number of elements to include.
+//	input iter.Seq[V]: The input sequence of elements.
+//	limit int: The maximum number of elements to include.
 //
 // Returns:
 //
-//	iter.Seq[E]: A new sequence with at most `limit` elements.
-func Limit[E any](input iter.Seq[E], limit int) iter.Seq[E] {
-	return func(yield func(E) bool) {
+//	iter.Seq[V]: A new sequence with at most `limit` elements.
+func Limit[V any](input iter.Seq[V], limit int) iter.Seq[V] {
+	return func(yield func(V) bool) {
 		idx := 0
 
 		for item := range input {
@@ -26,6 +26,24 @@ func Limit[E any](input iter.Seq[E], limit int) iter.Seq[E] {
 			}
 
 			if !yield(item) {
+				return
+			}
+
+			idx++
+		}
+	}
+}
+
+func Limit2[K, V any](input iter.Seq2[K, V], limit int) iter.Seq2[K, V] {
+	return func(yield func(K, V) bool) {
+		idx := 0
+
+		for key, val := range input {
+			if idx >= limit {
+				return
+			}
+
+			if !yield(key, val) {
 				return
 			}
 
