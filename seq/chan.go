@@ -12,7 +12,7 @@ const _defaultDuration = time.Duration(50) * time.Millisecond
 // This function takes a channel `input` and returns an iterator function that yields elements
 // from the channel until it is closed.
 //
-// Parameters:
+// Args:
 //
 //	input (chan E): The input channel of elements.
 //
@@ -40,7 +40,7 @@ func Chan[E any](input chan E) iter.Seq[E] {
 // This function takes a sequence `input` and an integer `size` indicating the number of channels.
 // It distributes the elements evenly among the specified number of channels.
 //
-// Parameters:
+// Args:
 //
 //	input (iter.Seq[E]): The input sequence of elements.
 //	size (int): The number of channels to create.

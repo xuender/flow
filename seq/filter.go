@@ -7,7 +7,7 @@ import "iter"
 // This function iterates over the sequence `input` and applies the `predicate` function to each element.
 // Only elements for which the predicate returns true are included in the new sequence.
 //
-// Parameters:
+// Args:
 //
 //	input (iter.Seq[E]): The input sequence of elements.
 //	predicate (func(E) bool): The predicate function to filter elements.

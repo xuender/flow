@@ -7,7 +7,7 @@ import "iter"
 // This function iterates over the elements in `input` and applies the `predicate` function to each element.
 // If any element satisfies the predicate, the function returns true; otherwise, it returns false.
 //
-// Parameters:
+// Args:
 //
 //	input (iter.Seq[E]): The input sequence of elements to check.
 //	predicate (func(E) bool): A function that tests if an element satisfies the condition.
@@ -30,7 +30,7 @@ func AnyMatch[E any](input iter.Seq[E], predicate func(E) bool) bool {
 // This function iterates over the elements in `input` and applies the `predicate` function to each element.
 // If all elements satisfy the predicate, the function returns true; otherwise, it returns false.
 //
-// Parameters:
+// Args:
 //
 //	input (iter.Seq[E]): The input sequence of elements to check.
 //	predicate (func(E) bool): A function that tests if an element satisfies the condition.
@@ -57,7 +57,7 @@ func AllMatch[E any](input iter.Seq[E], predicate func(E) bool) bool {
 // This function uses `AnyMatch` to determine if any element satisfies the predicate.
 // If no elements satisfy the predicate, the function returns true; otherwise, it returns false.
 //
-// Parameters:
+// Args:
 //
 //	input (iter.Seq[E]): The input sequence of elements to check.
 //	predicate (func(E) bool): A function that tests if an element satisfies the condition.

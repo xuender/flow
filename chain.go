@@ -7,7 +7,7 @@ import "iter"
 // This function takes an input sequence `input` and a variadic list of `steps`.
 // Each step is applied sequentially to the input sequence.
 //
-// Parameters:
+// Args:
 //
 //	input (iter.Seq[E]): The input sequence of elements.
 //	steps (...Step[E]): A list of transformation steps to apply.

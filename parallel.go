@@ -12,7 +12,7 @@ import (
 // This function takes an input sequence `input` and a variadic list of `steps`.
 // Each step is applied sequentially to the input sequence.
 //
-// Parameters:
+// Args:
 //
 //	numWorkers (int): The number of worker goroutines to use for processing.
 //	input (iter.Seq[E]): The input sequence of elements.

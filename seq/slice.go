@@ -9,7 +9,7 @@ import (
 // This function iterates over the sequence `input` and collects the elements into a slice.
 // The slice has a capacity of `size`.
 //
-// Parameters:
+// Args:
 //
 //	input (iter.Seq[E]): The input sequence of elements.
 //	size (int): The capacity of the resulting slice.

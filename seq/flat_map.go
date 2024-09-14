@@ -7,7 +7,7 @@ import "iter"
 // This function takes a sequence of slices `input` and returns a new sequence that contains
 // all the elements of the slices concatenated together.
 //
-// Parameters:
+// Args:
 //
 //	input (iter.Seq[S]): The input sequence of slices.
 //

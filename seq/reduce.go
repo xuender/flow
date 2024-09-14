@@ -9,7 +9,7 @@ import (
 // This function takes a sequence `input` and an `accumulator` function. It applies the accumulator
 // function cumulatively to the items of the sequence, from left to right, to reduce the sequence.
 //
-// Parameters:
+// Args:
 //
 //	input (iter.Seq[E]): The input sequence of elements.
 //	accumulator (func(E, E) E): The accumulator function to reduce the sequence.

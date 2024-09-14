@@ -12,7 +12,7 @@ import (
 // This type defines a function that takes an input sequence of elements and returns
 // a new sequence after applying some transformation.
 //
-// Parameters:
+// Args:
 //
 //	E (any): The type of elements in the sequence.
 //
@@ -26,7 +26,7 @@ type Step[E any] func(iter.Seq[E]) iter.Seq[E]
 // This function returns a `Step` that can be used to create a new sequence containing only
 // the distinct elements from the input sequence.
 //
-// Parameters:
+// Args:
 //
 //	E (comparable): The type of elements in the sequence.
 //
@@ -42,7 +42,7 @@ func Distinct[E comparable]() Step[E] {
 // This function returns a `Step` that can be used to create a new sequence containing only
 // the elements that satisfy the given `predicate`.
 //
-// Parameters:
+// Args:
 //
 //	predicate (func(E) bool): The predicate function to filter elements.
 //
@@ -60,7 +60,7 @@ func Filter[E any](predicate func(E) bool) Step[E] {
 // This function returns a `Step` that creates a new sequence containing at most `limit` elements
 // from the input sequence.
 //
-// Parameters:
+// Args:
 //
 //	limit (int): The maximum number of elements to include.
 //
@@ -78,7 +78,7 @@ func Limit[E any](limit int) Step[E] {
 // This function returns a `Step` that calls the `action` function on each element of the input
 // sequence without modifying the sequence itself.
 //
-// Parameters:
+// Args:
 //
 //	action (func(E)): The action to apply to each element.
 //
@@ -107,7 +107,7 @@ func Reverse[E any]() Step[E] {
 // This function returns a `Step` that creates a new sequence by skipping the first `num` elements
 // of the input sequence.
 //
-// Parameters:
+// Args:
 //
 //	num (int): The number of elements to skip.
 //
@@ -135,7 +135,7 @@ func Sort[E cmp.Ordered]() Step[E] {
 //
 // This function returns a `Step` that creates a new sequence with the elements sorted according to the `cmp` function.
 //
-// Parameters:
+// Args:
 //
 //	cmp (func(item1, item2 E) int): The comparison function for sorting.
 //

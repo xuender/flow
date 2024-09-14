@@ -8,7 +8,7 @@ import "iter"
 // in the new sequence. If the input sequence has fewer than `limit` elements, the new sequence
 // will contain all elements.
 //
-// Parameters:
+// Args:
 //
 //	input (iter.Seq[E]): The input sequence of elements.
 //	limit (int): The maximum number of elements to include.

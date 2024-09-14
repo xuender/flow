@@ -7,7 +7,7 @@ import "iter"
 // This function takes a sequence `input` and an integer `offset`, then creates a new iterator that
 // skips the first `offset` elements from the original sequence.
 //
-// Parameters:
+// Args:
 //
 //	input (iter.Seq[E]): The input sequence of elements.
 //	offset (int): The number of elements to skip from the beginning of the sequence.

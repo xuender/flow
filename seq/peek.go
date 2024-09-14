@@ -7,7 +7,7 @@ import "iter"
 // This function takes a sequence `input` and an `action` function. It applies the `action` to each element
 // of the sequence and then returns the original sequence as an iterator.
 //
-// Parameters:
+// Args:
 //
 //	input (iter.Seq[E]): The input sequence of elements.
 //	action (func(E)): A function to apply to each element.

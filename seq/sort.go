@@ -12,7 +12,7 @@ import (
 // The returned value is an iterator function that, when called with a `yield` function,
 // iterates over the sorted elements.
 //
-// Parameters:
+// Args:
 //
 //	input (iter.Seq[E]): A sequence of elements implementing cmp.Ordered to be sorted.
 //
@@ -37,7 +37,7 @@ func Sort[E cmp.Ordered](input iter.Seq[E]) iter.Seq[E] {
 // This function collects the elements of `input` into a slice, sorts them using the `cmp` function,
 // and returns a new sorted sequence.
 //
-// Parameters:
+// Args:
 //
 //	input (iter.Seq[E]): The input sequence of elements.
 //	cmp (func(item1, item2 E) int): The comparison function for sorting.

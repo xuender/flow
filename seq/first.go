@@ -7,7 +7,7 @@ import "iter"
 // This function iterates over the sequence `input` and returns the first element found.
 // If the sequence is empty, it returns the zero value of type `E` and false.
 //
-// Parameters:
+// Args:
 //
 //	input (iter.Seq[E]): The input sequence of elements.
 //

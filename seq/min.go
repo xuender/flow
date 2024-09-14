@@ -10,7 +10,7 @@ import (
 // This function iterates over the sequence `input` and finds the minimum element.
 // If the sequence is empty, it returns the zero value of type `E` and false.
 //
-// Parameters:
+// Args:
 //
 //	input (iter.Seq[E]): The input sequence of ordered elements.
 //

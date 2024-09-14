@@ -11,7 +11,7 @@ import (
 // This function takes a sequence `input` and a `delimiter` string. It concatenates the elements
 // of the sequence into a single string, separated by the specified delimiter.
 //
-// Parameters:
+// Args:
 //
 //	input (iter.Seq[E]): The input sequence of elements.
 //	delimiter (string): The string to insert between elements.

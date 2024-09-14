@@ -10,7 +10,7 @@ import (
 // This function takes a sequence `input` and returns a new iterator that yields the elements
 // of the original sequence in reverse order.
 //
-// Parameters:
+// Args:
 //
 //	input (iter.Seq[E]): The input sequence of elements to be reversed.
 //

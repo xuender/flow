@@ -7,7 +7,7 @@ import "iter"
 // This function takes a sequence `input` and a `mapper` function. It applies the `mapper` function
 // to each element of the sequence and returns a new sequence with the transformed elements.
 //
-// Parameters:
+// Args:
 //
 //	input (iter.Seq[I]): The input sequence of elements.
 //	mapper (func(I) O): The transformation function to apply to each element.

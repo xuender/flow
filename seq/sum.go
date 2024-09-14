@@ -9,7 +9,7 @@ import (
 //
 // This function iterates over the sequence `input` and calculates the sum of all elements.
 //
-// Parameters:
+// Args:
 //
 //	input (iter.Seq[E]): The input sequence of ordered elements.
 //
