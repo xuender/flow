@@ -6,6 +6,18 @@ import (
 	"strings"
 )
 
+// Join function concatenates the elements of the given sequence 'input' into a single string,
+// separated by the specified 'delimiter'.
+// This function works with elements of any type E, converting non-string types to strings using fmt.Sprintf.
+//
+// Parameters:
+//
+//	input: The sequence of elements to join, of type iter.Seq[E].
+//	delimiter: The string to insert between each element.
+//
+// Returns:
+//
+//	A single string containing all the elements of the sequence, separated by the delimiter.
 func Join[E any](input iter.Seq[E], delimiter string) string {
 	buf := strings.Builder{}
 	first := true

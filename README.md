@@ -42,7 +42,6 @@ func main() {
 * Filter
 * Limit
 * Peek
-* Reduce
 * Reverse
 * Skip
 * Sort
@@ -56,6 +55,7 @@ func main() {
 * seq.First
 * seq.Max
 * seq.Min
+* seq.Reduce
 * seq.Sum
 * seq.Join
 * seq.AnyMatch

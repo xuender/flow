@@ -27,10 +27,6 @@ func Peek[E any](action func(E)) Step[E] {
 	}
 }
 
-func Reduce[E cmp.Ordered]() Step[E] {
-	return seq.Reduce
-}
-
 func Reverse[E any]() Step[E] {
 	return seq.Reverse
 }

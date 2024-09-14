@@ -1,21 +1,39 @@
 package seq
 
 import (
-	"cmp"
 	"iter"
-	"slices"
 )
 
-func Reduce[E cmp.Ordered](input iter.Seq[E]) iter.Seq[E] {
-	return func(yield func(E) bool) {
-		slice := slices.Collect(input)
-		slices.Sort(slice)
-		slices.Reverse(slice)
+// Reduce reduces the elements of the input sequence using the provided accumulator function.
+//
+// This function takes a sequence `input` and an `accumulator` function. It applies the accumulator
+// function cumulatively to the items of the sequence, from left to right, to reduce the sequence.
+//
+// Parameters:
+//
+//	input (iter.Seq[E]): The input sequence of elements.
+//	accumulator (func(E, E) E): The accumulator function to reduce the sequence.
+//
+// Returns:
+//
+//	E: The reduced result of the sequence.
+//	bool: True if the reduction was performed, false if the sequence is empty.
+func Reduce[E any](input iter.Seq[E], accumulator func(E, E) E) (E, bool) {
+	var (
+		ret      E
+		isReduce bool
+	)
 
-		for _, item := range slice {
-			if !yield(item) {
-				return
-			}
+	for item := range input {
+		if !isReduce {
+			ret = item
+			isReduce = true
+
+			continue
 		}
+
+		ret = accumulator(ret, item)
 	}
+
+	return ret, isReduce
 }
