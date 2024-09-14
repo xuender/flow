@@ -2,13 +2,14 @@ package seq_test
 
 import (
 	"fmt"
+	"maps"
 	"slices"
 
 	"github.com/xuender/flow/seq"
 )
 
 func ExampleSort() {
-	for num := range seq.Sort((slices.Values([]int{3, 1, 2, 4}))) {
+	for num := range seq.Sort(slices.Values([]int{3, 1, 2, 4})) {
 		if num > 3 {
 			break
 		}
@@ -20,6 +21,21 @@ func ExampleSort() {
 	// 1
 	// 2
 	// 3
+}
+
+func ExampleSort2() {
+	for key, val := range seq.Sort2(maps.All(map[int]int{1: 1, 2: 2, 3: 3, 4: 4})) {
+		if key > 3 {
+			break
+		}
+
+		fmt.Println(key, val)
+	}
+
+	// Output:
+	// 1 1
+	// 2 2
+	// 3 3
 }
 
 func ExampleSortFunc() {

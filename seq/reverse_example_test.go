@@ -7,7 +7,7 @@ import (
 )
 
 func ExampleReverse() {
-	for num := range seq.Reverse((seq.Range(5))) {
+	for num := range seq.Reverse(seq.Range(5)) {
 		if num < 3 {
 			break
 		}

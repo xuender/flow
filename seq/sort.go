@@ -3,6 +3,7 @@ package seq
 import (
 	"cmp"
 	"iter"
+	"maps"
 	"slices"
 )
 
@@ -14,18 +15,41 @@ import (
 //
 // Args:
 //
-//	input (iter.Seq[E]): A sequence of elements implementing cmp.Ordered to be sorted.
+//	input (iter.Seq[V]): A sequence of elements implementing cmp.Ordered to be sorted.
 //
 // Returns:
 //
-//	iter.Seq[E]: An iterator function that yields sorted elements.
-func Sort[E cmp.Ordered](input iter.Seq[E]) iter.Seq[E] {
-	return func(yield func(E) bool) {
+//	iter.Seq[V]: An iterator function that yields sorted elements.
+func Sort[V cmp.Ordered](input iter.Seq[V]) iter.Seq[V] {
+	return func(yield func(V) bool) {
 		slice := slices.Collect(input)
 		slices.Sort(slice)
 
 		for _, item := range slice {
 			if !yield(item) {
+				return
+			}
+		}
+	}
+}
+
+// Sort2 sorts the input sequence by keys and returns a sorted sequence.
+//
+// It takes a sequence of (key, value) pairs where keys are ordered.
+//
+// Args:
+//
+//	input iter.Seq2[K, V]: The input sequence of (key, value) pairs.
+//
+// Returns:
+//
+//	iter.Seq2[K, V]: A new sequence yielding sorted (key, value) pairs.
+func Sort2[K cmp.Ordered, V any](input iter.Seq2[K, V]) iter.Seq2[K, V] {
+	return func(yield func(K, V) bool) {
+		items := maps.Collect(input)
+
+		for key := range Sort(maps.Keys(items)) {
+			if !yield(key, items[key]) {
 				return
 			}
 		}
