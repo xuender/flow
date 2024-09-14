@@ -35,6 +35,14 @@ func main() {
 		return true
 	})
 }
+
+```
+
+```shell
+24
+21
+18
+15
 ```
 
 ### Flow Functions
