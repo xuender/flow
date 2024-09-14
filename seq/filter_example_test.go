@@ -7,13 +7,20 @@ import (
 )
 
 func ExampleFilter() {
-	fmt.Println(seq.Count(seq.Filter(
+	for num := range seq.Filter(
 		seq.Range(6),
-		func(i int) bool {
-			return i%2 == 0
+		func(num int) bool {
+			return num%2 == 0
 		},
-	)))
+	) {
+		if num > 2 {
+			break
+		}
+
+		fmt.Println(num)
+	}
 
 	// Output:
-	// 3
+	// 0
+	// 2
 }

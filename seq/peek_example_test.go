@@ -7,12 +7,15 @@ import (
 )
 
 func ExamplePeek() {
-	seq.Emit(seq.Peek(seq.Range(3), func(num int) {
+	for num := range seq.Peek(seq.Range(3), func(num int) {
 		fmt.Println(num)
-	}))
+	}) {
+		if num > 0 {
+			break
+		}
+	}
 
 	// Output:
 	// 0
 	// 1
-	// 2
 }

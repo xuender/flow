@@ -7,15 +7,19 @@ import (
 )
 
 func ExampleMap() {
-	int2float64 := seq.Map(
+	for num := range seq.Map(
 		seq.Range(6),
-		func(num int) float64 {
-			return float64(num) * 1.35
-		},
-	)
+		func(num int) float64 { return float64(num) * 1.35 },
+	) {
+		if num > 3.0 {
+			break
+		}
 
-	fmt.Println(seq.Max(int2float64))
+		fmt.Println(num)
+	}
 
 	// Output:
-	// 6.75 true
+	// 0
+	// 1.35
+	// 2.7
 }
