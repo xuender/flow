@@ -1,4 +1,17 @@
 
+0.0.4 / 2024-09-14
+==================
+
+* feat: seq.Range strengthen
+* test: cover
+* chore: workflows
+* test: cover
+* test: break
+* chore: coverage
+* test: benchmark
+* doc: examples
+* doc: codecov
+
 0.0.3 / 2024-09-14
 ==================
 
