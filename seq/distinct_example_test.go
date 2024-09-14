@@ -7,8 +7,8 @@ import (
 	"github.com/xuender/flow/seq"
 )
 
-func ExampleUnique() {
-	for num := range seq.Unique[int]((slices.Values([]int{1, 2, 2, 3, 1}))) {
+func ExampleDistinct() {
+	for num := range seq.Distinct((slices.Values([]int{1, 2, 2, 3, 1}))) {
 		fmt.Println(num)
 	}
 

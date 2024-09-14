@@ -39,6 +39,7 @@ func main() {
 
 ### Intermediate Functions
 
+* Distinct
 * Filter
 * Limit
 * Peek
@@ -46,7 +47,6 @@ func main() {
 * Skip
 * Sort
 * SortFunc
-* Unique
 
 ### Terminal Functions
 
@@ -65,6 +65,7 @@ func main() {
 ### Seq Functions
 
 * seq.Chan
+* seq.Distinct
 * seq.Emit
 * seq.Range
 * seq.Filter
@@ -78,7 +79,6 @@ func main() {
 * seq.Sort
 * seq.SortFunc
 * seq.ToChans
-* seq.Unique
 
 
 ## 👤 Contributors

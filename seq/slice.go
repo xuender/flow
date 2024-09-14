@@ -4,18 +4,19 @@ import (
 	"iter"
 )
 
-// Slice function collects the elements of the given sequence 'input' into a slice of size 'size'.
-// It returns a slice containing the elements of the sequence.
-// This function works with elements of any type E.
+// Slice converts the input sequence into a slice of elements with a specified capacity.
+//
+// This function iterates over the sequence `input` and collects the elements into a slice.
+// The slice has a capacity of `size`.
 //
 // Parameters:
 //
-//	input: The sequence to collect elements from, of type iter.Seq[E].
-//	size: The capacity hint for the slice to be created.
+//	input (iter.Seq[E]): The input sequence of elements.
+//	size (int): The capacity of the resulting slice.
 //
 // Returns:
 //
-//	A slice of type E containing the elements of the sequence.
+//	[]E: A slice containing the elements of the sequence.
 func Slice[E any](input iter.Seq[E], size int) []E {
 	ret := make([]E, 0, size)
 

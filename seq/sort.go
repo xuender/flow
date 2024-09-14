@@ -32,17 +32,19 @@ func Sort[E cmp.Ordered](input iter.Seq[E]) iter.Seq[E] {
 	}
 }
 
-// SortFunc creates a new sequence with elements from 'input' sorted using the custom comparison function 'cmp'.
-// Works with any element type E.
+// SortFunc sorts the elements of the input sequence using a custom comparison function.
+//
+// This function collects the elements of `input` into a slice, sorts them using the `cmp` function,
+// and returns a new sorted sequence.
 //
 // Parameters:
 //
-//	input: The sequence to sort, of type iter.Seq[E].
-//	cmp: A comparison function that defines the order of the elements.
+//	input (iter.Seq[E]): The input sequence of elements.
+//	cmp (func(item1, item2 E) int): The comparison function for sorting.
 //
 // Returns:
 //
-//	A new sequence that implements the iter.Seq[E] interface, containing sorted elements.
+//	iter.Seq[E]: A new sequence with sorted elements.
 func SortFunc[E any](input iter.Seq[E], cmp func(item1, item2 E) int) iter.Seq[E] {
 	return func(yield func(E) bool) {
 		slice := slices.Collect(input)

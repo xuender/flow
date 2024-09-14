@@ -4,16 +4,17 @@ import (
 	"iter"
 )
 
-// Range function generates a sequence of integers from 0 (inclusive) to 'size' (exclusive).
-// It returns a new sequence that implements the iter.Seq[int] interface.
+// Range generates a sequence of integers from 0 to `size - 1`.
+//
+// This function creates a sequence that yields integers starting from 0 up to, but not including, `size`.
 //
 // Parameters:
 //
-//	size: The upper limit of the sequence (non-inclusive).
+//	size (int): The upper limit (exclusive) of the sequence.
 //
 // Returns:
 //
-//	A new sequence that implements the iter.Seq[int] interface, containing integers from 0 to size-1.
+//	iter.Seq[int]: A sequence of integers from 0 to `size - 1`.
 func Range(size int) iter.Seq[int] {
 	return func(yield func(int) bool) {
 		for num := range size {

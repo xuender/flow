@@ -71,10 +71,10 @@ func ExampleSort() {
 	// 0 true
 }
 
-func ExampleUnique() {
+func ExampleDistinct() {
 	fmt.Println(seq.Sum(flow.Chain(
 		slices.Values([]int{1, 2, 2, 3, 3}),
-		flow.Unique[int](),
+		flow.Distinct[int](),
 	)))
 
 	// Output:
