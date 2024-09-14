@@ -14,12 +14,29 @@ import (
 //
 // Args:
 //
-//	E (any): The type of elements in the sequence.
+//	V (any): The type of elements in the sequence.
 //
 // Returns:
 //
-//	func(iter.Seq[E]) iter.Seq[E]: A transformation function.
-type Step[E any] func(iter.Seq[E]) iter.Seq[E]
+//	func(iter.Seq[V]) iter.Seq[V]: A transformation function.
+type Step[V any] func(iter.Seq[V]) iter.Seq[V]
+
+// Append adds multiple elements to the end of a sequence.
+//
+// It takes a variable number of elements and appends them to the input sequence.
+//
+// Args:
+//
+//	items ...V: Elements to append to the sequence.
+//
+// Returns:
+//
+//	Step[V]: A function that takes an input sequence and returns a new sequence with the appended elements.
+func Append[V any](items ...V) Step[V] {
+	return func(input iter.Seq[V]) iter.Seq[V] {
+		return seq.Append(input, items...)
+	}
+}
 
 // Distinct returns a transformation step that filters out duplicate elements from a sequence.
 //
@@ -66,10 +83,31 @@ func Filter[E any](predicate func(E) bool) Step[E] {
 //
 // Returns:
 //
-//	Step[E]: A transformation step that limits the sequence.
-func Limit[E any](limit int) Step[E] {
-	return func(input iter.Seq[E]) iter.Seq[E] {
+//	Step[V]: A transformation step that limits the sequence.
+func Limit[V any](limit int) Step[V] {
+	return func(input iter.Seq[V]) iter.Seq[V] {
 		return seq.Limit(input, limit)
+	}
+}
+
+// Merge combines multiple sequences into a single sequence.
+//
+// It merges the input sequence with additional sequences.
+//
+// Args:
+//
+//	seqs ...iter.Seq[V]: Additional sequences to merge.
+//
+// Returns:
+//
+//	Step[V]: A function that merges the input sequence with the additional sequences.
+func Merge[V any](seqs ...iter.Seq[V]) Step[V] {
+	return func(input iter.Seq[V]) iter.Seq[V] {
+		if len(seqs) == 0 {
+			return input
+		}
+
+		return seq.Merge(append([]iter.Seq[V]{input}, seqs...)...)
 	}
 }
 

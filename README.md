@@ -130,9 +130,11 @@ seq.Range(3, 7, 0)
 
 ### Intermediate Functions
 
+- Append
 - Distinct
 - Filter
 - Limit
+- Merge
 - Peek
 - Reverse
 - Skip
@@ -155,6 +157,7 @@ seq.Range(3, 7, 0)
 
 ### Seq Functions
 
+- seq.Append
 - seq.Chan
 - seq.Distinct
 - seq.Emit
@@ -163,6 +166,7 @@ seq.Range(3, 7, 0)
 - seq.FlatMap
 - seq.Limit
 - seq.Map
+- seq.Merge
 - seq.Peek
 - seq.Reduce
 - seq.Reverse
