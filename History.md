@@ -1,4 +1,16 @@
 
+0.0.5 / 2024-09-14
+==================
+
+* feat: add iter.Seq2 support
+* feat: add Append, Merge
+* feat: add seq.Append, seq.Merge
+* feat: add seq.Sort2, seq.Distinct2, seq.Revese2
+* doc: Args
+* feat: add seq.Count2, seq.Range2
+* doc: package
+* doc: range example
+
 0.0.4 / 2024-09-14
 ==================
 
