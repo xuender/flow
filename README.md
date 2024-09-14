@@ -2,11 +2,16 @@
 
 [![Action][action-svg]][action-url]
 [![Report Card][goreport-svg]][goreport-url]
+[![codecov][codecov-svg]][codecov-url]
 [![Lines of code][lines-svg]][lines-url]
 [![godoc][godoc-svg]][godoc-url]
 [![License][license-svg]][license-url]
 
 ✨ **`xuender/flow` is a streaming programming library based on iterators for Go 1.23.**
+
+## ❗ Prerequirement
+
+- Go 1.23
 
 ## 🚀 Install
 
@@ -34,51 +39,51 @@ func main() {
 
 ### Flow Functions
 
-* Chain
-* Parallel
+- Chain
+- Parallel
 
 ### Intermediate Functions
 
-* Distinct
-* Filter
-* Limit
-* Peek
-* Reverse
-* Skip
-* Sort
-* SortFunc
+- Distinct
+- Filter
+- Limit
+- Peek
+- Reverse
+- Skip
+- Sort
+- SortFunc
 
 ### Terminal Functions
 
-* seq.Count
-* seq.Each
-* seq.First
-* seq.Max
-* seq.Min
-* seq.Reduce
-* seq.Sum
-* seq.Join
-* seq.AnyMatch
-* seq.AllMatch
-* seq.NoneMatch
+- seq.Count
+- seq.Each
+- seq.First
+- seq.Max
+- seq.Min
+- seq.Reduce
+- seq.Sum
+- seq.Join
+- seq.AnyMatch
+- seq.AllMatch
+- seq.NoneMatch
 
 ### Seq Functions
 
-* seq.Chan
-* seq.Distinct
-* seq.Emit
-* seq.Range
-* seq.Filter
-* seq.FlatMap
-* seq.Limit
-* seq.Map
-* seq.Peek
-* seq.Reduce
-* seq.Reverse
-* seq.Skip
-* seq.Sort
-* seq.SortFunc
-* seq.ToChans
+- seq.Chan
+- seq.Distinct
+- seq.Emit
+- seq.Range
+- seq.Filter
+- seq.FlatMap
+- seq.Limit
+- seq.Map
+- seq.Peek
+- seq.Reduce
+- seq.Reverse
+- seq.Skip
+- seq.Sort
+- seq.SortFunc
+- seq.ToChans
 
 
 ## 👤 Contributors
@@ -96,6 +101,9 @@ func main() {
 
 [goreport-url]: https://goreportcard.com/report/github.com/xuender/flow
 [goreport-svg]: https://goreportcard.com/badge/github.com/xuender/flow
+
+[codecov-url]: https://codecov.io/gh/xuender/flow
+[codecov-svg]: https://codecov.io/gh/xuender/flow/graph/badge.svg?token=1VAC5OJJZR
 
 [godoc-url]: https://godoc.org/github.com/xuender/flow
 [godoc-svg]: https://godoc.org/github.com/xuender/flow?status.svg
