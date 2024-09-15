@@ -1,8 +1,12 @@
-default: lint-fix test
+default: fmt lint-fix test
 
 tools:
 	go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 	go install github.com/cespare/reflex@latest
+	go install mvdan.cc/gofumpt@latest
+
+fmt:
+	gofumpt -l -w .
 
 lint:
 	golangci-lint run --timeout 60s --max-same-issues 50 ./...
