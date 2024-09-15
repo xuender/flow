@@ -150,17 +150,17 @@ seq.Range(3, 7, 0)
 
 | iter.Seq[V]   | iter.Seq2[K,V] |
 | ------------- | -------------- |
+| seq.AllMatch  | seq.AllMatch2  |
+| seq.AnyMatch  | seq.AnyMatch2  |
 | seq.Count     | seq.Count2     |
 | seq.Each      | seq.Each2      |
 | seq.First     | seq.First2     |
+| seq.Join      |                |
 | seq.Max       | seq.Max2       |
 | seq.Min       | seq.Min2       |
+| seq.NoneMatch | seq.NoneMatch2 |
 | seq.Reduce    | seq.Reduce2    |
 | seq.Sum       |                |
-| seq.Join      |                |
-| seq.AnyMatch  | seq.AnyMatch2  |
-| seq.AllMatch  | seq.AllMatch2  |
-| seq.NoneMatch | seq.NoneMatch2 |
 
 ### Seq Functions
 
@@ -168,16 +168,17 @@ seq.Range(3, 7, 0)
 | -------------------- | --------------------- | --------------------------------------- |
 | seq.Append           | seq.Append2           |                                         |
 | seq.Chan             | seq.Chan2             | Chan2 uses seq.Tuple[K, V].             |
+| seq.Collect          | seq.Collect2          |                                         |
 | seq.Distinct         | seq.Distinct2         |                                         |
 | seq.Emit             | seq.Emit2             |                                         |
-| seq.Range            | seq.Range2            |                                         |
 | seq.Filter           | seq.Filter2           |                                         |
 | seq.FlatMap          | seq.FlatMap2          |                                         |
+|                      | seq.Keys              |                                         |
 | seq.Limit            | seq.Limit2            |                                         |
 | seq.Map              | seq.Map2              |                                         |
 | seq.Merge            | seq.Merge2            |                                         |
-|                      | seq.Keys              |                                         |
 | seq.Peek             | seq.Peek2             |                                         |
+| seq.Range            | seq.Range2            |                                         |
 | seq.Reduce           | seq.Reduce2           |                                         |
 | seq.Reverse          | seq.Reverse2          |                                         |
 | seq.Skip             | seq.Skip2             |                                         |
@@ -186,6 +187,7 @@ seq.Range(3, 7, 0)
 | seq.SortedStableFunc | seq.SortedStableFunc2 | SortedStableFunc2 uses seq.Tuple[K, V]. |
 | seq.ToChans          | seq.ToChans2          | ToChans2 uses seq.Tuple[K, V].          |
 |                      | seq.Values            |                                         |
+|                      |                       |                                         |
 
 
 ## 👤 Contributors
