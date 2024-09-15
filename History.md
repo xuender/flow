@@ -1,4 +1,14 @@
 
+0.0.6 / 2024-09-15
+==================
+
+* feat: Add seq.Clone, seq.Chunk
+* feat: add Repeat, Repeat2
+* doc: readme
+* doc: readme
+* test: cover
+* doc: README
+
 0.0.5 / 2024-09-14
 ==================
 
