@@ -153,6 +153,8 @@ seq.Range(3, 7, 0)
 | ------------- | -------------- |
 | seq.AllMatch  | seq.AllMatch2  |
 | seq.AnyMatch  | seq.AnyMatch2  |
+| seq.Clone     | seq.Clone2     |
+| seq.Chunk     | seq.Chunk2     |
 | seq.Count     | seq.Count2     |
 | seq.Each      | seq.Each2      |
 | seq.First     | seq.First2     |

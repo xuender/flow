@@ -24,7 +24,8 @@ import (
 //
 // Note:
 //
-//	The method has a defect; use with caution.
+//	The func has a defect; use with caution.
+//	I need help!
 func Parallel[V any](numWorkers int, input iter.Seq[V], steps ...Step[V]) iter.Seq[V] {
 	chans := seq.ToChans(input, numWorkers)
 	output := make(chan V)
@@ -50,7 +51,8 @@ func Parallel[V any](numWorkers int, input iter.Seq[V], steps ...Step[V]) iter.S
 //
 // Note:
 //
-//	The method has a defect; use with caution.
+//	The func has a defect; use with caution.
+//	I need help!
 func Parallel2[K, V any](numWorkers int, input iter.Seq2[K, V], steps ...Step2[K, V]) iter.Seq2[K, V] {
 	chans := seq.ToChans2(input, numWorkers)
 	output := make(chan seq.Tuple[K, V])
