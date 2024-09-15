@@ -241,6 +241,38 @@ func Peek2[K, V any](action func(K, V)) Step2[K, V] {
 	}
 }
 
+// Repeat creates a new step that repeats the input sequence a specified number of times
+//
+// Args:
+//
+//	count int: The number of times to repeat the sequence
+//
+// Returns:
+//
+//	Step V: A function that takes an input sequence and returns a repeated sequence
+func Repeat[V any](count int) Step[V] {
+	return func(input iter.Seq[V]) iter.Seq[V] {
+		return seq.Repeat(input, count)
+	}
+}
+
+// Repeat2 creates a new step that repeats each element of the input sequence a specified number of times.
+//
+// This function returns a `Step2` that repeats each element of the input sequence `count` times.
+//
+// Args:
+//
+//	count int: The number of times to repeat each element.
+//
+// Returns:
+//
+//	Step2[K, V]: A transformation step that repeats each element.
+func Repeat2[K, V any](count int) Step2[K, V] {
+	return func(input iter.Seq2[K, V]) iter.Seq2[K, V] {
+		return seq.Repeat2(input, count)
+	}
+}
+
 // Reverse returns a transformation step that reverses the order of elements in a sequence.
 //
 // This function returns a `Step` that creates a new sequence with the elements in reverse order.

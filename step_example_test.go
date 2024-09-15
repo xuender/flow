@@ -258,3 +258,23 @@ func ExampleSortStableFunc2() {
 	// Output:
 	// 99 99 true
 }
+
+func ExampleRepeat() {
+	fmt.Println(seq.Count(flow.Chain(
+		seq.Range(3),
+		flow.Repeat[int](4),
+	)))
+
+	// Output:
+	// 12
+}
+
+func ExampleRepeat2() {
+	fmt.Println(seq.Count2(flow.Chain2(
+		seq.Range2(3),
+		flow.Repeat2[int, int](4),
+	)))
+
+	// Output:
+	// 12
+}

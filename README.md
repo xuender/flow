@@ -140,6 +140,7 @@ seq.Range(3, 7, 0)
 | Limit          | Limit2          |                               |
 | Merge          | Merge2          |                               |
 | Peek           | Peek2           |                               |
+| Repeat         | Repeat2         |                               |
 | Reverse        | Reverse2        |                               |
 | Skip           | Skip2           |                               |
 | Sort           | Sort2           |                               |
@@ -180,6 +181,7 @@ seq.Range(3, 7, 0)
 | seq.Peek             | seq.Peek2             |                                         |
 | seq.Range            | seq.Range2            |                                         |
 | seq.Reduce           | seq.Reduce2           |                                         |
+| seq.Repeat           | seq.Repeat2           |                                         |
 | seq.Reverse          | seq.Reverse2          |                                         |
 | seq.Skip             | seq.Skip2             |                                         |
 | seq.Sorted           | seq.Sorted2           |                                         |
