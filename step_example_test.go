@@ -164,8 +164,14 @@ func ExampleMerge() {
 		flow.Merge(seq.Range(4), seq.Range(2)),
 	)))
 
+	fmt.Println(seq.Count(flow.Chain(
+		seq.Range(3),
+		flow.Merge[int](),
+	)))
+
 	// Output:
 	// 9
+	// 3
 }
 
 func ExampleMerge2() {
@@ -174,8 +180,14 @@ func ExampleMerge2() {
 		flow.Merge2(seq.Range2(4), seq.Range2(2)),
 	)))
 
+	fmt.Println(seq.Count2(flow.Chain2(
+		seq.Range2(3),
+		flow.Merge2[int, int](),
+	)))
+
 	// Output:
 	// 9
+	// 3
 }
 
 func ExamplePeek2() {
