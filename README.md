@@ -187,7 +187,7 @@ seq.Range(3, 7, 0)
 | seq.SortedStableFunc | seq.SortedStableFunc2 | SortedStableFunc2 uses seq.Tuple[K, V]. |
 | seq.ToChans          | seq.ToChans2          | ToChans2 uses seq.Tuple[K, V].          |
 |                      | seq.Values            |                                         |
-|                      |                       |                                         |
+|                      | seq.Tuples            |                                         |
 
 
 ## 👤 Contributors
