@@ -25,6 +25,10 @@ func Limit[V any](input iter.Seq[V], limit int) iter.Seq[V] {
 	}
 }
 
+// Limit2 creates a new sequence that only includes the first N elements from the input sequence.
+//
+// Iterates through the input sequence and yields elements until the limit is reached.
+// Stops yielding elements once the limit is exceeded.
 func Limit2[K, V any](input iter.Seq2[K, V], limit int) iter.Seq2[K, V] {
 	return func(yield func(K, V) bool) {
 		idx := 0

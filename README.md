@@ -134,7 +134,7 @@ seq.Range(3, 7, 0)
 
 | iter.Seq[V]    | iter.Seq2[K,V]  | Note                  |
 | -------------- | --------------- | --------------------- |
-| Append         | Append2         | Uses seq.Tuple[K, V]. |
+| Append         | Append2         | Used seq.Tuple[K, V]. |
 | Distinct       | Distinct2       |                       |
 | Filter         | Filter2         |                       |
 | Limit          | Limit2          |                       |
@@ -158,6 +158,7 @@ seq.Range(3, 7, 0)
 | seq.Count     | seq.Count2     |
 | seq.Each      | seq.Each2      |
 | seq.First     | seq.First2     |
+| seq.Last      | seq.Last2      |
 | seq.Join      |                |
 | seq.Max       | seq.Max2       |
 | seq.Min       | seq.Min2       |
@@ -170,7 +171,7 @@ seq.Range(3, 7, 0)
 | iter.Seq[V]          | iter.Seq2[K,V]        | Note                  |
 | -------------------- | --------------------- | ----------------------|
 | seq.Append           | seq.Append2           |                       |
-| seq.Chan             | seq.Chan2             | Uses seq.Tuple[K, V]. |
+| seq.Chan             | seq.Chan2             | Used seq.Tuple[K, V]. |
 | seq.Collect          | seq.Collect2          |                       |
 | seq.Distinct         | seq.Distinct2         |                       |
 | seq.Emit             | seq.Emit2             |                       |
@@ -187,9 +188,9 @@ seq.Range(3, 7, 0)
 | seq.Reverse          | seq.Reverse2          |                       |
 | seq.Skip             | seq.Skip2             |                       |
 | seq.Sorted           | seq.Sorted2           |                       |
-| seq.SortedFunc       | seq.SortedFunc2       | Uses seq.Tuple[K, V]. |
-| seq.SortedStableFunc | seq.SortedStableFunc2 | Uses seq.Tuple[K, V]. |
-| seq.ToChans          | seq.ToChans2          | Uses seq.Tuple[K, V]. |
+| seq.SortedFunc       | seq.SortedFunc2       | Used seq.Tuple[K, V]. |
+| seq.SortedStableFunc | seq.SortedStableFunc2 | Used seq.Tuple[K, V]. |
+| seq.ToChans          | seq.ToChans2          | Used seq.Tuple[K, V]. |
 |                      | seq.Values            |                       |
 |                      | seq.Tuples            |                       |
 

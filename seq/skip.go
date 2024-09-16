@@ -26,15 +26,6 @@ func Skip[V any](input iter.Seq[V], offset int) iter.Seq[V] {
 // Skip2 skips the first 'offset' (key, value) pairs in the sequence.
 //
 // It returns a new sequence with the remaining pairs.
-//
-// Args:
-//
-//	input iter.Seq2[K, V]: The input sequence of (key, value) pairs.
-//	offset int: The number of pairs to skip.
-//
-// Returns:
-//
-//	iter.Seq2[K, V]: A new sequence with skipped pairs.
 func Skip2[K, V any](input iter.Seq2[K, V], offset int) iter.Seq2[K, V] {
 	return func(yield func(K, V) bool) {
 		idx := 0
