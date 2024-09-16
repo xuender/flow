@@ -34,17 +34,15 @@ import (
 )
 
 func main() {
-  seq.Each(flow.Chain(
+  for num :=range flow.Chain(
     seq.Range(100),
     flow.Filter(func(num int) bool { return num%3 == 0 }),
     flow.Skip[int](5),
     flow.Limit[int](4),
     flow.Reverse[int](),
-  ), func(num int) bool {
+  ) {
     fmt.Println(num)
-
-    return true
-  })
+  }
 }
 ```
 
@@ -57,7 +55,7 @@ Output:
 15
 ```
 
-[[play](https://go.dev/play/p/sDen4jvtre8)]
+[[play](https://go.dev/play/p/JydmjWYw9rw)]
 
 ### seq.Range
 
