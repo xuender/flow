@@ -46,7 +46,7 @@ func Distinct[V comparable]() Step[V] {
 
 // Distinct2 removes duplicate (key, value) pairs from the sequence.
 //
-// It returns a Step2 function that filters duplicates.
+// It returns a `Step2` function that filters duplicates.
 func Distinct2[K comparable, V any]() Step2[K, V] {
 	return seq.Distinct2
 }
@@ -143,7 +143,7 @@ func Repeat[V any](count int) Step[V] {
 
 // Repeat2 creates a new step that repeats each element of the input sequence a specified number of times.
 //
-// This function returns a `Step2` that repeats each element of the input sequence `count` times.
+// Tt returns a `Step2` that repeats each element of the input sequence `count` times.
 func Repeat2[K, V any](count int) Step2[K, V] {
 	return func(input iter.Seq2[K, V]) iter.Seq2[K, V] {
 		return seq.Repeat2(input, count)
@@ -152,21 +152,21 @@ func Repeat2[K, V any](count int) Step2[K, V] {
 
 // Reverse returns a transformation step that reverses the order of elements in a sequence.
 //
-// This function returns a `Step` that creates a new sequence with the elements in reverse order.
+// It returns a `Step` that creates a new sequence with the elements in reverse order.
 func Reverse[V any]() Step[V] {
 	return seq.Reverse
 }
 
 // Reverse2 reverses the order of (key, value) pairs in the sequence.
 //
-// It returns a Step2 function that reverses the sequence.
+// It returns a `Step2` function that reverses the sequence.
 func Reverse2[K, V any]() Step2[K, V] {
 	return seq.Reverse2
 }
 
 // Skip returns a transformation step that skips the first `num` elements in a sequence.
 //
-// This function returns a `Step` that creates a new sequence by skipping the first `num` elements
+// It returns a `Step` that creates a new sequence by skipping the first `num` elements
 // of the input sequence.
 func Skip[V any](num int) Step[V] {
 	return func(input iter.Seq[V]) iter.Seq[V] {
@@ -176,7 +176,7 @@ func Skip[V any](num int) Step[V] {
 
 // Skip2 skips the first 'num' (key, value) pairs in the sequence.
 //
-// It returns a new sequence with the remaining pairs.
+// It returns a `Skip2` with the remaining pairs.
 func Skip2[K, V any](num int) Step2[K, V] {
 	return func(input iter.Seq2[K, V]) iter.Seq2[K, V] {
 		return seq.Skip2(input, num)
@@ -185,21 +185,21 @@ func Skip2[K, V any](num int) Step2[K, V] {
 
 // Sort returns a transformation step that sorts the elements in a sequence.
 //
-// This function returns a `Step` that creates a new sequence with the elements sorted.
+// It returns a `Step` function that sorts the sequence.
 func Sort[V cmp.Ordered]() Step[V] {
 	return seq.Sorted
 }
 
 // Sort2 sorts the (key, value) pairs in the sequence.
 //
-// It returns a Step2 function that sorts the sequence.
+// It returns a `Step2` function that sorts the sequence.
 func Sort2[K cmp.Ordered, V any]() Step2[K, V] {
 	return seq.Sorted2
 }
 
 // SortFunc returns a transformation step that sorts the elements in a sequence using a custom comparison function.
 //
-// This function returns a `Step` that creates a new sequence with the elements sorted according to the `cmp` function.
+// It returns a `Step` that creates a new sequence with the elements sorted according to the `cmp` function.
 func SortFunc[V any](cmp func(V, V) int) Step[V] {
 	return func(input iter.Seq[V]) iter.Seq[V] {
 		return seq.SortedFunc(input, cmp)
@@ -208,7 +208,7 @@ func SortFunc[V any](cmp func(V, V) int) Step[V] {
 
 // SortStableFunc sorts the elements in the sequence using a custom comparison function with stable sorting.
 //
-// It returns a Step function that sorts the sequence.
+// It returns a `Step` function that sorts the sequence.
 func SortStableFunc[V any](cmp func(V, V) int) Step[V] {
 	return func(input iter.Seq[V]) iter.Seq[V] {
 		return seq.SortedStableFunc(input, cmp)
@@ -217,7 +217,7 @@ func SortStableFunc[V any](cmp func(V, V) int) Step[V] {
 
 // SortFunc2 sorts (key, value) pairs using a custom comparison function.
 //
-// It returns a Step2 function that sorts the sequence.
+// It returns a `Step2` function that sorts the sequence.
 func SortFunc2[K, V any](cmp func(seq.Tuple[K, V], seq.Tuple[K, V]) int) Step2[K, V] {
 	return func(input iter.Seq2[K, V]) iter.Seq2[K, V] {
 		return seq.SortedFunc2(input, cmp)
@@ -226,7 +226,7 @@ func SortFunc2[K, V any](cmp func(seq.Tuple[K, V], seq.Tuple[K, V]) int) Step2[K
 
 // SortStableFunc2 sorts (key, value) pairs using a custom comparison function with stable sorting.
 //
-// It returns a Step2 function that sorts the sequence.
+// It returns a `Step2` function that sorts the sequence.
 func SortStableFunc2[K, V any](cmp func(seq.Tuple[K, V], seq.Tuple[K, V]) int) Step2[K, V] {
 	return func(input iter.Seq2[K, V]) iter.Seq2[K, V] {
 		return seq.SortedStableFunc2(input, cmp)

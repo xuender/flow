@@ -7,7 +7,7 @@
 [![godoc][godoc-svg]][godoc-url]
 [![License][license-svg]][license-url]
 
-✨ **`xuender/flow` is a streaming programming library based on iterators for Go 1.23.**
+✨ **`xuender/flow` is a streaming programming library based on `iter` for Go 1.23.**
 
 ## ❗ Prerequirement
 
@@ -169,7 +169,7 @@ seq.Range(3, 7, 0)
 ### Seq Functions
 
 | iter.Seq[V]          | iter.Seq2[K,V]        | Note                  |
-| -------------------- | --------------------- | ----------------------|
+| -------------------- | --------------------- | --------------------- |
 | seq.Append           | seq.Append2           |                       |
 | seq.Chan             | seq.Chan2             | Used seq.Tuple[K, V]. |
 | seq.Collect          | seq.Collect2          |                       |
