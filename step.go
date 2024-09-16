@@ -134,7 +134,7 @@ func Peek2[K, V any](action func(K, V)) Step2[K, V] {
 	}
 }
 
-// Repeat creates a new step that repeats the input sequence a specified number of times
+// Repeat creates a new step that repeats the input sequence a specified number of times.
 func Repeat[V any](count int) Step[V] {
 	return func(input iter.Seq[V]) iter.Seq[V] {
 		return seq.Repeat(input, count)
