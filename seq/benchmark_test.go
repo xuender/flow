@@ -97,11 +97,11 @@ func BenchmarkRawFor(b *testing.B) {
 }
 
 func rawKeys(maps map[int]int) []int {
-	keySlice := make([]int, 0, len(maps))
+	keys := make([]int, 0, len(maps))
 
-	for k := range maps {
-		keySlice = append(keySlice, k)
+	for key := range maps {
+		keys = append(keys, key)
 	}
 
-	return keySlice
+	return keys
 }
