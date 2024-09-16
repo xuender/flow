@@ -8,7 +8,7 @@ import "iter"
 // Each step is applied sequentially to the input sequence.
 func Chain[V any](input iter.Seq[V], steps ...Step[V]) iter.Seq[V] {
 	for _, step := range steps {
-		input = step(input)
+		input = step.Next(input)
 	}
 
 	return input
@@ -19,7 +19,7 @@ func Chain[V any](input iter.Seq[V], steps ...Step[V]) iter.Seq[V] {
 // It returns the final sequence after applying all steps.
 func Chain2[K, V any](input iter.Seq2[K, V], steps ...Step2[K, V]) iter.Seq2[K, V] {
 	for _, step := range steps {
-		input = step(input)
+		input = step.Next(input)
 	}
 
 	return input

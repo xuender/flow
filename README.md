@@ -123,10 +123,10 @@ seq.Range(3, 7, 0)
 
 ### Flow Functions
 
-| iter.Seq[V] | iter.Seq2[K,V] | Note                                     |
-| ----------- | -------------- | ---------------------------------------- |
-| Chain       | Chain2         |                                          |
-| Parallel    | Parallel2      | The func has a defect; use with caution. |
+| iter.Seq[V] | iter.Seq2[K,V] |
+| ----------- | -------------- |
+| Chain       | Chain2         |
+| Parallel    | Parallel2      |
 
 ### Intermediate Functions
 
@@ -134,10 +134,10 @@ seq.Range(3, 7, 0)
 | -------------- | --------------- | --------------------- |
 | Append         | Append2         | Used seq.Tuple[K, V]. |
 | Distinct       | Distinct2       |                       |
-| Filter         | Filter2         |                       |
+| Filter         | Filter2         | Parallel function.    |
 | Limit          | Limit2          |                       |
 | Merge          | Merge2          |                       |
-| Peek           | Peek2           |                       |
+| Peek           | Peek2           | Parallel function.    |
 | Repeat         | Repeat2         |                       |
 | Reverse        | Reverse2        |                       |
 | Skip           | Skip2           |                       |
@@ -184,6 +184,7 @@ seq.Range(3, 7, 0)
 | seq.Reduce           | seq.Reduce2           |                       |
 | seq.Repeat           | seq.Repeat2           |                       |
 | seq.Reverse          | seq.Reverse2          |                       |
+| seq.Send             | seq.Send2             |                       |
 | seq.Skip             | seq.Skip2             |                       |
 | seq.Sorted           | seq.Sorted2           |                       |
 | seq.SortedFunc       | seq.SortedFunc2       | Used seq.Tuple[K, V]. |

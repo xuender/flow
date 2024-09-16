@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log/slog"
 	"time"
 
 	"github.com/xuender/flow"
@@ -10,20 +9,17 @@ import (
 )
 
 func main() {
-	items := flow.Parallel(3,
+	for num := range flow.Parallel(3,
 		seq.Range(100),
 		flow.Filter(func(num int) bool { return num%3 == 0 }),
+		flow.Skip[int](5),
+		flow.Limit[int](4),
 		flow.Peek(func(num int) {
 			fmt.Println("peek", num)
 			time.Sleep(time.Second)
-		}))
-
-	for num := range flow.Chain(
-		items,
-		flow.Skip[int](5),
-		flow.Limit[int](4),
-		flow.Reverse[int](),
+		}),
+		flow.Sort[int](),
 	) {
-		slog.Info("end", "num", num)
+		fmt.Println(num)
 	}
 }
