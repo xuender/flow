@@ -9,10 +9,12 @@ import (
 	"github.com/xuender/flow/seq"
 )
 
+const _size = 10_000
+
 func BenchmarkChain(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		for range flow.Chain(
-			seq.Range(1000),
+			seq.Range(_size),
 			flow.Filter(func(num int) bool { return num%3 == 0 }),
 			flow.Skip[int](5),
 			flow.Limit[int](4),
@@ -24,9 +26,9 @@ func BenchmarkChain(b *testing.B) {
 
 func BenchmarkSlices(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		slice := []int{}
+		slice := make([]int, 0, _size)
 
-		for num := range 1000 {
+		for num := range _size {
 			if num%3 == 0 {
 				slice = append(slice, num)
 			}
