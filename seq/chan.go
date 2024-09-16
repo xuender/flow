@@ -11,14 +11,6 @@ const _defaultDuration = time.Duration(50) * time.Millisecond
 //
 // This function takes a channel `input` and returns an iterator function that yields elements
 // from the channel until it is closed.
-//
-// Args:
-//
-//	input chan V: The input channel of elements.
-//
-// Returns:
-//
-//	iter.Seq[V]: An iterator function yielding elements from the channel.
 func Chan[V any](input chan V) iter.Seq[V] {
 	return func(yield func(V) bool) {
 		defer func() {
@@ -38,14 +30,6 @@ func Chan[V any](input chan V) iter.Seq[V] {
 // Chan2 converts a channel of (key, value) tuples into a sequence.
 //
 // It returns a function that yields the tuples.
-//
-// Args:
-//
-//	input chan Tuple[K, V]: The input channel.
-//
-// Returns:
-//
-//	iter.Seq2[K, V]: A sequence that yields tuples.
 func Chan2[K, V any](input chan Tuple[K, V]) iter.Seq2[K, V] {
 	return func(yield func(K, V) bool) {
 		defer func() {
@@ -66,15 +50,6 @@ func Chan2[K, V any](input chan Tuple[K, V]) iter.Seq2[K, V] {
 //
 // This function takes a sequence `input` and an integer `size` indicating the number of channels.
 // It distributes the elements evenly among the specified number of channels.
-//
-// Args:
-//
-//	input (iter.Seq[E]): The input sequence of elements.
-//	size (int): The number of channels to create.
-//
-// Returns:
-//
-//	[]chan E: A slice of channels containing the distributed elements.
 func ToChans[V any](input iter.Seq[V], size int) []chan V {
 	chans := make([]chan V, size)
 	for idx := range size {
@@ -89,15 +64,6 @@ func ToChans[V any](input iter.Seq[V], size int) []chan V {
 // ToChans2 converts the input sequence into a slice of channels.
 //
 // Each channel receives (key, value) tuples.
-//
-// Args:
-//
-//	input iter.Seq2[K, V]: The input sequence.
-//	size int: The number of channels.
-//
-// Returns:
-//
-//	[]chan Tuple[K, V]: A slice of channels.
 func ToChans2[K, V any](input iter.Seq2[K, V], size int) []chan Tuple[K, V] {
 	chans := make([]chan Tuple[K, V], size)
 	for idx := range size {

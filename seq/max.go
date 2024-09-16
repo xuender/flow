@@ -9,15 +9,6 @@ import (
 //
 // This function iterates over the sequence `input` and finds the maximum element.
 // If the sequence is empty, it returns the zero value of type `E` and false.
-//
-// Args:
-//
-//	input iter.Seq[V]: The input sequence of ordered elements.
-//
-// Returns:
-//
-//	V: The maximum element in the sequence.
-//	bool: True if an element is found, false if the sequence is empty.
 func Max[V cmp.Ordered](input iter.Seq[V]) (V, bool) {
 	var (
 		maxVal V
@@ -37,16 +28,6 @@ func Max[V cmp.Ordered](input iter.Seq[V]) (V, bool) {
 // Max2 finds the maximum (key, value) pair in the sequence.
 //
 // It returns the maximum key, value, and a boolean indicating if a maximum was found.
-//
-// Args:
-//
-//	input iter.Seq2[K, V]: The input sequence of (key, value) pairs.
-//
-// Returns:
-//
-//	K: The maximum key.
-//	V: The corresponding value.
-//	bool: Indicates if a maximum was found.
 func Max2[K cmp.Ordered, V any](input iter.Seq2[K, V]) (K, V, bool) {
 	var (
 		maxKey K

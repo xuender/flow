@@ -12,16 +12,6 @@ import (
 // This function takes an input sequence `input` and a variadic list of `steps`.
 // Each step is applied sequentially to the input sequence.
 //
-// Args:
-//
-//	numWorkers int: The number of worker goroutines to use for processing.
-//	input iter.Seq[V]: The input sequence of elements.
-//	steps ...Step[V]: A list of transformation steps to apply.
-//
-// Returns:
-//
-//	iter.Seq[V]: A new sequence containing the processed results.
-//
 // Note:
 //
 //	The func has a defect; use with caution.
@@ -38,16 +28,6 @@ func Parallel[V any](numWorkers int, input iter.Seq[V], steps ...Step[V]) iter.S
 // Parallel2 processes the input sequence in parallel using multiple workers.
 //
 // It returns a new sequence with the processed results.
-//
-// Args:
-//
-//	numWorkers int: The number of workers.
-//	input iter.Seq2[K, V]: The input sequence.
-//	steps ...Step2[K, V]: The processing steps.
-//
-// Returns:
-//
-//	iter.Seq2[K, V]: A new sequence with results.
 //
 // Note:
 //

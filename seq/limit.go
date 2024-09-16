@@ -7,15 +7,6 @@ import "iter"
 // This function iterates over the sequence `input` and includes only the first `limit` elements
 // in the new sequence. If the input sequence has fewer than `limit` elements, the new sequence
 // will contain all elements.
-//
-// Args:
-//
-//	input iter.Seq[V]: The input sequence of elements.
-//	limit int: The maximum number of elements to include.
-//
-// Returns:
-//
-//	iter.Seq[V]: A new sequence with at most `limit` elements.
 func Limit[V any](input iter.Seq[V], limit int) iter.Seq[V] {
 	return func(yield func(V) bool) {
 		idx := 0
