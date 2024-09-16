@@ -33,7 +33,7 @@ func Append2[K, V any](input iter.Seq2[K, V], items ...Tuple[K, V]) iter.Seq2[K,
 		}
 
 		for _, item := range items {
-			if !yield(item.A, item.B) {
+			if !yield(item.K, item.V) {
 				return
 			}
 		}

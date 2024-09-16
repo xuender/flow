@@ -37,7 +37,7 @@ func Chan2[K, V any](input chan Tuple[K, V]) iter.Seq2[K, V] {
 		}()
 
 		for item := range input {
-			if !yield(item.A, item.B) {
+			if !yield(item.K, item.V) {
 				close(input)
 
 				return

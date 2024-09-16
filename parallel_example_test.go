@@ -18,7 +18,7 @@ func ExampleParallel() {
 
 	// Output:
 	// 0
-	// 3
+	// 6
 }
 
 func ExampleParallel2() {
@@ -32,5 +32,5 @@ func ExampleParallel2() {
 
 	// Output:
 	// 0 0
-	// 3 3
+	// 6 6
 }

@@ -74,7 +74,7 @@ func SortedFunc2[K, V any](input iter.Seq2[K, V], cmp func(Tuple[K, V], Tuple[K,
 		slices.SortFunc(slice, cmp)
 
 		for _, item := range slice {
-			if !yield(item.A, item.B) {
+			if !yield(item.K, item.V) {
 				return
 			}
 		}
@@ -91,7 +91,7 @@ func SortedStableFunc2[K, V any](input iter.Seq2[K, V], cmp func(Tuple[K, V], Tu
 		slices.SortStableFunc(slice, cmp)
 
 		for _, item := range slice {
-			if !yield(item.A, item.B) {
+			if !yield(item.K, item.V) {
 				return
 			}
 		}

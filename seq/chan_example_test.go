@@ -87,7 +87,7 @@ func ExampleToChans2() {
 
 	for _, cha := range chans {
 		for item := range cha {
-			fmt.Println(item.A, item.B)
+			fmt.Println(item.K, item.V)
 		}
 	}
 
@@ -104,11 +104,11 @@ func ExampleToChans2_break() {
 
 	for _, cha := range chans {
 		for item := range cha {
-			if item.A > 2 {
+			if item.K > 2 {
 				break
 			}
 
-			fmt.Println(item.A, item.B)
+			fmt.Println(item.K, item.V)
 		}
 	}
 

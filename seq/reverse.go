@@ -35,7 +35,7 @@ func Reverse2[K, V any](input iter.Seq2[K, V]) iter.Seq2[K, V] {
 		slices.Reverse(items)
 
 		for _, item := range items {
-			if !yield(item.A, item.B) {
+			if !yield(item.K, item.V) {
 				return
 			}
 		}

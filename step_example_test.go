@@ -251,7 +251,7 @@ func ExampleSortFunc2() {
 	fmt.Println(seq.First2(flow.Chain2(
 		seq.Range2(100),
 		flow.SortFunc2(func(num1, num2 seq.Tuple[int, int]) int {
-			return num2.A - num1.A
+			return num2.K - num1.K
 		}),
 	)))
 
@@ -263,7 +263,7 @@ func ExampleSortStableFunc2() {
 	fmt.Println(seq.First2(flow.Chain2(
 		seq.Range2(100),
 		flow.SortStableFunc2(func(num1, num2 seq.Tuple[int, int]) int {
-			return num2.A - num1.A
+			return num2.K - num1.K
 		}),
 	)))
 

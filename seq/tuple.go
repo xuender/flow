@@ -5,9 +5,9 @@ import "iter"
 // Tuple represents a pair of values.
 //
 // It contains two values of different types.
-type Tuple[V1, V2 any] struct {
-	A V1
-	B V2
+type Tuple[K, V any] struct {
+	K K
+	V V
 }
 
 // T creates a Tuple from two values.

@@ -59,7 +59,7 @@ func ExampleSortedFunc() {
 func ExampleSortedFunc2() {
 	for key, val := range seq.SortedFunc2(
 		seq.Range2(10),
-		func(item1, item2 seq.Tuple[int, int]) int { return item2.A - item1.A },
+		func(item1, item2 seq.Tuple[int, int]) int { return item2.K - item1.K },
 	) {
 		if key < 7 {
 			break
@@ -95,7 +95,7 @@ func ExampleSortedStableFunc() {
 func ExampleSortedStableFunc2() {
 	for key, val := range seq.SortedStableFunc2(
 		seq.Range2(10),
-		func(item1, item2 seq.Tuple[int, int]) int { return item2.A - item1.A },
+		func(item1, item2 seq.Tuple[int, int]) int { return item2.K - item1.K },
 	) {
 		if key < 7 {
 			break

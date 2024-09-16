@@ -1,6 +1,7 @@
 package flow
 
 import (
+	"context"
 	"iter"
 	"sync"
 
@@ -16,13 +17,46 @@ import (
 //
 //	The func has a defect; use with caution.
 //	I need help!
-func Parallel[V any](numWorkers int, input iter.Seq[V], steps ...Step[V]) iter.Seq[V] {
-	chans := seq.ToChans(input, numWorkers)
-	output := make(chan V)
+func Parallel[V any](num int, input iter.Seq[V], steps ...Step[V]) iter.Seq[V] {
+	return func(yield func(V) bool) {
+		seqs := seq.Distribute(input, num)
+		output := make(chan V, num)
+		wait := &sync.WaitGroup{}
 
-	go run(chans, output, steps)
+		ctx, cancel := context.WithCancel(context.Background())
+		defer cancel()
 
-	return seq.Chan(output)
+		wait.Add(num)
+
+		go closeChan(ctx, wait, output)
+
+		for idx := range num {
+			go func() {
+				select {
+				case <-ctx.Done():
+				default:
+					seq.Send(Chain(seqs[idx], steps...), output)
+					wait.Done()
+				}
+			}()
+		}
+
+		for item := range output {
+			if !yield(item) {
+				return
+			}
+		}
+	}
+}
+
+func closeChan[V any](ctx context.Context, wait *sync.WaitGroup, cha chan V) {
+	select {
+	case <-ctx.Done():
+	default:
+		wait.Wait()
+	}
+
+	close(cha)
 }
 
 // Parallel2 processes the input sequence in parallel using multiple workers.
@@ -33,59 +67,34 @@ func Parallel[V any](numWorkers int, input iter.Seq[V], steps ...Step[V]) iter.S
 //
 //	The func has a defect; use with caution.
 //	I need help!
-func Parallel2[K, V any](numWorkers int, input iter.Seq2[K, V], steps ...Step2[K, V]) iter.Seq2[K, V] {
-	chans := seq.ToChans2(input, numWorkers)
-	output := make(chan seq.Tuple[K, V])
+func Parallel2[K, V any](num int, input iter.Seq2[K, V], steps ...Step2[K, V]) iter.Seq2[K, V] {
+	return func(yield func(K, V) bool) {
+		seqs := seq.Distribute2(input, num)
+		output := make(chan seq.Tuple[K, V])
+		wait := &sync.WaitGroup{}
 
-	go run2(chans, output, steps)
+		ctx, cancel := context.WithCancel(context.Background())
+		defer cancel()
 
-	return seq.Chan2(output)
-}
+		wait.Add(num)
 
-func run[V any](chans []chan V, output chan<- V, steps []Step[V]) {
-	wait := sync.WaitGroup{}
-	wait.Add(len(chans))
+		go closeChan(ctx, wait, output)
 
-	for _, cha := range chans {
-		go func(input chan V) {
-			defer wait.Done()
+		for idx := range num {
+			go func() {
+				select {
+				case <-ctx.Done():
+				default:
+					seq.Send2(Chain2(seqs[idx], steps...), output)
+					wait.Done()
+				}
+			}()
+		}
 
-			items := seq.Chan(input)
-
-			for _, step := range steps {
-				items = step(items)
+		for item := range output {
+			if !yield(item.K, item.V) {
+				return
 			}
-
-			for item := range items {
-				output <- item
-			}
-		}(cha)
+		}
 	}
-
-	wait.Wait()
-	close(output)
-}
-
-func run2[K, V any](chans []chan seq.Tuple[K, V], output chan<- seq.Tuple[K, V], steps []Step2[K, V]) {
-	wait := sync.WaitGroup{}
-	wait.Add(len(chans))
-
-	for _, cha := range chans {
-		go func(input chan seq.Tuple[K, V]) {
-			defer wait.Done()
-
-			items := seq.Chan2(input)
-
-			for _, step := range steps {
-				items = step(items)
-			}
-
-			for key, val := range items {
-				output <- seq.T(key, val)
-			}
-		}(cha)
-	}
-
-	wait.Wait()
-	close(output)
 }

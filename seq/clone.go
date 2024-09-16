@@ -31,7 +31,7 @@ func Clone2[K, V any](input iter.Seq2[K, V], num int) []iter.Seq2[K, V] {
 	for idx := range num {
 		ret[idx] = func(yield func(K, V) bool) {
 			for _, item := range items {
-				if !yield(item.A, item.B) {
+				if !yield(item.K, item.V) {
 					return
 				}
 			}
