@@ -58,6 +58,28 @@ func Distinct2[K comparable, V any]() Step2[K, V] {
 	return Step2[K, V]{seq.Distinct2[K, V], false}
 }
 
+// DropWhile creates a Step[V] that skips elements from 'input' as long as 'predicate' returns true.
+//
+// Once the predicate is false, it starts yielding elements.
+
+// It returned Step[V] can be used in a pipeline to process sequences.
+func DropWhile[V any](predicate func(V) bool) Step[V] {
+	return Step[V]{func(input iter.Seq[V]) iter.Seq[V] {
+		return seq.DropWhile(input, predicate)
+	}, true}
+}
+
+// DropWhile2 creates a Step2[K, V] that skips key-value pairs from 'input' as long as 'predicate' returns true.
+//
+// Once the predicate is false, it starts yielding pairs.
+//
+// It returned Step2[K, V] can be used in a pipeline to process sequences of key-value pairs.
+func DropWhile2[K, V any](predicate func(K, V) bool) Step2[K, V] {
+	return Step2[K, V]{func(input iter.Seq2[K, V]) iter.Seq2[K, V] {
+		return seq.DropWhile2(input, predicate)
+	}, true}
+}
+
 // Filter returns a transformation step that filters elements based on a predicate.
 //
 // This function returns a `Step` that can be used to create a new sequence containing only
@@ -256,4 +278,26 @@ func SortStableFunc2[K, V any](cmp func(seq.Tuple[K, V], seq.Tuple[K, V]) int) S
 	return Step2[K, V]{func(input iter.Seq2[K, V]) iter.Seq2[K, V] {
 		return seq.SortedStableFunc2(input, cmp)
 	}, false}
+}
+
+// TakeWhile creates a Step[V] that filters elements from 'input' using 'predicate'.
+//
+// It yields elements until the predicate is false for the first time.
+//
+// The returned Step[V] can be used in a pipeline to process sequences.
+func TakeWhile[V any](predicate func(V) bool) Step[V] {
+	return Step[V]{func(input iter.Seq[V]) iter.Seq[V] {
+		return seq.TakeWhile(input, predicate)
+	}, true}
+}
+
+// TakeWhile2 creates a Step2[K, V] that filters key-value pairs from 'input' using 'predicate'.
+//
+// It yields pairs until the predicate is false for the first time.
+//
+// The returned Step2[K, V] can be used in a pipeline to process sequences of key-value pairs.
+func TakeWhile2[K, V any](predicate func(K, V) bool) Step2[K, V] {
+	return Step2[K, V]{func(input iter.Seq2[K, V]) iter.Seq2[K, V] {
+		return seq.TakeWhile2(input, predicate)
+	}, true}
 }

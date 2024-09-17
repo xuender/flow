@@ -318,3 +318,55 @@ func ExamplePrepend2() {
 	// 0 0
 	// 1 1
 }
+
+func ExampleDropWhile() {
+	for num := range flow.Chain(
+		seq.Range(4),
+		flow.DropWhile(func(num int) bool { return num < 2 }),
+	) {
+		fmt.Println(num)
+	}
+
+	// Output:
+	// 2
+	// 3
+}
+
+func ExampleDropWhile2() {
+	for key, val := range flow.Chain2(
+		seq.Range2(4),
+		flow.DropWhile2(func(key, _ int) bool { return key < 2 }),
+	) {
+		fmt.Println(key, val)
+	}
+
+	// Output:
+	// 2 2
+	// 3 3
+}
+
+func ExampleTakeWhile() {
+	for num := range flow.Chain(
+		seq.Range(4),
+		flow.TakeWhile(func(num int) bool { return num < 2 }),
+	) {
+		fmt.Println(num)
+	}
+
+	// Output:
+	// 0
+	// 1
+}
+
+func ExampleTakeWhile2() {
+	for key, val := range flow.Chain2(
+		seq.Range2(4),
+		flow.TakeWhile2(func(key, _ int) bool { return key < 2 }),
+	) {
+		fmt.Println(key, val)
+	}
+
+	// Output:
+	// 0 0
+	// 1 1
+}
