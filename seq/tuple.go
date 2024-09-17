@@ -13,8 +13,8 @@ type Tuple[K, V any] struct {
 // T creates a Tuple from two values.
 //
 // It returns a Tuple containing the values.
-func T[V1, V2 any](val1 V1, val2 V2) Tuple[V1, V2] {
-	return Tuple[V1, V2]{val1, val2}
+func T[K, V any](key K, val V) Tuple[K, V] {
+	return Tuple[K, V]{key, val}
 }
 
 // Tuples converts a sequence of (key, value) pairs into a slice of Tuple[K, V].
