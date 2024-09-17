@@ -290,3 +290,31 @@ func ExampleRepeat2() {
 	// Output:
 	// 12
 }
+
+func ExamplePrepend() {
+	for num := range flow.Chain(
+		seq.Range(2),
+		flow.Prepend(9),
+	) {
+		fmt.Println(num)
+	}
+
+	// Output:
+	// 9
+	// 0
+	// 1
+}
+
+func ExamplePrepend2() {
+	for key, val := range flow.Chain2(
+		seq.Range2(2),
+		flow.Prepend2(seq.T(7, 8)),
+	) {
+		fmt.Println(key, val)
+	}
+
+	// Output:
+	// 7 8
+	// 0 0
+	// 1 1
+}

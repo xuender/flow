@@ -132,12 +132,30 @@ func Peek[V any](action func(V)) Step[V] {
 	}, true}
 }
 
+// Prepend creates a step that adds items to the beginning of a sequence.
+//
+// It function is useful for creating a prepending step in a pipeline.
+func Prepend[V any](items ...V) Step[V] {
+	return Step[V]{func(input iter.Seq[V]) iter.Seq[V] {
+		return seq.Prepend(input, items...)
+	}, true}
+}
+
 // Peek2 applies an action to each (key, value) pair in the sequence.
 //
 // It returns a new sequence with the same pairs.
 func Peek2[K, V any](action func(K, V)) Step2[K, V] {
 	return Step2[K, V]{func(input iter.Seq2[K, V]) iter.Seq2[K, V] {
 		return seq.Peek2(input, action)
+	}, true}
+}
+
+// Prepend2 creates a step that adds tuples to the beginning of a sequence.
+//
+// It function is useful for creating a prepending step in a pipeline for tuples.
+func Prepend2[K, V any](items ...seq.Tuple[K, V]) Step2[K, V] {
+	return Step2[K, V]{func(input iter.Seq2[K, V]) iter.Seq2[K, V] {
+		return seq.Prepend2(input, items...)
 	}, true}
 }
 
