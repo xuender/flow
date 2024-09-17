@@ -1,4 +1,22 @@
 
+0.0.7 / 2024-09-17
+==================
+
+* doc: Parallel
+* refactor: Parallel, Parallel2
+* feat: add seq.Distribute, seq.Send
+* refactor: benchmark
+* test: benchmark
+* doc: flow.Chain
+* doc: readme
+* feat: add seq.Last
+* doc: Step
+* doc: clean doc
+* doc: readme
+* chore: makefile
+* test: cover
+* chore: makefile
+
 0.0.6 / 2024-09-15
 ==================
 
