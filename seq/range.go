@@ -18,7 +18,7 @@ func Range(args ...int) iter.Seq[int] {
 	return func(yield func(int) bool) {
 		start, end, step := readArgs(args)
 
-		for range genLength(start, end, step) {
+		for range rangeLen(start, end, step) {
 			if !yield(start) {
 				return
 			}
@@ -43,7 +43,7 @@ func Range2(args ...int) iter.Seq2[int, int] {
 		start, end, step := readArgs(args)
 		idx := 0
 
-		for range genLength(start, end, step) {
+		for range rangeLen(start, end, step) {
 			if !yield(idx, start) {
 				return
 			}
@@ -54,7 +54,7 @@ func Range2(args ...int) iter.Seq2[int, int] {
 	}
 }
 
-func genLength(start, end, step int) int {
+func rangeLen(start, end, step int) int {
 	if start == end || (end > start && step < 0) || (end < start && step > 0) {
 		return 0
 	}
