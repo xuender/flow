@@ -22,7 +22,7 @@ func Parallel[V any](num int, input iter.Seq[V], steps ...Step[V]) iter.Seq[V] {
 				group = append(group, step)
 			} else {
 				if isParallel {
-					input = parallel(num, input, group...)
+					input = parallel(num, input, group)
 				} else {
 					input = Chain(input, group...)
 				}
@@ -34,7 +34,7 @@ func Parallel[V any](num int, input iter.Seq[V], steps ...Step[V]) iter.Seq[V] {
 		}
 
 		if isParallel {
-			input = parallel(num, input, group...)
+			input = parallel(num, input, group)
 		} else {
 			input = Chain(input, group...)
 		}
@@ -47,7 +47,7 @@ func Parallel[V any](num int, input iter.Seq[V], steps ...Step[V]) iter.Seq[V] {
 	}
 }
 
-func parallel[V any](num int, input iter.Seq[V], steps ...Step[V]) iter.Seq[V] {
+func parallel[V any](num int, input iter.Seq[V], steps []Step[V]) iter.Seq[V] {
 	return func(yield func(V) bool) {
 		seqs := seq.Distribute(input, num)
 		output := make(chan V, num)
@@ -102,7 +102,7 @@ func Parallel2[K, V any](num int, input iter.Seq2[K, V], steps ...Step2[K, V]) i
 				group = append(group, step)
 			} else {
 				if isParallel {
-					input = parallel2(num, input, group...)
+					input = parallel2(num, input, group)
 				} else {
 					input = Chain2(input, group...)
 				}
@@ -114,7 +114,7 @@ func Parallel2[K, V any](num int, input iter.Seq2[K, V], steps ...Step2[K, V]) i
 		}
 
 		if isParallel {
-			input = parallel2(num, input, group...)
+			input = parallel2(num, input, group)
 		} else {
 			input = Chain2(input, group...)
 		}
@@ -127,7 +127,7 @@ func Parallel2[K, V any](num int, input iter.Seq2[K, V], steps ...Step2[K, V]) i
 	}
 }
 
-func parallel2[K, V any](num int, input iter.Seq2[K, V], steps ...Step2[K, V]) iter.Seq2[K, V] {
+func parallel2[K, V any](num int, input iter.Seq2[K, V], steps []Step2[K, V]) iter.Seq2[K, V] {
 	return func(yield func(K, V) bool) {
 		seqs := seq.Distribute2(input, num)
 		output := make(chan seq.Tuple[K, V], num)
