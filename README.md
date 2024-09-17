@@ -34,28 +34,90 @@ import (
 )
 
 func main() {
+  start := time.Now()
+
   for num :=range flow.Chain(
     seq.Range(100),
     flow.Filter(func(num int) bool { return num%3 == 0 }),
     flow.Skip[int](5),
     flow.Limit[int](4),
+    flow.Peek(func(num int) {
+      fmt.Println("peek", num)
+      time.Sleep(time.Second)
+    }),
     flow.Reverse[int](),
   ) {
     fmt.Println(num)
   }
+
+  fmt.Printf("Chain: %v\n", time.Since(start))
 }
 ```
 
 Output:
 
 ```shell
+peek 15
+peek 18
+peek 21
+peek 24
 24
 21
 18
 15
+Chain: 4s
 ```
 
-[[play](https://go.dev/play/p/JydmjWYw9rw)]
+[[play](https://go.dev/play/p/-qmIigTfHXt)]
+
+### Parallel
+
+```go
+package main
+
+import (
+  "fmt"
+
+  "github.com/xuender/flow"
+  "github.com/xuender/flow/seq"
+)
+
+func main() {
+  start := time.Now()
+
+  for num := range flow.Parallel(3,
+    seq.Range(100),
+    flow.Filter(func(num int) bool { return num%3 == 0 }),
+    flow.Skip[int](5),
+    flow.Limit[int](4),
+    flow.Peek(func(num int) {
+      fmt.Println("peek", num)
+      time.Sleep(time.Second)
+    }),
+    flow.Reverse[int](),
+  ) {
+    fmt.Println(num)
+  }
+
+  fmt.Printf("Parallel: %v\n", time.Since(start))
+}
+```
+
+Output:
+
+```shell
+peek 15
+peek 18
+peek 21
+peek 24
+24
+21
+18
+15
+Parallel: 2s
+```
+
+[[play](https://go.dev/play/p/1E76NdEwaoP)]
 
 ### seq.Range
 
