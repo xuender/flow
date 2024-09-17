@@ -24,7 +24,7 @@ jobs:
           only-new-issues: false
           working-directory: .
       - name: Test
-        run: go test -v ./... -gcflags=all=-l
+        run: go test -race -v ./... -gcflags=all=-l
       - name: Coverage
         run: go test ./... -gcflags=all=-l -coverprofile=coverage.txt -covermode=atomic
       - name: Upload coverage to Codecov
