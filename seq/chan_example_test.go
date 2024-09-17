@@ -63,25 +63,6 @@ func ExampleToChans() {
 	// 4
 }
 
-func ExampleToChans_break() {
-	chans := seq.ToChans(seq.Range(10), 3)
-
-	for _, cha := range chans {
-		for item := range cha {
-			if item > 2 {
-				break
-			}
-
-			fmt.Println(item)
-		}
-	}
-
-	// Output:
-	// 0
-	// 1
-	// 2
-}
-
 func ExampleToChans2() {
 	chans := seq.ToChans2(seq.Range2(5), 3)
 
@@ -97,23 +78,4 @@ func ExampleToChans2() {
 	// 2 2
 	// 3 3
 	// 4 4
-}
-
-func ExampleToChans2_break() {
-	chans := seq.ToChans2(seq.Range2(10), 3)
-
-	for _, cha := range chans {
-		for item := range cha {
-			if item.K > 2 {
-				break
-			}
-
-			fmt.Println(item.K, item.V)
-		}
-	}
-
-	// Output:
-	// 0 0
-	// 1 1
-	// 2 2
 }

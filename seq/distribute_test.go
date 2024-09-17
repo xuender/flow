@@ -1,14 +1,16 @@
 package seq_test
 
 import (
-	"fmt"
 	"sync"
 	"sync/atomic"
+	"testing"
 
 	"github.com/xuender/flow/seq"
 )
 
-func ExampleDistribute() {
+func TestDistribute(t *testing.T) {
+	t.Parallel()
+
 	seqs := seq.Distribute(seq.Range(100), 5)
 	wait := sync.WaitGroup{}
 
@@ -18,7 +20,11 @@ func ExampleDistribute() {
 
 	for _, input := range seqs {
 		go func() {
-			for range input {
+			for num := range input {
+				if num > 10 {
+					break
+				}
+
 				atomic.AddInt32(&count, 1)
 			}
 
@@ -27,13 +33,15 @@ func ExampleDistribute() {
 	}
 
 	wait.Wait()
-	fmt.Println(count)
 
-	// Output:
-	// 100
+	if count != 11 {
+		t.Errorf("Distribute count:%d", count)
+	}
 }
 
-func ExampleDistribute2() {
+func TestDistribute2(t *testing.T) {
+	t.Parallel()
+
 	seqs := seq.Distribute2(seq.Range2(100), 5)
 	wait := sync.WaitGroup{}
 
@@ -43,7 +51,11 @@ func ExampleDistribute2() {
 
 	for _, input := range seqs {
 		go func() {
-			for range input {
+			for num := range input {
+				if num > 10 {
+					break
+				}
+
 				atomic.AddInt32(&count, 1)
 			}
 
@@ -52,8 +64,8 @@ func ExampleDistribute2() {
 	}
 
 	wait.Wait()
-	fmt.Println(count)
 
-	// Output:
-	// 100
+	if count != 11 {
+		t.Errorf("Distribute2 count:%d", count)
+	}
 }
