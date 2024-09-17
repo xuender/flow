@@ -200,6 +200,7 @@ seq.Range(3, 7, 0)
 | Limit          | Limit2          |                       |
 | Merge          | Merge2          |                       |
 | Peek           | Peek2           | Parallel function.    |
+| Prepend        | Prepend2        |                       |
 | Repeat         | Repeat2         |                       |
 | Reverse        | Reverse2        |                       |
 | Skip           | Skip2           |                       |
@@ -242,6 +243,7 @@ seq.Range(3, 7, 0)
 | seq.Map              | seq.Map2              |                       |
 | seq.Merge            | seq.Merge2            |                       |
 | seq.Peek             | seq.Peek2             |                       |
+| seq.Prepend          | seq.Prepend2          |                       |
 | seq.Range            | seq.Range2            |                       |
 | seq.Reduce           | seq.Reduce2           |                       |
 | seq.Repeat           | seq.Repeat2           |                       |
