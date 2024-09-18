@@ -8,14 +8,17 @@ import (
 )
 
 func ExampleChain() {
-	fmt.Println(seq.Max(flow.Chain(
+	for num := range flow.Chain(
 		seq.Range(100),
 		flow.Limit[int](3),
 		flow.Filter(func(num int) bool { return num%2 == 0 }),
-	)))
+	) {
+		fmt.Println(num)
+	}
 
 	// Output:
-	// 2 true
+	// 0
+	// 2
 }
 
 func ExampleChain_map() {
@@ -25,13 +28,14 @@ func ExampleChain_map() {
 		flow.Filter(func(num int) bool { return num%2 == 0 }),
 	)
 
-	fmt.Println(
-		seq.Join(flow.Chain(
-			seq.Map(items, func(num int) string { return fmt.Sprintf("num:%d", num) }),
-			flow.Limit[string](2),
-		), ","),
-	)
+	for str := range flow.Chain(
+		seq.Map(items, func(num int) string { return fmt.Sprintf("num:%d", num) }),
+		flow.Limit[string](2),
+	) {
+		fmt.Println(str)
+	}
 
 	// Output:
-	// num:0,num:2
+	// num:0
+	// num:2
 }
