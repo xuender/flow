@@ -1,4 +1,21 @@
 
+0.0.9 / 2024-09-18
+==================
+
+* feat: add seq.Zip
+* feat: add Shuffle, Shuffle2, seq.Shuffle, seq.Shuffle2
+* feat: add seq.Window, seq.Windows
+* doc: readme
+* doc: godoc
+* doc: godoc
+* doc: remove seq.FlatMap2
+* feat: add Map, Map2
+* doc: Custom Step function
+* test: add Chain2 example
+* test: Chain Map
+* doc: readme
+* feat: DropWhile, TakeWhile, DropWhile2, TakeWhile2 update sequential
+
 0.0.8 / 2024-09-18
 ==================
 
