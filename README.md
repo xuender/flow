@@ -195,12 +195,14 @@ seq.Range(3, 7, 0)
 | iter.Seq[V] | iter.Seq2[K,V] | Note                          |
 | ----------- | -------------- | ----------------------------- |
 | Append      | Append2        | Append2 used seq.Tuple[K, V]. |
+| DropWhile   | DropWhile2     | Parallel function.            |
 | Filter      | Filter2        | Parallel function.            |
 | Limit       | Limit2         |                               |
 | Peek        | Peek2          | Parallel function.            |
 | Prepend     | Prepend2       |                               |
 | Repeat      | Repeat2        |                               |
 | Skip        | Skip2          |                               |
+| TakeWhile   | TakeWhile2     | Parallel function.            |
 
 ### Terminal Functions
 
@@ -235,6 +237,7 @@ seq.Range(3, 7, 0)
 | seq.Chan             | seq.Chan2             | Chan2 used seq.Tuple[K, V].             |
 | seq.Collect          | seq.Collect2          |                                         |
 | seq.Distinct         | seq.Distinct2         |                                         |
+| seq.DropWhile        | seq.DropWhile2        |                                         |
 | seq.Emit             | seq.Emit2             |                                         |
 | seq.Filter           | seq.Filter2           |                                         |
 | seq.FlatMap          | seq.FlatMap2          |                                         |
@@ -253,9 +256,10 @@ seq.Range(3, 7, 0)
 | seq.Sorted           | seq.Sorted2           |                                         |
 | seq.SortedFunc       | seq.SortedFunc2       | SortedFunc2 used seq.Tuple[K, V].       |
 | seq.SortedStableFunc | seq.SortedStableFunc2 | SortedStableFunc2 used seq.Tuple[K, V]. |
+| seq.TakeWhile        | seq.TakeWhile2        |                                         |
 | seq.ToChans          | seq.ToChans2          | ToChans2 used seq.Tuple[K, V].          |
-|                      | seq.Values            |                                         |
 |                      | seq.Tuples            |                                         |
+|                      | seq.Values            |                                         |
 
 ## 👤 Contributors
 

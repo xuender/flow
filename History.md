@@ -1,4 +1,16 @@
 
+0.0.8 / 2024-09-18
+==================
+
+* feat: add DropWhile, TakeWhile, DropWhile2, TakeWhile2
+* refactor: rename rangeLen
+* refactor: T
+* doc: Prepend, Prepend2
+* feat: add Prepend, Prepend2
+* chore: test -race
+* test: cover
+* refactor: parallel, parallel2
+
 0.0.7 / 2024-09-17
 ==================
 
