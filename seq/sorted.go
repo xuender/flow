@@ -10,6 +10,8 @@ import (
 // Sorted sorts a sequence of elements that implement the cmp.Ordered interface.
 //
 // It returns a new sorted sequence.
+//
+// Play: https://go.dev/play/p/5Oe9nuwtJ8x
 func Sorted[V cmp.Ordered](input iter.Seq[V]) iter.Seq[V] {
 	return func(yield func(V) bool) {
 		for _, item := range slices.Sorted(input) {
@@ -23,6 +25,8 @@ func Sorted[V cmp.Ordered](input iter.Seq[V]) iter.Seq[V] {
 // Sorted2 sorts the input sequence by keys and returns a sorted sequence.
 //
 // It takes a sequence of (key, value) pairs where keys are ordered.
+//
+// Play: https://go.dev/play/p/_msKNYeyauI
 func Sorted2[K cmp.Ordered, V any](input iter.Seq2[K, V]) iter.Seq2[K, V] {
 	return func(yield func(K, V) bool) {
 		items := maps.Collect(input)

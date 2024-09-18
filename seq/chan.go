@@ -11,6 +11,8 @@ const _defaultDuration = time.Duration(50) * time.Millisecond
 //
 // It takes a channel `input` and returns an iterator function that yields elements
 // from the channel until it is closed.
+//
+// Play: https://go.dev/play/p/Mi1zPueGIj5
 func Chan[V any](input chan V) iter.Seq[V] {
 	return func(yield func(V) bool) {
 		defer func() {
@@ -30,6 +32,8 @@ func Chan[V any](input chan V) iter.Seq[V] {
 // Chan2 converts a channel of (key, value) tuples into a sequence.
 //
 // It returns a function that yields the tuples.
+//
+// Play: https://go.dev/play/p/Rut7y-2vab8
 func Chan2[K, V any](input chan Tuple[K, V]) iter.Seq2[K, V] {
 	return func(yield func(K, V) bool) {
 		defer func() {
@@ -50,6 +54,8 @@ func Chan2[K, V any](input chan Tuple[K, V]) iter.Seq2[K, V] {
 //
 // It takes a sequence `input` and an integer `size` indicating the number of channels.
 // It distributes the elements evenly among the specified number of channels.
+//
+// Play: https://go.dev/play/p/jGnmFmeCwgj
 func ToChans[V any](input iter.Seq[V], size int) []chan V {
 	chans := make([]chan V, size)
 	for idx := range size {
@@ -64,6 +70,8 @@ func ToChans[V any](input iter.Seq[V], size int) []chan V {
 // ToChans2 converts the input sequence into a slice of channels.
 //
 // Each channel receives (key, value) tuples.
+//
+// Play: https://go.dev/play/p/3BPhqH9_H3H
 func ToChans2[K, V any](input iter.Seq2[K, V], size int) []chan Tuple[K, V] {
 	chans := make([]chan Tuple[K, V], size)
 	for idx := range size {

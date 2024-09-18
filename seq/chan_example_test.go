@@ -14,12 +14,12 @@ func ExampleChan() {
 
 	close(cha)
 
-	for item := range seq.Chan(cha) {
-		if item > 1 {
+	for num := range seq.Chan(cha) {
+		if num > 1 {
 			break
 		}
 
-		fmt.Println(item)
+		fmt.Println(num)
 	}
 
 	// Output:

@@ -7,6 +7,8 @@ import (
 // Reduce reduces the elements of the input sequence using the provided accumulator function.
 //
 // It returns the reduced result and a boolean indicating if reduction occurred.
+//
+// Play: https://go.dev/play/p/hnzytOtLAMi
 func Reduce[V any](input iter.Seq[V], accumulator func(V, V) V) (V, bool) {
 	var (
 		ret      V
@@ -30,6 +32,8 @@ func Reduce[V any](input iter.Seq[V], accumulator func(V, V) V) (V, bool) {
 // Reduce2 reduces a sequence of (key, value) pairs using an accumulator function.
 //
 // It returns the reduced result and a boolean indicating if reduction occurred.
+//
+// Play: https://go.dev/play/p/En1xY_ONKGO
 func Reduce2[K, V any](input iter.Seq2[K, V], accumulator func(K, V, K, V) (K, V)) (K, V, bool) {
 	var (
 		retKey   K

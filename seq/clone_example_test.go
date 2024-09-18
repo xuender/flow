@@ -7,9 +7,7 @@ import (
 )
 
 func ExampleClone() {
-	seqs := seq.Clone(seq.Range(2), 3)
-
-	for _, items := range seqs {
+	for _, items := range seq.Clone(seq.Range(2), 3) {
 		for num := range items {
 			if num > 0 {
 				break
@@ -26,9 +24,7 @@ func ExampleClone() {
 }
 
 func ExampleClone2() {
-	seqs := seq.Clone2(seq.Range2(2), 3)
-
-	for _, items := range seqs {
+	for _, items := range seq.Clone2(seq.Range2(2), 3) {
 		for key, val := range items {
 			if key > 0 {
 				break

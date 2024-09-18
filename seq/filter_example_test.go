@@ -9,9 +9,7 @@ import (
 func ExampleFilter() {
 	for num := range seq.Filter(
 		seq.Range(6),
-		func(num int) bool {
-			return num%2 == 0
-		},
+		func(num int) bool { return num%2 == 0 },
 	) {
 		if num > 2 {
 			break
@@ -28,9 +26,7 @@ func ExampleFilter() {
 func ExampleFilter2() {
 	for key, val := range seq.Filter2(
 		seq.Range2(6),
-		func(key, _ int) bool {
-			return key%2 == 0
-		},
+		func(key, _ int) bool { return key%2 == 0 },
 	) {
 		if key > 2 {
 			break

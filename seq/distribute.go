@@ -9,6 +9,8 @@ import (
 // Distribute distributes the input sequence across multiple sequences based on the given number.
 //
 // It returns the resulting slice of sequences.
+//
+// Play: https://go.dev/play/p/R16UoqYOJmk
 func Distribute[V any](input iter.Seq[V], num int) []iter.Seq[V] {
 	var (
 		count = int32(num) // nolint: gosec
@@ -48,6 +50,8 @@ func Distribute[V any](input iter.Seq[V], num int) []iter.Seq[V] {
 // Distribute2 distributes the input sequence across multiple sequences based on the given number.
 //
 // It returns the resulting slice of sequences.
+//
+// Play: https://go.dev/play/p/K7MnBXCMwiX
 func Distribute2[K, V any](input iter.Seq2[K, V], num int) []iter.Seq2[K, V] {
 	var (
 		count = int32(num) // nolint: gosec

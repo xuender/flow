@@ -84,6 +84,8 @@ func DropWhile2[K, V any](predicate func(K, V) bool) Step2[K, V] {
 //
 // It returns a `Step` that can be used to create a new sequence containing only
 // the elements that satisfy the given `predicate`.
+//
+// Play: https://go.dev/play/p/JydmjWYw9rw
 func Filter[V any](predicate func(V) bool) Step[V] {
 	return Step[V]{func(input iter.Seq[V]) iter.Seq[V] {
 		return seq.Filter(input, predicate)
@@ -103,6 +105,8 @@ func Filter2[K, V any](predicate func(K, V) bool) Step2[K, V] {
 //
 // It returns a `Step` that creates a new sequence containing at most `limit` elements
 // from the input sequence.
+//
+// Play: https://go.dev/play/p/JydmjWYw9rw
 func Limit[V any](limit int) Step[V] {
 	return Step[V]{func(input iter.Seq[V]) iter.Seq[V] {
 		return seq.Limit(input, limit)
@@ -174,6 +178,8 @@ func Merge2[K, V any](seqs ...iter.Seq2[K, V]) Step2[K, V] {
 //
 // It returns a `Step` that calls the `action` function on each element of the input
 // sequence without modifying the sequence itself.
+//
+// Play: https://go.dev/play/p/0YiWlMdzwMk
 func Peek[V any](action func(V)) Step[V] {
 	return Step[V]{func(input iter.Seq[V]) iter.Seq[V] {
 		return seq.Peek(input, action)
@@ -226,6 +232,8 @@ func Repeat2[K, V any](count int) Step2[K, V] {
 // Reverse returns a transformation step that reverses the order of elements in a sequence.
 //
 // It returns a `Step` that creates a new sequence with the elements in reverse order.
+//
+// Play: https://go.dev/play/p/JydmjWYw9rw
 func Reverse[V any]() Step[V] {
 	return Step[V]{seq.Reverse[V], false}
 }
@@ -255,6 +263,8 @@ func Shuffle2[K, V any]() Step2[K, V] {
 //
 // It returns a `Step` that creates a new sequence by skipping the first `num` elements
 // of the input sequence.
+//
+// Play: https://go.dev/play/p/JydmjWYw9rw
 func Skip[V any](num int) Step[V] {
 	return Step[V]{func(input iter.Seq[V]) iter.Seq[V] {
 		return seq.Skip(input, num)

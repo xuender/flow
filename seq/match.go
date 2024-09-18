@@ -5,6 +5,8 @@ import "iter"
 // AnyMatch checks if any element in the input sequence satisfies the given predicate.
 //
 // If any element satisfies the predicate, the function returns true; otherwise, it returns false.
+//
+// Play: https://go.dev/play/p/3iIICGB4VsQ
 func AnyMatch[V any](input iter.Seq[V], predicate func(V) bool) bool {
 	for item := range input {
 		if predicate(item) {
@@ -18,6 +20,8 @@ func AnyMatch[V any](input iter.Seq[V], predicate func(V) bool) bool {
 // AnyMatch2 checks if any (key, value) pair in the sequence satisfies a predicate.
 //
 // It returns true if at least one pair satisfies the predicate.
+//
+// Play: https://go.dev/play/p/tPbNr8MDPhp
 func AnyMatch2[K, V any](input iter.Seq2[K, V], predicate func(K, V) bool) bool {
 	for key, item := range input {
 		if predicate(key, item) {
@@ -31,6 +35,8 @@ func AnyMatch2[K, V any](input iter.Seq2[K, V], predicate func(K, V) bool) bool 
 // AllMatch checks if all elements in the input sequence satisfy the given predicate.
 //
 // If all elements satisfy the predicate, the function returns true; otherwise, it returns false.
+//
+// Play: https://go.dev/play/p/WjtXihB0DTZ
 func AllMatch[V any](input iter.Seq[V], predicate func(V) bool) bool {
 	ret := false
 
@@ -48,6 +54,8 @@ func AllMatch[V any](input iter.Seq[V], predicate func(V) bool) bool {
 // AllMatch2 checks if all (key, value) pairs in the sequence satisfy a predicate.
 //
 // It returns true if all pairs satisfy the predicate.
+//
+// Play: https://go.dev/play/p/SVvKOkEBFsR
 func AllMatch2[K, V any](input iter.Seq2[K, V], predicate func(K, V) bool) bool {
 	ret := false
 
@@ -65,6 +73,8 @@ func AllMatch2[K, V any](input iter.Seq2[K, V], predicate func(K, V) bool) bool 
 // NoneMatch checks if no elements in the input sequence satisfy the given predicate.
 //
 // If no elements satisfy the predicate, the function returns true; otherwise, it returns false.
+//
+// Play: https://go.dev/play/p/SulpdR0V3qQ
 func NoneMatch[V any](input iter.Seq[V], predicate func(V) bool) bool {
 	return !AnyMatch(input, predicate)
 }
@@ -72,6 +82,8 @@ func NoneMatch[V any](input iter.Seq[V], predicate func(V) bool) bool {
 // NoneMatch2 checks if no (key, value) pairs in the sequence satisfy a predicate.
 //
 // It returns true if no pairs satisfy the predicate.
+//
+// Play: https://go.dev/play/p/tsJ4Bz5SUSZ
 func NoneMatch2[K, V any](input iter.Seq2[K, V], predicate func(K, V) bool) bool {
 	return !AnyMatch2(input, predicate)
 }

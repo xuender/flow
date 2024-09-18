@@ -9,6 +9,8 @@ import (
 //
 // It returns a slice of `Seq[V]` objects, each of which is an independent iterator
 // over the elements of the input sequence. The input sequence is only iterated once.
+//
+// Play: https://go.dev/play/p/0UO3wI-MPvK
 func Clone[V any](input iter.Seq[V], num int) []iter.Seq[V] {
 	items := slices.Collect(input)
 	ret := make([]iter.Seq[V], num)
@@ -24,6 +26,8 @@ func Clone[V any](input iter.Seq[V], num int) []iter.Seq[V] {
 //
 // It returns a slice of `Seq2[K, V]` objects, each of which is an independent iterator
 // over the elements of the input sequence. The input sequence is only iterated once.
+//
+// Play: https://go.dev/play/p/HSmbV11r-9L
 func Clone2[K, V any](input iter.Seq2[K, V], num int) []iter.Seq2[K, V] {
 	items := Tuples(input)
 	ret := make([]iter.Seq2[K, V], num)

@@ -5,6 +5,8 @@ import (
 )
 
 // Send sends items from the input sequence to the provided output channel.
+//
+// Play: https://go.dev/play/p/WTYoREBeZd3
 func Send[V any](input iter.Seq[V], output chan<- V) {
 	defer func() {
 		_ = recover()

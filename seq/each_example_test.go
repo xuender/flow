@@ -7,8 +7,7 @@ import (
 )
 
 func ExampleEach() {
-	seq.Each(
-		seq.Range(5),
+	seq.Each(seq.Range(5),
 		func(num int) bool {
 			if num > 2 {
 				return false
@@ -27,8 +26,7 @@ func ExampleEach() {
 }
 
 func ExampleEach2() {
-	seq.Each2(
-		seq.Range2(5),
+	seq.Each2(seq.Range2(5),
 		func(key, val int) bool {
 			if key > 2 {
 				return false

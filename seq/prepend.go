@@ -5,6 +5,8 @@ import "iter"
 // Prepend adds items to the beginning of the sequence.
 //
 // It function is useful for prepending items to a sequence in a functional manner.
+//
+// Play: https://go.dev/play/p/F-H1tK8saqh
 func Prepend[V any](input iter.Seq[V], items ...V) iter.Seq[V] {
 	return func(yield func(V) bool) {
 		for _, item := range items {
@@ -24,6 +26,8 @@ func Prepend[V any](input iter.Seq[V], items ...V) iter.Seq[V] {
 // Prepend2 adds tuples to the beginning of the sequence.
 //
 // It function is useful for prepending tuples to a sequence in a functional manner.
+//
+// Play: https://go.dev/play/p/twjNH_C90Nt
 func Prepend2[K, V any](input iter.Seq2[K, V], items ...Tuple[K, V]) iter.Seq2[K, V] {
 	return func(yield func(K, V) bool) {
 		for _, item := range items {

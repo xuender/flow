@@ -13,6 +13,8 @@ type Tuple[K, V any] struct {
 // T creates a Tuple from two values.
 //
 // It returns a Tuple containing the values.
+//
+// Play: https://go.dev/play/p/yGCbA5v9OyG
 func T[K, V any](key K, val V) Tuple[K, V] {
 	return Tuple[K, V]{key, val}
 }
@@ -20,6 +22,8 @@ func T[K, V any](key K, val V) Tuple[K, V] {
 // Tuples converts a sequence of (key, value) pairs into a slice of Tuple[K, V].
 //
 // It returns the slice containing the tuples.
+//
+// Play: https://go.dev/play/p/t9QhSnSONUB
 func Tuples[K, V any](input iter.Seq2[K, V]) []Tuple[K, V] {
 	ret := []Tuple[K, V]{}
 

@@ -7,6 +7,8 @@ import (
 // Window creates a sequence of sliding windows over the input sequence.
 //
 // Each window contains `size` consecutive elements from the input.
+//
+// Play: https://go.dev/play/p/6yLGRvq29n6
 func Window[V any](size int, input iter.Seq[V]) iter.Seq[[]V] {
 	return func(yield func([]V) bool) {
 		cache := []V{}

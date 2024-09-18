@@ -6,6 +6,8 @@ import "iter"
 //
 // It takes an input sequence `input` and a variadic list of `steps`.
 // Each step is applied sequentially to the input sequence.
+//
+// Play: https://go.dev/play/p/JydmjWYw9rw
 func Chain[V any](input iter.Seq[V], steps ...Step[V]) iter.Seq[V] {
 	for _, step := range steps {
 		input = step.Next(input)

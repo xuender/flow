@@ -8,7 +8,7 @@ import (
 )
 
 func ExampleDistinct() {
-	for num := range seq.Distinct(slices.Values([]int{1, 2, 2, 3, 1})) {
+	for num := range seq.Distinct(slices.Values([]int{2, 2, 1, 3, 1})) {
 		if num > 2 {
 			break
 		}
@@ -17,8 +17,8 @@ func ExampleDistinct() {
 	}
 
 	// Output:
-	// 1
 	// 2
+	// 1
 }
 
 func ExampleDistinct2() {

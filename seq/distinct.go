@@ -8,6 +8,8 @@ import (
 //
 // It iterates over the sequence `input` and filters out duplicate elements.
 // Only the first occurrence of each element is included in the new sequence.
+//
+// Play: https://go.dev/play/p/q87wdCVLrxm
 func Distinct[V comparable](input iter.Seq[V]) iter.Seq[V] {
 	return func(yield func(V) bool) {
 		none := struct{}{}
@@ -30,6 +32,8 @@ func Distinct[V comparable](input iter.Seq[V]) iter.Seq[V] {
 // Distinct2 returns a sequence that yields unique (key, value) pairs from the input sequence.
 //
 // It filters out duplicate keys based on their comparability.
+//
+// Play: https://go.dev/play/p/y87nHXwUK43
 func Distinct2[K comparable, V any](input iter.Seq2[K, V]) iter.Seq2[K, V] {
 	return func(yield func(K, V) bool) {
 		none := struct{}{}

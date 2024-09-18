@@ -9,6 +9,8 @@ import (
 // Shuffle returns a new sequence with the elements of the input sequence in a random order.
 //
 // It shuffles the input and yields each element in the shuffled order.
+//
+// Play: https://go.dev/play/p/dVl8GzLyL6l
 func Shuffle[V any](input iter.Seq[V]) iter.Seq[V] {
 	return func(yield func(V) bool) {
 		slice := slices.Collect(input)
@@ -28,6 +30,8 @@ func Shuffle[V any](input iter.Seq[V]) iter.Seq[V] {
 // Shuffle2 returns a new sequence with the pairs of the input sequence in a random order.
 //
 // It shuffles the input pairs and yields each pair in the shuffled order.
+//
+// Play: https://go.dev/play/p/vvtLAWPy2Nf
 func Shuffle2[K, V any](input iter.Seq2[K, V]) iter.Seq2[K, V] {
 	return func(yield func(K, V) bool) {
 		slice := Tuples(input)

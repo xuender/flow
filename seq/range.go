@@ -14,6 +14,8 @@ import (
 //	  1 argument: Generates from 0 to args[0] (exclusive).
 //	  2 arguments: Generates from args[0] to args[1] (exclusive).
 //	  3 or more arguments: Generates from args[0] to args[1] (exclusive) with a step of args[2].
+//
+// Play: https://go.dev/play/p/-FZJfetngJY
 func Range(args ...int) iter.Seq[int] {
 	return func(yield func(int) bool) {
 		start, end, step := readArgs(args)
