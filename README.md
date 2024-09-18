@@ -264,6 +264,7 @@ seq.Range(3, 7, 0)
 |                      | seq.Tuples            |
 |                      | seq.Values            |
 | seq.Window           | seq.Window2           |
+| seq.Zip              |                       |
 
 ### Custom Step[V] / Step2[K,V] function
 
