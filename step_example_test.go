@@ -370,3 +370,31 @@ func ExampleTakeWhile2() {
 	// 0 0
 	// 1 1
 }
+
+func ExampleMap() {
+	for num := range flow.Chain(
+		seq.Range(3),
+		flow.Map(func(num int) int { return num * 2 }),
+	) {
+		fmt.Println(num)
+	}
+
+	// Output:
+	// 0
+	// 2
+	// 4
+}
+
+func ExampleMap2() {
+	for key, val := range flow.Chain2(
+		seq.Range2(3),
+		flow.Map2(func(key, val int) (int, int) { return key * 2, val * 3 }),
+	) {
+		fmt.Println(key, val)
+	}
+
+	// Output:
+	// 0 0
+	// 2 3
+	// 4 6
+}

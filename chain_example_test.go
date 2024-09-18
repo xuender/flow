@@ -10,18 +10,21 @@ import (
 func ExampleChain() {
 	for num := range flow.Chain(
 		seq.Range(100),
-		flow.Limit[int](3),
-		flow.Filter(func(num int) bool { return num%2 == 0 }),
+		flow.Limit[int](10),
+		flow.Filter(func(num int) bool { return num%3 == 0 }),
+		flow.Map(func(num int) int { return num * 2 }),
 	) {
 		fmt.Println(num)
 	}
 
 	// Output:
 	// 0
-	// 2
+	// 6
+	// 12
+	// 18
 }
 
-func ExampleChain_map() {
+func ExampleChain_mapChangeType() {
 	items := flow.Chain(
 		seq.Range(100),
 		flow.Limit[int](3),
