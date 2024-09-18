@@ -261,6 +261,12 @@ seq.Range(3, 7, 0)
 |                      | seq.Tuples            |
 |                      | seq.Values            |
 
+### Custom Step[V] / Step2[K,V] function
+
+Refer to `Append`, `Sored`, `Filter`, etc.
+
+ps: Attention Parallel.
+
 ## 👤 Contributors
 
 ![Contributors][contributors-svg]
