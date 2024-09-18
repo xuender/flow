@@ -45,7 +45,7 @@ func Append2[K, V any](items ...seq.Tuple[K, V]) Step2[K, V] {
 
 // Distinct returns a transformation step that filters out duplicate elements from a sequence.
 //
-// This function returns a `Step` that can be used to create a new sequence containing only
+// It returns a `Step` that can be used to create a new sequence containing only
 // the distinct elements from the input sequence.
 func Distinct[V comparable]() Step[V] {
 	return Step[V]{seq.Distinct[V], false}
@@ -82,7 +82,7 @@ func DropWhile2[K, V any](predicate func(K, V) bool) Step2[K, V] {
 
 // Filter returns a transformation step that filters elements based on a predicate.
 //
-// This function returns a `Step` that can be used to create a new sequence containing only
+// It returns a `Step` that can be used to create a new sequence containing only
 // the elements that satisfy the given `predicate`.
 func Filter[V any](predicate func(V) bool) Step[V] {
 	return Step[V]{func(input iter.Seq[V]) iter.Seq[V] {
@@ -101,7 +101,7 @@ func Filter2[K, V any](predicate func(K, V) bool) Step2[K, V] {
 
 // Limit returns a transformation step that limits the number of elements in a sequence.
 //
-// This function returns a `Step` that creates a new sequence containing at most `limit` elements
+// It returns a `Step` that creates a new sequence containing at most `limit` elements
 // from the input sequence.
 func Limit[V any](limit int) Step[V] {
 	return Step[V]{func(input iter.Seq[V]) iter.Seq[V] {
@@ -172,7 +172,7 @@ func Merge2[K, V any](seqs ...iter.Seq2[K, V]) Step2[K, V] {
 
 // Peek returns a transformation step that applies an action to each element in the sequence.
 //
-// This function returns a `Step` that calls the `action` function on each element of the input
+// It returns a `Step` that calls the `action` function on each element of the input
 // sequence without modifying the sequence itself.
 func Peek[V any](action func(V)) Step[V] {
 	return Step[V]{func(input iter.Seq[V]) iter.Seq[V] {

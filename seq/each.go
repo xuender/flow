@@ -4,7 +4,7 @@ import "iter"
 
 // Each applies a function to each element in the input sequence.
 //
-// This function iterates over the sequence `input` and applies the `yield` function to each element.
+// It iterates over the sequence `input` and applies the `yield` function to each element.
 // Iteration stops if `yield` returns false.
 func Each[V any](input iter.Seq[V], yield func(V) bool) {
 	for item := range input {

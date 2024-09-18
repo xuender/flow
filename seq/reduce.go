@@ -6,7 +6,7 @@ import (
 
 // Reduce reduces the elements of the input sequence using the provided accumulator function.
 //
-// This function takes a sequence `input` and an `accumulator` function. It applies the accumulator
+// It takes a sequence `input` and an `accumulator` function. It applies the accumulator
 // function cumulatively to the items of the sequence, from left to right, to reduce the sequence.
 func Reduce[V any](input iter.Seq[V], accumulator func(V, V) V) (V, bool) {
 	var (

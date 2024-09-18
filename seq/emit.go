@@ -4,7 +4,7 @@ import "iter"
 
 // Emit consumes the input sequence by calling its iterator with a function that always returns true.
 //
-// This function effectively drains the sequence `input` by iterating over all its elements.
+// It effectively drains the sequence `input` by iterating over all its elements.
 func Emit[V any](input iter.Seq[V]) {
 	input(func(V) bool {
 		return true

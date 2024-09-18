@@ -4,7 +4,7 @@ import "iter"
 
 // AnyMatch checks if any element in the input sequence satisfies the given predicate.
 //
-// This function iterates over the elements in `input` and applies the `predicate` function to each element.
+// It iterates over the elements in `input` and applies the `predicate` function to each element.
 // If any element satisfies the predicate, the function returns true; otherwise, it returns false.
 func AnyMatch[V any](input iter.Seq[V], predicate func(V) bool) bool {
 	for item := range input {
@@ -30,7 +30,7 @@ func AnyMatch2[K, V any](input iter.Seq2[K, V], predicate func(K, V) bool) bool 
 
 // AllMatch checks if all elements in the input sequence satisfy the given predicate.
 //
-// This function iterates over the elements in `input` and applies the `predicate` function to each element.
+// It iterates over the elements in `input` and applies the `predicate` function to each element.
 // If all elements satisfy the predicate, the function returns true; otherwise, it returns false.
 func AllMatch[V any](input iter.Seq[V], predicate func(V) bool) bool {
 	ret := false
@@ -64,7 +64,7 @@ func AllMatch2[K, V any](input iter.Seq2[K, V], predicate func(K, V) bool) bool 
 
 // NoneMatch checks if no elements in the input sequence satisfy the given predicate.
 //
-// This function uses `AnyMatch` to determine if any element satisfies the predicate.
+// It uses `AnyMatch` to determine if any element satisfies the predicate.
 // If no elements satisfy the predicate, the function returns true; otherwise, it returns false.
 func NoneMatch[V any](input iter.Seq[V], predicate func(V) bool) bool {
 	return !AnyMatch(input, predicate)

@@ -6,7 +6,7 @@ import (
 
 // Distinct returns a new sequence containing only the distinct elements from the input sequence.
 //
-// This function iterates over the sequence `input` and filters out duplicate elements.
+// It iterates over the sequence `input` and filters out duplicate elements.
 // Only the first occurrence of each element is included in the new sequence.
 func Distinct[V comparable](input iter.Seq[V]) iter.Seq[V] {
 	return func(yield func(V) bool) {

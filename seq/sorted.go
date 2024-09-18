@@ -39,7 +39,7 @@ func Sorted2[K cmp.Ordered, V any](input iter.Seq2[K, V]) iter.Seq2[K, V] {
 
 // SortedFunc sorts the elements of the input sequence using a custom comparison function.
 //
-// This function collects the elements of `input` into a slice, sorts them using the `cmp` function,
+// It collects the elements of `input` into a slice, sorts them using the `cmp` function,
 // and returns a new sorted sequence.
 func SortedFunc[V any](input iter.Seq[V], cmp func(V, V) int) iter.Seq[V] {
 	return func(yield func(V) bool) {

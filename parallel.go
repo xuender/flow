@@ -10,8 +10,7 @@ import (
 
 // Parallel processes the input sequence using multiple workers and applies a series of steps.
 //
-// This function takes an input sequence `input` and a variadic list of `steps`.
-// Each step is applied sequentially to the input sequence.
+// It returns a new sequence with the processed results.
 func Parallel[V any](num int, input iter.Seq[V], steps ...Step[V]) iter.Seq[V] {
 	return func(yield func(V) bool) {
 		group := []Step[V]{}

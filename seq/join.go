@@ -8,7 +8,7 @@ import (
 
 // Join concatenates the elements of the input sequence into a single string with a delimiter.
 //
-// This function takes a sequence `input` and a `delimiter` string. It concatenates the elements
+// It takes a sequence `input` and a `delimiter` string. It concatenates the elements
 // of the sequence into a single string, separated by the specified delimiter.
 func Join[V any](input iter.Seq[V], delimiter string) string {
 	buf := strings.Builder{}

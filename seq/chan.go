@@ -9,7 +9,7 @@ const _defaultDuration = time.Duration(50) * time.Millisecond
 
 // Chan converts a channel into an iterator sequence.
 //
-// This function takes a channel `input` and returns an iterator function that yields elements
+// It takes a channel `input` and returns an iterator function that yields elements
 // from the channel until it is closed.
 func Chan[V any](input chan V) iter.Seq[V] {
 	return func(yield func(V) bool) {
@@ -48,7 +48,7 @@ func Chan2[K, V any](input chan Tuple[K, V]) iter.Seq2[K, V] {
 
 // ToChans distributes elements from the input sequence to multiple channels.
 //
-// This function takes a sequence `input` and an integer `size` indicating the number of channels.
+// It takes a sequence `input` and an integer `size` indicating the number of channels.
 // It distributes the elements evenly among the specified number of channels.
 func ToChans[V any](input iter.Seq[V], size int) []chan V {
 	chans := make([]chan V, size)

@@ -4,7 +4,7 @@ import "iter"
 
 // Filter returns a new sequence containing only the elements that satisfy the given predicate.
 //
-// This function iterates over the sequence `input` and applies the `predicate` function to each element.
+// It iterates over the sequence `input` and applies the `predicate` function to each element.
 // Only elements for which the predicate returns true are included in the new sequence.
 func Filter[V any](input iter.Seq[V], predicate func(V) bool) iter.Seq[V] {
 	return func(yield func(V) bool) {

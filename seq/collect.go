@@ -7,7 +7,7 @@ import (
 
 // Collect converts the input sequence into a slice of elements with a specified capacity.
 //
-// This function iterates over the sequence `input` and collects the elements into a slice.
+// It iterates over the sequence `input` and collects the elements into a slice.
 // The slice has a capacity of `size`.
 func Collect[V any](input iter.Seq[V], size int) []V {
 	ret := make([]V, 0, size)

@@ -4,7 +4,7 @@ import "iter"
 
 // Chain applies a series of transformation steps to the input sequence sequentially.
 //
-// This function takes an input sequence `input` and a variadic list of `steps`.
+// It takes an input sequence `input` and a variadic list of `steps`.
 // Each step is applied sequentially to the input sequence.
 func Chain[V any](input iter.Seq[V], steps ...Step[V]) iter.Seq[V] {
 	for _, step := range steps {

@@ -4,7 +4,7 @@ import "iter"
 
 // First returns the first element of the input sequence or false if the sequence is empty.
 //
-// This function iterates over the sequence `input` and returns the first element found.
+// It iterates over the sequence `input` and returns the first element found.
 // If the sequence is empty, it returns the zero value of type `E` and false.
 func First[V any](input iter.Seq[V]) (V, bool) {
 	for item := range input {

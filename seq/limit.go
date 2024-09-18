@@ -4,7 +4,7 @@ import "iter"
 
 // Limit returns a new sequence containing at most `limit` elements from the input sequence.
 //
-// This function iterates over the sequence `input` and includes only the first `limit` elements
+// It iterates over the sequence `input` and includes only the first `limit` elements
 // in the new sequence. If the input sequence has fewer than `limit` elements, the new sequence
 // will contain all elements.
 func Limit[V any](input iter.Seq[V], limit int) iter.Seq[V] {

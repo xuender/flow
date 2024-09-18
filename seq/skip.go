@@ -4,7 +4,7 @@ import "iter"
 
 // Skip skips the first `offset` elements of the input sequence and returns the remaining elements as an iterator.
 //
-// This function takes a sequence `input` and an integer `offset`, then creates a new iterator that
+// It takes a sequence `input` and an integer `offset`, then creates a new iterator that
 // skips the first `offset` elements from the original sequence.
 func Skip[V any](input iter.Seq[V], offset int) iter.Seq[V] {
 	return func(yield func(V) bool) {

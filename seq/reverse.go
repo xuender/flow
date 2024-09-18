@@ -7,7 +7,7 @@ import (
 
 // Reverse reverses the elements of the input sequence and returns them as an iterator.
 //
-// This function takes a sequence `input` and returns a new iterator that yields the elements
+// It takes a sequence `input` and returns a new iterator that yields the elements
 // of the original sequence in reverse order.
 func Reverse[V any](input iter.Seq[V]) iter.Seq[V] {
 	return func(yield func(V) bool) {
