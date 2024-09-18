@@ -261,6 +261,7 @@ seq.Range(3, 7, 0)
 | seq.ToChans          | seq.ToChans2          |
 |                      | seq.Tuples            |
 |                      | seq.Values            |
+| seq.Window           | seq.Window2           |
 
 ### Custom Step[V] / Step2[K,V] function
 
