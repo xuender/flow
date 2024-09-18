@@ -25,6 +25,9 @@ func Window[V any](size int, input iter.Seq[V]) iter.Seq[[]V] {
 	}
 }
 
+// Window2 creates a sequence of sliding windows over pairs in the input sequence.
+//
+// Each window contains `size` consecutive pairs from the input.
 func Window2[K, V any](size int, input iter.Seq2[K, V]) iter.Seq[[]Tuple[K, V]] {
 	return func(yield func([]Tuple[K, V]) bool) {
 		cache := []Tuple[K, V]{}
