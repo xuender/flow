@@ -121,7 +121,7 @@ func allClose(isClose []bool) bool {
 	return true
 }
 
-func chanSend[E any](item E, chans []chan E, isClose []bool) bool {
+func chanSend[V any](item V, chans []chan V, isClose []bool) bool {
 	var closeIdx int
 
 	defer func() {
