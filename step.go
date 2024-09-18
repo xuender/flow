@@ -237,6 +237,20 @@ func Reverse2[K, V any]() Step2[K, V] {
 	return Step2[K, V]{seq.Reverse2[K, V], false}
 }
 
+// Shuffle creates a step that shuffles the input sequence.
+//
+// It returns a Step that, when applied, yields elements in a random order.
+func Shuffle[V any]() Step[V] {
+	return Step[V]{seq.Shuffle[V], false}
+}
+
+// Shuffle2 creates a step that shuffles pairs in the input sequence.
+//
+// It returns a Step2 that, when applied, yields pairs in a random order.
+func Shuffle2[K, V any]() Step2[K, V] {
+	return Step2[K, V]{seq.Shuffle2[K, V], false}
+}
+
 // Skip returns a transformation step that skips the first `num` elements in a sequence.
 //
 // It returns a `Step` that creates a new sequence by skipping the first `num` elements

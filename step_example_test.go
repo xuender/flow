@@ -398,3 +398,21 @@ func ExampleMap2() {
 	// 2 3
 	// 4 6
 }
+
+func ExampleShuffle() {
+	seq.Emit(flow.Chain(
+		seq.Range(3),
+		flow.Shuffle[int](),
+	))
+
+	// Output:
+}
+
+func ExampleShuffle2() {
+	seq.Emit2(flow.Chain2(
+		seq.Range2(3),
+		flow.Shuffle2[int, int](),
+	))
+
+	// Output:
+}

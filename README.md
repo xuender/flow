@@ -205,6 +205,7 @@ seq.Range(3, 7, 0)
 | Prepend        | Prepend2        |                              |
 | Repeat         | Repeat2         |                              |
 | Reverse        | Reverse2        | Collecting                   |
+| Shuffle        | Shuffle2        | Collecting                   |
 | Skip           | Skip2           |                              |
 | Sort           | Sort2           | Collecting                   |
 | SortFunc       | SortFunc2       | Collecting                   |
@@ -253,6 +254,7 @@ seq.Range(3, 7, 0)
 | seq.Repeat           | seq.Repeat2           |
 | seq.Reverse          | seq.Reverse2          |
 | seq.Send             | seq.Send2             |
+| seq.Shuffle          | seq.Shuffle2          |
 | seq.Skip             | seq.Skip2             |
 | seq.Sorted           | seq.Sorted2           |
 | seq.SortedFunc       | seq.SortedFunc2       |
