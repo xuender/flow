@@ -221,6 +221,7 @@ seq.Range(3, 7, 0)
 | seq.Chunk     | seq.Chunk2     |
 | seq.Count     | seq.Count2     |
 | seq.Each      | seq.Each2      |
+| seq.Emit      | seq.Emit2      |
 | seq.First     | seq.First2     |
 | seq.Last      | seq.Last2      |
 | seq.Join      |                |
@@ -230,7 +231,7 @@ seq.Range(3, 7, 0)
 | seq.Reduce    | seq.Reduce2    |
 | seq.Sum       |                |
 
-### Seq Functions
+### Other Seq Functions
 
 | iter.Seq[V]          | iter.Seq2[K,V]        |
 | -------------------- | --------------------- |
@@ -239,7 +240,6 @@ seq.Range(3, 7, 0)
 | seq.Collect          | seq.Collect2          |
 | seq.Distinct         | seq.Distinct2         |
 | seq.DropWhile        | seq.DropWhile2        |
-| seq.Emit             | seq.Emit2             |
 | seq.Filter           | seq.Filter2           |
 | seq.FlatMap          |                       |
 |                      | seq.Keys              |
