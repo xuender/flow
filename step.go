@@ -121,7 +121,10 @@ func Limit2[K, V any](limit int) Step2[K, V] {
 // Map creates a new step that applies a transformation function to each element of an input sequence.
 //
 // It returns a Step that can be used in a pipeline to map over the input sequence.
-
+//
+// Note:
+//
+//	Cannot change type.
 func Map[V any](maper func(V) V) Step[V] {
 	return Step[V]{func(input iter.Seq[V]) iter.Seq[V] {
 		return seq.Map(input, maper)
@@ -131,7 +134,10 @@ func Map[V any](maper func(V) V) Step[V] {
 // Map2 creates a new step that applies a transformation function to each pair of elements in an input sequence.
 //
 // It returns a Step2 that can be used in a pipeline to map over pairs in the input sequence.
-
+//
+// Note:
+//
+//	Cannot change type.
 func Map2[K, V any](maper func(K, V) (K, V)) Step2[K, V] {
 	return Step2[K, V]{func(input iter.Seq2[K, V]) iter.Seq2[K, V] {
 		return seq.Map2(input, maper)
