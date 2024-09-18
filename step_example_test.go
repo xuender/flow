@@ -417,10 +417,10 @@ func ExampleShuffle2() {
 	// Output:
 }
 
-func ExampleCenteredMovingAverage() {
+func ExampleCenteredMovingAvg() {
 	for num := range flow.Chain(
 		seq.Range(5),
-		flow.CenteredMovingAverage[int](3),
+		flow.CenteredMovingAvg[int](3),
 	) {
 		fmt.Println(num)
 	}
@@ -433,10 +433,10 @@ func ExampleCenteredMovingAverage() {
 	// 3
 }
 
-func ExampleMovingAverage() {
+func ExampleMovingAvg() {
 	for num := range flow.Chain(
 		seq.Range(5),
-		flow.MovingAverage[int](3),
+		flow.MovingAvg[int](3),
 	) {
 		fmt.Println(num)
 	}

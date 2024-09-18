@@ -6,8 +6,8 @@ import (
 	"github.com/xuender/flow/seq"
 )
 
-func ExampleMovingAverage() {
-	for num := range seq.MovingAverage(seq.Range(0, 30, 5), 3) {
+func ExampleMovingAvg() {
+	for num := range seq.MovingAvg(seq.Range(0, 30, 5), 3) {
 		if num > 12 {
 			break
 		}
@@ -22,8 +22,8 @@ func ExampleMovingAverage() {
 	// 10
 }
 
-func ExampleCenteredMovingAverage() {
-	for num := range seq.CenteredMovingAverage(seq.Range(0, 30, 5), 3) {
+func ExampleCenteredMovingAvg() {
+	for num := range seq.CenteredMovingAvg(seq.Range(0, 30, 5), 3) {
 		if num > 10 {
 			break
 		}

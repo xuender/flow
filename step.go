@@ -44,12 +44,12 @@ func Append2[K, V any](items ...seq.Tuple[K, V]) Step2[K, V] {
 	}, false}
 }
 
-// CenteredMovingAverage creates a step that calculates the centered moving average of a sequence.
+// CenteredMovingAvg creates a step that calculates the centered moving average of a sequence.
 //
 // It computes the average of `size` consecutive elements, centered when possible.
-func CenteredMovingAverage[V stats.Number](size int) Step[V] {
+func CenteredMovingAvg[V stats.Number](size int) Step[V] {
 	return Step[V]{func(input iter.Seq[V]) iter.Seq[V] {
-		return seq.CenteredMovingAverage(input, size)
+		return seq.CenteredMovingAvg(input, size)
 	}, false}
 }
 
@@ -184,12 +184,12 @@ func Merge2[K, V any](seqs ...iter.Seq2[K, V]) Step2[K, V] {
 	}, false}
 }
 
-// MovingAverage creates a step that calculates the moving average of a sequence.
+// MovingAvg creates a step that calculates the moving average of a sequence.
 //
 // It computes the average of every `size` consecutive elements in the input.
-func MovingAverage[V stats.Number](size int) Step[V] {
+func MovingAvg[V stats.Number](size int) Step[V] {
 	return Step[V]{func(input iter.Seq[V]) iter.Seq[V] {
-		return seq.MovingAverage(input, size)
+		return seq.MovingAvg(input, size)
 	}, false}
 }
 

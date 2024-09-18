@@ -6,10 +6,10 @@ import (
 	"github.com/xuender/flow/stats"
 )
 
-// MovingAverage calculates the moving average of a sequence.
+// MovingAvg calculates the moving average of a sequence.
 //
 // It computes the average of every `size` consecutive elements in the input sequence.
-func MovingAverage[V stats.Number](input iter.Seq[V], size int) iter.Seq[V] {
+func MovingAvg[V stats.Number](input iter.Seq[V], size int) iter.Seq[V] {
 	return func(yield func(V) bool) {
 		for items := range Window(input, size) {
 			if !yield(stats.Sum(items) / V(len(items))) {
@@ -19,11 +19,11 @@ func MovingAverage[V stats.Number](input iter.Seq[V], size int) iter.Seq[V] {
 	}
 }
 
-// CenteredMovingAverage calculates the centered moving average of a sequence.
+// CenteredMovingAvg calculates the centered moving average of a sequence.
 //
 // It computes the average of `size` consecutive elements, centered when possible.
 // The first few and last few averages are computed using available data.
-func CenteredMovingAverage[V stats.Number](input iter.Seq[V], size int) iter.Seq[V] {
+func CenteredMovingAvg[V stats.Number](input iter.Seq[V], size int) iter.Seq[V] {
 	return func(yield func(V) bool) {
 		cache := []V{}
 		pass := 0

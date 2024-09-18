@@ -9,11 +9,11 @@ import (
 	"github.com/xuender/flow/seq"
 )
 
-func TestCenteredMovingAverage1(t *testing.T) {
+func TestCenteredMovingAvg(t *testing.T) {
 	t.Parallel()
 
 	sum := 0
-	for num := range seq.CenteredMovingAverage(seq.Range(0, 30, 5), 3) {
+	for num := range seq.CenteredMovingAvg(seq.Range(0, 30, 5), 3) {
 		sum += num
 	}
 
@@ -22,12 +22,12 @@ func TestCenteredMovingAverage1(t *testing.T) {
 	}
 }
 
-func TestCenteredMovingAverage_break(t *testing.T) {
+func TestCenteredMovingAvg_break(t *testing.T) {
 	t.Parallel()
 
 	sum := 0
 
-	for num := range seq.CenteredMovingAverage(seq.Range(0, 30, 5), 3) {
+	for num := range seq.CenteredMovingAvg(seq.Range(0, 30, 5), 3) {
 		if num > 20 {
 			break
 		}
@@ -40,7 +40,7 @@ func TestCenteredMovingAverage_break(t *testing.T) {
 	}
 }
 
-func TestMovingAverage(t *testing.T) {
+func TestMovingAvg_batch(t *testing.T) {
 	t.Parallel()
 
 	tests := []struct {
@@ -60,14 +60,14 @@ func TestMovingAverage(t *testing.T) {
 		t.Run(item.name, func(t *testing.T) {
 			t.Parallel()
 
-			if got := slices.Collect(seq.MovingAverage(item.input, 3)); !reflect.DeepEqual(got, item.want) {
+			if got := slices.Collect(seq.MovingAvg(item.input, 3)); !reflect.DeepEqual(got, item.want) {
 				t.Errorf("MovingAverage() = %v, want %v", got, item.want)
 			}
 		})
 	}
 }
 
-func TestCenteredMovingAverage(t *testing.T) {
+func TestCenteredMovingAvg_batch(t *testing.T) {
 	t.Parallel()
 
 	tests := []struct {
@@ -88,7 +88,7 @@ func TestCenteredMovingAverage(t *testing.T) {
 		t.Run(item.name, func(t *testing.T) {
 			t.Parallel()
 
-			if got := slices.Collect(seq.CenteredMovingAverage(item.input, 3)); !reflect.DeepEqual(got, item.want) {
+			if got := slices.Collect(seq.CenteredMovingAvg(item.input, 3)); !reflect.DeepEqual(got, item.want) {
 				t.Errorf("CenteredMovingAverage() = %v, want %v", got, item.want)
 			}
 		})
