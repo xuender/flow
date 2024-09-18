@@ -8,8 +8,8 @@ import (
 //
 // Each window contains `size` consecutive elements from the input.
 //
-// Play: https://go.dev/play/p/6yLGRvq29n6
-func Window[V any](size int, input iter.Seq[V]) iter.Seq[[]V] {
+// Play: https://go.dev/play/p/tpADrJdzuSC
+func Window[V any](input iter.Seq[V], size int) iter.Seq[[]V] {
 	return func(yield func([]V) bool) {
 		cache := []V{}
 
@@ -30,7 +30,7 @@ func Window[V any](size int, input iter.Seq[V]) iter.Seq[[]V] {
 // Window2 creates a sequence of sliding windows over pairs in the input sequence.
 //
 // Each window contains `size` consecutive pairs from the input.
-func Window2[K, V any](size int, input iter.Seq2[K, V]) iter.Seq[[]Tuple[K, V]] {
+func Window2[K, V any](input iter.Seq2[K, V], size int) iter.Seq[[]Tuple[K, V]] {
 	return func(yield func([]Tuple[K, V]) bool) {
 		cache := []Tuple[K, V]{}
 

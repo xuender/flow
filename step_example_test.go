@@ -416,3 +416,35 @@ func ExampleShuffle2() {
 
 	// Output:
 }
+
+func ExampleCenteredMovingAverage() {
+	for num := range flow.Chain(
+		seq.Range(5),
+		flow.CenteredMovingAverage[int](3),
+	) {
+		fmt.Println(num)
+	}
+
+	// Output:
+	// 1
+	// 2
+	// 3
+	// 3
+	// 3
+}
+
+func ExampleMovingAverage() {
+	for num := range flow.Chain(
+		seq.Range(5),
+		flow.MovingAverage[int](3),
+	) {
+		fmt.Println(num)
+	}
+
+	// Output:
+	// 0
+	// 0
+	// 1
+	// 2
+	// 3
+}

@@ -5,6 +5,7 @@ import (
 	"iter"
 
 	"github.com/xuender/flow/seq"
+	"github.com/xuender/flow/stats"
 )
 
 // Step represents a processing step in an iterator.
@@ -40,6 +41,15 @@ func Append[V any](items ...V) Step[V] {
 func Append2[K, V any](items ...seq.Tuple[K, V]) Step2[K, V] {
 	return Step2[K, V]{func(input iter.Seq2[K, V]) iter.Seq2[K, V] {
 		return seq.Append2(input, items...)
+	}, false}
+}
+
+// CenteredMovingAverage creates a step that calculates the centered moving average of a sequence.
+//
+// It computes the average of `size` consecutive elements, centered when possible.
+func CenteredMovingAverage[V stats.Number](size int) Step[V] {
+	return Step[V]{func(input iter.Seq[V]) iter.Seq[V] {
+		return seq.CenteredMovingAverage(input, size)
 	}, false}
 }
 
@@ -171,6 +181,15 @@ func Merge2[K, V any](seqs ...iter.Seq2[K, V]) Step2[K, V] {
 		}
 
 		return seq.Merge2(append([]iter.Seq2[K, V]{input}, seqs...)...)
+	}, false}
+}
+
+// MovingAverage creates a step that calculates the moving average of a sequence.
+//
+// It computes the average of every `size` consecutive elements in the input.
+func MovingAverage[V stats.Number](size int) Step[V] {
+	return Step[V]{func(input iter.Seq[V]) iter.Seq[V] {
+		return seq.MovingAverage(input, size)
 	}, false}
 }
 

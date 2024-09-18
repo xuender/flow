@@ -192,25 +192,27 @@ seq.Range(3, 7, 0)
 
 ### Intermediate Functions
 
-| iter.Seq[V]    | iter.Seq2[K,V]  | Note                         |
-| -------------- | --------------- | ---------------------------- |
-| Append         | Append2         |                              |
-| Distinct       | Distinct2       |                              |
-| DropWhile      | DropWhile2      |                              |
-| Filter         | Filter2         | Parallel                     |
-| Limit          | Limit2          |                              |
-| Map            | Map2            | Parallel, Cannot change type |
-| Merge          | Merge2          |                              |
-| Peek           | Peek2           | Parallel                     |
-| Prepend        | Prepend2        |                              |
-| Repeat         | Repeat2         |                              |
-| Reverse        | Reverse2        | Collecting                   |
-| Shuffle        | Shuffle2        | Collecting                   |
-| Skip           | Skip2           |                              |
-| Sort           | Sort2           | Collecting                   |
-| SortFunc       | SortFunc2       | Collecting                   |
-| SortStableFunc | SortStableFunc2 | Collecting                   |
-| TakeWhile      | TakeWhile2      |                              |
+| iter.Seq[V]           | iter.Seq2[K,V]  | Note                         |
+| --------------------- | --------------- | ---------------------------- |
+| Append                | Append2         |                              |
+| CenteredMovingAverage |                 |                              |
+| Distinct              | Distinct2       |                              |
+| DropWhile             | DropWhile2      |                              |
+| Filter                | Filter2         | Parallel                     |
+| Limit                 | Limit2          |                              |
+| Map                   | Map2            | Parallel, Cannot change type |
+| Merge                 | Merge2          |                              |
+| MovingAverage         |                 |                              |
+| Peek                  | Peek2           | Parallel                     |
+| Prepend               | Prepend2        |                              |
+| Repeat                | Repeat2         |                              |
+| Reverse               | Reverse2        | Collecting                   |
+| Shuffle               | Shuffle2        | Collecting                   |
+| Skip                  | Skip2           |                              |
+| Sort                  | Sort2           | Collecting                   |
+| SortFunc              | SortFunc2       | Collecting                   |
+| SortStableFunc        | SortStableFunc2 | Collecting                   |
+| TakeWhile             | TakeWhile2      |                              |
 
 ### Terminal Functions
 
@@ -234,37 +236,39 @@ seq.Range(3, 7, 0)
 
 ### Other Seq Functions
 
-| iter.Seq[V]          | iter.Seq2[K,V]        |
-| -------------------- | --------------------- |
-| seq.Append           | seq.Append2           |
-| seq.Chan             | seq.Chan2             |
-| seq.Collect          | seq.Collect2          |
-| seq.Distinct         | seq.Distinct2         |
-| seq.DropWhile        | seq.DropWhile2        |
-| seq.Filter           | seq.Filter2           |
-| seq.FlatMap          |                       |
-|                      | seq.Keys              |
-| seq.Limit            | seq.Limit2            |
-| seq.Map              | seq.Map2              |
-| seq.Merge            | seq.Merge2            |
-| seq.Peek             | seq.Peek2             |
-| seq.Prepend          | seq.Prepend2          |
-| seq.Range            | seq.Range2            |
-| seq.Reduce           | seq.Reduce2           |
-| seq.Repeat           | seq.Repeat2           |
-| seq.Reverse          | seq.Reverse2          |
-| seq.Send             | seq.Send2             |
-| seq.Shuffle          | seq.Shuffle2          |
-| seq.Skip             | seq.Skip2             |
-| seq.Sorted           | seq.Sorted2           |
-| seq.SortedFunc       | seq.SortedFunc2       |
-| seq.SortedStableFunc | seq.SortedStableFunc2 |
-| seq.TakeWhile        | seq.TakeWhile2        |
-| seq.ToChans          | seq.ToChans2          |
-|                      | seq.Tuples            |
-|                      | seq.Values            |
-| seq.Window           | seq.Window2           |
-| seq.Zip              |                       |
+| iter.Seq[V]               | iter.Seq2[K,V]        |
+| ------------------------- | --------------------- |
+| seq.Append                | seq.Append2           |
+| seq.CenteredMovingAverage |                       |
+| seq.Chan                  | seq.Chan2             |
+| seq.Collect               | seq.Collect2          |
+| seq.Distinct              | seq.Distinct2         |
+| seq.DropWhile             | seq.DropWhile2        |
+| seq.Filter                | seq.Filter2           |
+| seq.FlatMap               |                       |
+|                           | seq.Keys              |
+| seq.Limit                 | seq.Limit2            |
+| seq.Map                   | seq.Map2              |
+| seq.Merge                 | seq.Merge2            |
+| seq.MovingAverage         |                       |
+| seq.Peek                  | seq.Peek2             |
+| seq.Prepend               | seq.Prepend2          |
+| seq.Range                 | seq.Range2            |
+| seq.Reduce                | seq.Reduce2           |
+| seq.Repeat                | seq.Repeat2           |
+| seq.Reverse               | seq.Reverse2          |
+| seq.Send                  | seq.Send2             |
+| seq.Shuffle               | seq.Shuffle2          |
+| seq.Skip                  | seq.Skip2             |
+| seq.Sorted                | seq.Sorted2           |
+| seq.SortedFunc            | seq.SortedFunc2       |
+| seq.SortedStableFunc      | seq.SortedStableFunc2 |
+| seq.TakeWhile             | seq.TakeWhile2        |
+| seq.ToChans               | seq.ToChans2          |
+|                           | seq.Tuples            |
+|                           | seq.Values            |
+| seq.Window                | seq.Window2           |
+| seq.Zip                   |                       |
 
 ### Custom Step[V] / Step2[K,V] function
 

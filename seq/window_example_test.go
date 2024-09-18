@@ -7,7 +7,7 @@ import (
 )
 
 func ExampleWindow() {
-	for items := range seq.Window(3, seq.Range(5)) {
+	for items := range seq.Window(seq.Range(5), 3) {
 		if items[0] > 1 {
 			break
 		}
@@ -23,7 +23,7 @@ func ExampleWindow() {
 }
 
 func ExampleWindow2() {
-	for items := range seq.Window2(3, seq.Range2(5)) {
+	for items := range seq.Window2(seq.Range2(5), 3) {
 		if items[0].K > 1 {
 			break
 		}
