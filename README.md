@@ -138,25 +138,24 @@ func main() {
     fmt.Println(num)
   }
 
-  fmt.Println("seq.Range(-2, -6)")
+  fmt.Println("\nseq.Range(-2, -6)")
 
   for num := range seq.Range(-2, -6) {
     fmt.Println(num)
   }
 
-  fmt.Println("seq.Range(2, 10, 3)")
+  fmt.Println("\nseq.Range(2, 10, 3)")
 
   for num := range seq.Range(2, 10, 3) {
     fmt.Println(num)
   }
 
-  fmt.Println("seq.Range(3, 7, 0)")
+  fmt.Println("\nseq.Range(3, 7, 0)")
 
   for num := range seq.Range(3, 7, 0) {
     fmt.Println(num)
   }
 }
-
 ```
 
 Output:
@@ -166,15 +165,18 @@ seq.Range(3)
 0
 1
 2
+
 seq.Range(-2, -6)
 -2
 -3
 -4
 -5
+
 seq.Range(2, 10, 3)
 2
 5
 8
+
 seq.Range(3, 7, 0)
 3
 3
