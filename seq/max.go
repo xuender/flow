@@ -7,7 +7,6 @@ import (
 
 // Max returns the maximum element in the input sequence or false if the sequence is empty.
 //
-// It iterates over the sequence `input` and finds the maximum element.
 // If the sequence is empty, it returns the zero value of type `E` and false.
 func Max[V cmp.Ordered](input iter.Seq[V]) (V, bool) {
 	var (

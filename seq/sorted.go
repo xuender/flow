@@ -9,9 +9,7 @@ import (
 
 // Sorted sorts a sequence of elements that implement the cmp.Ordered interface.
 //
-// It takes a sequence `input` of orderable elements and returns a sorted sequence.
-// The returned value is an iterator function that, when called with a `yield` function,
-// iterates over the sorted elements.
+// It returns a new sorted sequence.
 func Sorted[V cmp.Ordered](input iter.Seq[V]) iter.Seq[V] {
 	return func(yield func(V) bool) {
 		for _, item := range slices.Sorted(input) {
@@ -39,8 +37,7 @@ func Sorted2[K cmp.Ordered, V any](input iter.Seq2[K, V]) iter.Seq2[K, V] {
 
 // SortedFunc sorts the elements of the input sequence using a custom comparison function.
 //
-// It collects the elements of `input` into a slice, sorts them using the `cmp` function,
-// and returns a new sorted sequence.
+// It returns a new sorted sequence.
 func SortedFunc[V any](input iter.Seq[V], cmp func(V, V) int) iter.Seq[V] {
 	return func(yield func(V) bool) {
 		for _, item := range slices.SortedFunc(input, cmp) {

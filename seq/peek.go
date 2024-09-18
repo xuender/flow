@@ -4,7 +4,7 @@ import "iter"
 
 // Peek applies a given action to each element in the input sequence and returns the original sequence.
 //
-// It takes a sequence `input` and an `action` function. It applies the `action` to each element
+// It applies the `action` to each element
 // of the sequence and then returns the original sequence as an iterator.
 func Peek[V any](input iter.Seq[V], action func(V)) iter.Seq[V] {
 	return func(yield func(V) bool) {

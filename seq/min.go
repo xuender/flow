@@ -7,7 +7,6 @@ import (
 
 // Min returns the minimum element in the input sequence or false if the sequence is empty.
 //
-// It iterates over the sequence `input` and finds the minimum element.
 // If the sequence is empty, it returns the zero value of type `E` and false.
 func Min[V cmp.Ordered](input iter.Seq[V]) (V, bool) {
 	var minItem V
