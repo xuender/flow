@@ -12,6 +12,7 @@
 ## ❗ Prerequirement
 
 - Go 1.23+
+- Not dependent on other libraries
 
 ## 🚀 Install
 
