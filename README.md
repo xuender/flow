@@ -192,48 +192,53 @@ seq.Range(3, 7, 0)
 
 ### Intermediate Functions
 
-| iter.Seq[V] | iter.Seq2[K,V] | Note                          |
-| ----------- | -------------- | ----------------------------- |
-| Append      | Append2        | Append2 used seq.Tuple[K, V]. |
-| DropWhile   | DropWhile2     | Parallel function.            |
-| Filter      | Filter2        | Parallel function.            |
-| Limit       | Limit2         |                               |
-| Peek        | Peek2          | Parallel function.            |
-| Prepend     | Prepend2       |                               |
-| Repeat      | Repeat2        |                               |
-| Skip        | Skip2          |                               |
-| TakeWhile   | TakeWhile2     | Parallel function.            |
+| iter.Seq[V] | iter.Seq2[K,V] | Note                           |
+| ----------- | -------------- | ------------------------------ |
+| Append      | Append2        | Append2 used seq.Tuple[K, V].  |
+| DropWhile   | DropWhile2     |                                |
+| Filter      | Filter2        | Parallel function.             |
+| Limit       | Limit2         |                                |
+| Peek        | Peek2          | Parallel function.             |
+| Prepend     | Prepend2       | Prepend2 used seq.Tuple[K, V]. |
+| Repeat      | Repeat2        |                                |
+| Skip        | Skip2          |                                |
+| TakeWhile   | TakeWhile2     |                                |
+
+### Pseudo Intermediate Functions
+
+| iter.Seq[V]    | iter.Seq2[K,V]  | Note                                  |
+| -------------- | --------------- | ------------------------------------- |
+| Distinct       | Distinct2       |                                       |
+| Merge          | Merge2          |                                       |
+| Reverse        | Reverse2        |                                       |
+| Sort           | Sort2           |                                       |
+| SortFunc       | SortFunc2       | SortFunc2 used seq.Tuple[K, V].       |
+| SortStableFunc | SortStableFunc2 | SortStableFunc2 used seq.Tuple[K, V]. |
 
 ### Terminal Functions
 
-| iter.Seq[V]    | iter.Seq2[K,V]  |
-| -------------- | --------------- |
-| Distinct       | Distinct2       |
-| Merge          | Merge2          |
-| Reverse        | Reverse2        |
-| Sort           | Sort2           |
-| SortFunc       | SortFunc2       |
-| SortStableFunc | SortStableFunc2 |
-| seq.AllMatch   | seq.AllMatch2   |
-| seq.AnyMatch   | seq.AnyMatch2   |
-| seq.Clone      | seq.Clone2      |
-| seq.Chunk      | seq.Chunk2      |
-| seq.Count      | seq.Count2      |
-| seq.Each       | seq.Each2       |
-| seq.First      | seq.First2      |
-| seq.Last       | seq.Last2       |
-| seq.Join       |                 |
-| seq.Max        | seq.Max2        |
-| seq.Min        | seq.Min2        |
-| seq.NoneMatch  | seq.NoneMatch2  |
-| seq.Reduce     | seq.Reduce2     |
-| seq.Sum        |                 |
+| iter.Seq[V]   | iter.Seq2[K,V] |
+| ------------- | -------------- |
+| seq.AllMatch  | seq.AllMatch2  |
+| seq.AnyMatch  | seq.AnyMatch2  |
+| seq.Clone     | seq.Clone2     |
+| seq.Chunk     | seq.Chunk2     |
+| seq.Count     | seq.Count2     |
+| seq.Each      | seq.Each2      |
+| seq.First     | seq.First2     |
+| seq.Last      | seq.Last2      |
+| seq.Join      |                |
+| seq.Max       | seq.Max2       |
+| seq.Min       | seq.Min2       |
+| seq.NoneMatch | seq.NoneMatch2 |
+| seq.Reduce    | seq.Reduce2    |
+| seq.Sum       |                |
 
 ### Seq Functions
 
 | iter.Seq[V]          | iter.Seq2[K,V]        | Note                                    |
 | -------------------- | --------------------- | --------------------------------------- |
-| seq.Append           | seq.Append2           |                                         |
+| seq.Append           | seq.Append2           | Append2 used seq.Tuple[K, V].           |
 | seq.Chan             | seq.Chan2             | Chan2 used seq.Tuple[K, V].             |
 | seq.Collect          | seq.Collect2          |                                         |
 | seq.Distinct         | seq.Distinct2         |                                         |
@@ -246,7 +251,7 @@ seq.Range(3, 7, 0)
 | seq.Map              | seq.Map2              |                                         |
 | seq.Merge            | seq.Merge2            |                                         |
 | seq.Peek             | seq.Peek2             |                                         |
-| seq.Prepend          | seq.Prepend2          |                                         |
+| seq.Prepend          | seq.Prepend2          | Prepend2 used seq.Tuple[K, V].          |
 | seq.Range            | seq.Range2            |                                         |
 | seq.Reduce           | seq.Reduce2           |                                         |
 | seq.Repeat           | seq.Repeat2           |                                         |

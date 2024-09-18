@@ -66,7 +66,7 @@ func Distinct2[K comparable, V any]() Step2[K, V] {
 func DropWhile[V any](predicate func(V) bool) Step[V] {
 	return Step[V]{func(input iter.Seq[V]) iter.Seq[V] {
 		return seq.DropWhile(input, predicate)
-	}, true}
+	}, false}
 }
 
 // DropWhile2 creates a Step2[K, V] that skips key-value pairs from 'input' as long as 'predicate' returns true.
@@ -77,7 +77,7 @@ func DropWhile[V any](predicate func(V) bool) Step[V] {
 func DropWhile2[K, V any](predicate func(K, V) bool) Step2[K, V] {
 	return Step2[K, V]{func(input iter.Seq2[K, V]) iter.Seq2[K, V] {
 		return seq.DropWhile2(input, predicate)
-	}, true}
+	}, false}
 }
 
 // Filter returns a transformation step that filters elements based on a predicate.
@@ -288,7 +288,7 @@ func SortStableFunc2[K, V any](cmp func(seq.Tuple[K, V], seq.Tuple[K, V]) int) S
 func TakeWhile[V any](predicate func(V) bool) Step[V] {
 	return Step[V]{func(input iter.Seq[V]) iter.Seq[V] {
 		return seq.TakeWhile(input, predicate)
-	}, true}
+	}, false}
 }
 
 // TakeWhile2 creates a Step2[K, V] that filters key-value pairs from 'input' using 'predicate'.
@@ -299,5 +299,5 @@ func TakeWhile[V any](predicate func(V) bool) Step[V] {
 func TakeWhile2[K, V any](predicate func(K, V) bool) Step2[K, V] {
 	return Step2[K, V]{func(input iter.Seq2[K, V]) iter.Seq2[K, V] {
 		return seq.TakeWhile2(input, predicate)
-	}, true}
+	}, false}
 }
