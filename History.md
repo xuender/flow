@@ -1,4 +1,13 @@
 
+0.0.10 / 2024-09-18
+===================
+
+* refactor: rename MovingAvg, CenteredMovingAvg
+* feat: add MovingAverage, CenteredMovingAverage
+* doc: Play
+* test: cover
+* refactor: rename E to V
+
 0.0.9 / 2024-09-18
 ==================
 
