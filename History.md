@@ -1,4 +1,12 @@
 
+0.0.11 / 2024-09-19
+===================
+
+* doc: readme
+* feat: add seq.Partition, seq.Partition2
+* doc: seq.Range
+* doc: dependent
+
 0.0.10 / 2024-09-18
 ===================
 
