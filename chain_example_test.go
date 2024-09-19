@@ -27,7 +27,7 @@ func ExampleChain() {
 func ExampleChain_mapChangeType() {
 	items := flow.Chain(
 		seq.Range(100),
-		flow.Limit[int](3),
+		flow.Limit[int](10),
 		flow.Filter(func(num int) bool { return num%2 == 0 }),
 	)
 
@@ -46,8 +46,8 @@ func ExampleChain_mapChangeType() {
 func ExampleChain2() {
 	for key, val := range flow.Chain2(
 		seq.Range2(100),
-		flow.Limit2[int, int](3),
 		flow.Filter2(func(key, _ int) bool { return key%2 == 0 }),
+		flow.Limit2[int, int](2),
 	) {
 		fmt.Println(key, val)
 	}

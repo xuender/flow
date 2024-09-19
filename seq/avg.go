@@ -9,6 +9,10 @@ import (
 // MovingAvg calculates the moving average of a sequence.
 //
 // It computes the average of every `size` consecutive elements in the input sequence.
+//
+// Note:
+//
+//	Boundary effect at start.
 func MovingAvg[V stats.Number](input iter.Seq[V], size int) iter.Seq[V] {
 	return func(yield func(V) bool) {
 		for items := range Window(input, size) {
@@ -23,6 +27,10 @@ func MovingAvg[V stats.Number](input iter.Seq[V], size int) iter.Seq[V] {
 //
 // It computes the average of `size` consecutive elements, centered when possible.
 // The first few and last few averages are computed using available data.
+//
+// Note:
+//
+//	Boundary effect at end.
 func CenteredMovingAvg[V stats.Number](input iter.Seq[V], size int) iter.Seq[V] {
 	return func(yield func(V) bool) {
 		cache := []V{}
