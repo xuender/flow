@@ -195,27 +195,27 @@ seq.Range(3, 7, 0)
 
 ### Intermediate Functions
 
-| iter.Seq[V]           | iter.Seq2[K,V]  | Note                         |
-| --------------------- | --------------- | ---------------------------- |
-| Append                | Append2         |                              |
-| CenteredMovingAverage |                 |                              |
-| Distinct              | Distinct2       |                              |
-| DropWhile             | DropWhile2      |                              |
-| Filter                | Filter2         | Parallel                     |
-| Limit                 | Limit2          |                              |
-| Map                   | Map2            | Parallel, Cannot change type |
-| Merge                 | Merge2          |                              |
-| MovingAverage         |                 |                              |
-| Peek                  | Peek2           | Parallel                     |
-| Prepend               | Prepend2        |                              |
-| Repeat                | Repeat2         |                              |
-| Reverse               | Reverse2        | Collecting                   |
-| Shuffle               | Shuffle2        | Collecting                   |
-| Skip                  | Skip2           |                              |
-| Sort                  | Sort2           | Collecting                   |
-| SortFunc              | SortFunc2       | Collecting                   |
-| SortStableFunc        | SortStableFunc2 | Collecting                   |
-| TakeWhile             | TakeWhile2      |                              |
+| iter.Seq[V]       | iter.Seq2[K,V]  | Note                         |
+| ----------------- | --------------- | ---------------------------- |
+| Append            | Append2         |                              |
+| CenteredMovingAvg |                 |                              |
+| Distinct          | Distinct2       |                              |
+| DropWhile         | DropWhile2      |                              |
+| Filter            | Filter2         | Parallel                     |
+| Limit             | Limit2          |                              |
+| Map               | Map2            | Parallel, Cannot change type |
+| Merge             | Merge2          |                              |
+| MovingAvg         |                 |                              |
+| Peek              | Peek2           | Parallel                     |
+| Prepend           | Prepend2        |                              |
+| Repeat            | Repeat2         |                              |
+| Reverse           | Reverse2        | Collecting                   |
+| Shuffle           | Shuffle2        | Collecting                   |
+| Skip              | Skip2           |                              |
+| Sort              | Sort2           | Collecting                   |
+| SortFunc          | SortFunc2       | Collecting                   |
+| SortStableFunc    | SortStableFunc2 | Collecting                   |
+| TakeWhile         | TakeWhile2      |                              |
 
 ### Terminal Functions
 
