@@ -10,16 +10,16 @@ import (
 func ExamplePartition() {
 	even, odd := seq.Partition(seq.Range(6), func(num int) bool { return num%2 == 0 })
 
-	var wait sync.WaitGroup
+	var worker sync.WaitGroup
 
-	wait.Add(2)
+	worker.Add(2)
 
 	go func() {
 		for num := range even {
 			fmt.Println("even", num)
 		}
 
-		wait.Done()
+		worker.Done()
 	}()
 
 	go func() {
@@ -27,10 +27,10 @@ func ExamplePartition() {
 			fmt.Println("odd", num)
 		}
 
-		wait.Done()
+		worker.Done()
 	}()
 
-	wait.Wait()
+	worker.Wait()
 
 	// Output:
 	// even 0
@@ -44,16 +44,16 @@ func ExamplePartition() {
 func ExamplePartition2() {
 	even, odd := seq.Partition2(seq.Range2(6), func(key, _ int) bool { return key%2 == 0 })
 
-	var wait sync.WaitGroup
+	var worker sync.WaitGroup
 
-	wait.Add(2)
+	worker.Add(2)
 
 	go func() {
 		for key, val := range even {
 			fmt.Println("even", key, val)
 		}
 
-		wait.Done()
+		worker.Done()
 	}()
 
 	go func() {
@@ -61,10 +61,10 @@ func ExamplePartition2() {
 			fmt.Println("odd", key, val)
 		}
 
-		wait.Done()
+		worker.Done()
 	}()
 
-	wait.Wait()
+	worker.Wait()
 
 	// Output:
 	// even 0 0

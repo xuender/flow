@@ -8,6 +8,8 @@ import (
 // Partition divides the input sequence into two sequences based on the predicate.
 //
 // It returns two iter.Seq[V] the matched and unmatched sequences.
+//
+// Play: https://go.dev/play/p/9fcf06hlk6j
 func Partition[V any](input iter.Seq[V], predicate func(V) bool) (iter.Seq[V], iter.Seq[V]) {
 	var (
 		matchedYield, unmatchedYield func(V) bool
@@ -52,6 +54,8 @@ func Partition[V any](input iter.Seq[V], predicate func(V) bool) (iter.Seq[V], i
 // Partition divides the input sequence into two sequences based on the predicate.
 //
 // Returns two iter.Seq2[K, V] matched and unmatched sequences.
+//
+// Play: https://go.dev/play/p/CTdz64mYGMd
 func Partition2[K, V any](input iter.Seq2[K, V], predicate func(K, V) bool) (iter.Seq2[K, V], iter.Seq2[K, V]) {
 	var (
 		matchedYield, unmatchedYield func(K, V) bool

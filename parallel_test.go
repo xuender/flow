@@ -17,7 +17,7 @@ func TestParallel(t *testing.T) {
 	))
 
 	if count != 3 {
-		t.Errorf("Parallel count:%d", count)
+		t.Errorf("Parallel count %d != 3", count)
 	}
 }
 
@@ -39,7 +39,7 @@ func TestParallel_break(t *testing.T) {
 	}
 
 	if count != 2 {
-		t.Errorf("Parallel break count:%d", count)
+		t.Errorf("Parallel break count %d != 2", count)
 	}
 }
 
@@ -53,7 +53,7 @@ func TestParallel2(t *testing.T) {
 	))
 
 	if count != 3 {
-		t.Errorf("Parallel2 count:%d", count)
+		t.Errorf("Parallel2 count %d != 3", count)
 	}
 }
 
@@ -75,6 +75,6 @@ func TestParallel2_break(t *testing.T) {
 	}
 
 	if count != 2 {
-		t.Errorf("Parallel2 break count:%d", count)
+		t.Errorf("Parallel2 break count %d != 2", count)
 	}
 }
