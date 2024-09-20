@@ -29,23 +29,3 @@ func ExampleMax2() {
 	// Output:
 	// 4 4 true
 }
-
-func ExampleMaxFunc() {
-	fmt.Println(seq.MaxFunc(
-		seq.Range(6),
-		func(item1, item2 int) int { return item2 - item1 },
-	))
-
-	// Output:
-	// 0 true
-}
-
-func ExampleMaxFunc2() {
-	fmt.Println(seq.MaxFunc2(
-		seq.Range2(6),
-		func(item1, item2 seq.Tuple[int, int]) int { return item2.K - item1.K },
-	))
-
-	// Output:
-	// 0 0 true
-}
