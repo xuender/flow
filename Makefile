@@ -1,4 +1,4 @@
-default: fmt lint-fix test
+default: lint-fix fmt test
 
 tools:
 	go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest

@@ -232,7 +232,9 @@ seq.Range(3, 7, 0)
 | seq.Last      | seq.Last2      |
 | seq.Join      |                |
 | seq.Max       | seq.Max2       |
+| seq.MaxFunc   | seq.MaxFunc2   |
 | seq.Min       | seq.Min2       |
+| seq.MinFunc   | seq.MinFunc2   |
 | seq.NoneMatch | seq.NoneMatch2 |
 | seq.Reduce    | seq.Reduce2    |
 | seq.Sum       |                |
