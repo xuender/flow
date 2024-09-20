@@ -1,4 +1,10 @@
 
+0.0.12 / 2024-09-20
+===================
+
+* feat: add seq.MaxFunc, seq.MaxFunc2, seq.MinFunc, seq.MinFunc2
+* doc: partition add play
+
 0.0.11 / 2024-09-19
 ===================
 
