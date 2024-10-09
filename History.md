@@ -1,4 +1,10 @@
 
+0.0.13 / 2024-10-09
+===================
+
+* refactor: seq.Limit
+* feat: remove seq.MaxFunc, seq.MaxFunc2, seq.MinFunc, seq.MinFunc2
+
 0.0.12 / 2024-09-20
 ===================
 
