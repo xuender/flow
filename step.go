@@ -53,6 +53,24 @@ func CenteredMovingAvg[V stats.Number](size int) Step[V] {
 	}, false}
 }
 
+// Concat combines multiple sequence iterators into a single sequence iterator.
+//
+// It returns a Step[V] that concatenates the provided sequences with an input sequence.
+func Concat[V any](seqs ...iter.Seq[V]) Step[V] {
+	return Step[V]{func(input iter.Seq[V]) iter.Seq[V] {
+		return seq.Concat(append([]iter.Seq[V]{input}, seqs...)...)
+	}, false}
+}
+
+// Concat2 combines multiple key-value sequence iterators into a single step.
+//
+// It returns a Step2[K, V] that concatenates the provided sequences with an input sequence.
+func Concat2[K, V any](seqs ...iter.Seq2[K, V]) Step2[K, V] {
+	return Step2[K, V]{func(input iter.Seq2[K, V]) iter.Seq2[K, V] {
+		return seq.Concat2(append([]iter.Seq2[K, V]{input}, seqs...)...)
+	}, false}
+}
+
 // Distinct returns a transformation step that filters out duplicate elements from a sequence.
 //
 // It returns a `Step` that can be used to create a new sequence containing only

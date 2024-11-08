@@ -1,6 +1,8 @@
 package stats
 
-import "cmp"
+import (
+	"cmp"
+)
 
 // Sum calculates the sum of a slice of ordered numeric values.
 //

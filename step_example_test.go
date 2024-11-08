@@ -448,3 +448,35 @@ func ExampleMovingAvg() {
 	// 2
 	// 3
 }
+
+func ExampleConcat() {
+	for num := range flow.Chain(
+		seq.Range(3),
+		flow.Concat(seq.Seq(7, 8)),
+	) {
+		fmt.Println(num)
+	}
+
+	// Output:
+	// 0
+	// 1
+	// 2
+	// 7
+	// 8
+}
+
+func ExampleConcat2() {
+	for key, val := range flow.Chain2(
+		seq.Range2(3),
+		flow.Concat2(seq.Seq2(seq.T(7, 70), seq.T(8, 80))),
+	) {
+		fmt.Println(key, val)
+	}
+
+	// Output:
+	// 0 0
+	// 1 1
+	// 2 2
+	// 7 70
+	// 8 80
+}

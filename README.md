@@ -199,6 +199,7 @@ seq.Range(3, 7, 0)
 | ----------------- | --------------- | ---------------------------- |
 | Append            | Append2         |                              |
 | CenteredMovingAvg |                 |                              |
+| Concat            | Concat2         |                              |
 | Distinct          | Distinct2       |                              |
 | DropWhile         | DropWhile2      |                              |
 | Filter            | Filter2         | Parallel                     |
@@ -244,6 +245,7 @@ seq.Range(3, 7, 0)
 | seq.Append            | seq.Append2           |                          |
 | seq.CenteredMovingAvg |                       | Boundary effect at end   |
 | seq.Chan              | seq.Chan2             |                          |
+| seq.Concat            | seq.Concat2           |                          |
 | seq.Collect           | seq.Collect2          |                          |
 | seq.Distinct          | seq.Distinct2         |                          |
 | seq.DropWhile         | seq.DropWhile2        |                          |
@@ -262,6 +264,7 @@ seq.Range(3, 7, 0)
 | seq.Repeat            | seq.Repeat2           |                          |
 | seq.Reverse           | seq.Reverse2          |                          |
 | seq.Send              | seq.Send2             |                          |
+| seq.Seq               | seq.Seq2              |                          |
 | seq.Shuffle           | seq.Shuffle2          |                          |
 | seq.Skip              | seq.Skip2             |                          |
 | seq.Sorted            | seq.Sorted2           |                          |
